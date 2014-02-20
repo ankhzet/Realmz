@@ -1,0 +1,23 @@
+actor "actor" ("visible") {
+	author "Ankh";
+	version "0.1";
+	
+	description "Base actor";
+	brains "core";
+	
+	view-sight 1000;
+	selection-group 20;
+	
+	needs {
+		exitement [60, 50];
+	}
+
+	properties {
+		radius 5;
+		weight 50;
+		fixed 0;
+	}
+	
+	actions {
+	}
+}

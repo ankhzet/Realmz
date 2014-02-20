@@ -1,0 +1,18 @@
+for logic^:
+  need keep-alive
+
+for keep-alive: /!#exitement/
+  need keep-stimulated
+
+for keep-stimulated: /!#exitement/
+  need discover
+
+for discover:
+  need %come-to [not *inspected]: {
+    if failed:
+      reschedule
+    when achieved:
+      need %inspect
+	}
+
+end-logic

@@ -1,0 +1,8 @@
+action "inspect" {
+	description "Исследование";
+	shortcut "Исследовать";
+	
+	icon "act_01";
+	
+	operands ["object"];
+}

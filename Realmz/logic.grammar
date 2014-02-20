@@ -1,0 +1,41 @@
+@start = global;
+
+global = inherit? goals;
+inherit = 'inherit'! Word ';';
+
+goals = (goal+) 'end-logic'!;
+goal = 'for'! goalDescriptor isRoot? goalDefinition;
+
+isRoot = '^'!;
+
+goalDescriptor = ('%' | '@' | '#')? goalName;
+goalName = Word;
+
+goalDefinition = ':' criterias? subGoals;
+
+criterias = '/'! criteria ((addCriteria)*) '/'!;
+criteria = importantCriteria | normalCriteria;
+importantCriteria = '!'! normalCriteria;
+normalCriteria = '#'! Word;
+addCriteria = ','! criteria;
+
+subGoals = planGoal | (normalGoal+);
+subGoal = planGoal | normalGoal;
+planGoal = 'reschedule'!;
+normalGoal = 'need'! goalWithTarget goalSteps?;
+
+goalWithTarget = goalDescriptor selector?;
+selector = '[' (nonBrace*) ']'!;
+nonBrace = (/[^\]]+/);
+
+goalSteps = ':' '{'! (goalStep+) '}'!;
+goalStep = normalGoal | conditionalGoal;
+
+conditionalGoal = (ifStep | whenStep) ':'! subGoal;
+ifStep = 'if'! stepCondition;
+whenStep = 'when'! stepCondition;
+
+stepCondition = successCondition | failCondition;
+
+successCondition = 'achieved'!;
+failCondition = 'failed'!;

@@ -1,0 +1,22 @@
+object "object" {
+	author "Ankh";
+	version "0.1";
+
+  description "Some object";
+
+	properties {
+		coordinates [0, 0];
+		radius 0;
+		weight 0;
+		
+		explored;
+		inspected;
+	}
+	discoverable properties {
+	}
+	actions {
+		inspect;
+	}
+	discoverable actions {
+	}
+}

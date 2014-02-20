@@ -1,0 +1,20 @@
+object "visible" ("object") {
+	author "Ankh";
+	version "0.1";
+
+  description "Какой-то предмет";
+	selection-group 0;
+
+	properties {
+		radius 1;
+		fixed 1;
+		max-health 100;
+		health 100;
+	}
+	discoverable properties {
+	}
+	actions {
+	}
+	discoverable actions {
+	}
+}

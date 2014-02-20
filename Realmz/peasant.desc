@@ -1,0 +1,30 @@
+actor "peasant" ("actor") {
+	author "Ankh";
+	version "0.1";
+	
+	description "Рабочий";
+	brains "peasant";
+	
+	view-sight 1000;
+	
+	needs {
+		exitement [20, 10];
+	}
+
+	properties {
+		can-carry 20;
+	}
+	actions {
+	  // [] means you can right-click icon and peasant will execute action on nearest target
+		// ["object", "tree"] means you can right-click any "tree" object to mark it as 
+		// preffered target (if there are to many actors, targeted to that object - peasant will
+		// select nearest "free" "tree" object)
+		gain-wood [[], ["object", "tree"]];
+		
+		// ["layer", "grass"] means layer with "grass" tiles, when farm builded - corresponding
+		// tiles will be marked as "ground" or smth like that
+		build-farm [["layer", "grass"]];
+		
+		dismiss;
+	}
+}

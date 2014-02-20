@@ -1,0 +1,14 @@
+object "stone" ("visible") {
+	author "Ankh";
+	version "0.1";
+
+  description "Булыжник";
+
+	properties {
+		radius 1;
+		weight 0.5;
+	}
+	actions {
+		throw;
+	}
+}

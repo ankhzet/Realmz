@@ -1,0 +1,17 @@
+object "grass"("visible") {
+	author "Ankh";
+	version "0.1";
+
+  description "Трава";
+
+	properties {
+		radius 1;
+	}
+	discoverable properties {
+	}
+	actions {
+		eat;
+	}
+	discoverable actions {
+	}
+}
