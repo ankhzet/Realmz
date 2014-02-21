@@ -1,0 +1,62 @@
+inherit core;
+
+for move-to:
+	need %come-to [*checkpoint]
+
+/*
+for gain wood, you must carry wood resource to storage
+if nothing to carry - chop trees first
+to chop the trees - come to tree first
+*/
+
+for carry-resource:
+	need @overloaded: {
+		when achieved:
+			need %come-to [*storage (*filled < 1)]: {
+				if failed:
+					reschedule
+				when achieved:
+					need %unload-resources: {
+						if failed:
+							need %free-peasant
+					}
+			}
+	}
+	
+for mine-resource:
+	need @near: {
+		if failed:
+			need %come-to
+		when achieved:
+			need %mine-resource: { // selector will be picked from parent node
+				if failed:
+					reschedule
+			}
+	}	
+
+for gain-wood:
+	need carry-resource: {
+		if failed:
+		  need mine-resource [*wood (*health > 0)]
+		when achieved:
+			reschedule
+	}
+	
+for gain-stone:
+	need carry-resource: {
+		if failed:
+		  need mine-resource [*stone (*health > 0)]
+		when achieved:
+			reschedule
+	}
+	
+for gain-gold:
+	need carry-resource: {
+		if failed:
+		  need mine-resource [*gold (*health > 0)]
+		when achieved:
+			reschedule
+	}
+	
+end-logic
+	

@@ -1,0 +1,16 @@
+object "tree" ("visible") {
+	author "Ankh";
+	version "0.1";
+
+  description "Дерево";
+
+	properties {
+		radius 6;
+		wood;
+		max-health 50000;
+		health 50000;
+	}
+	actions {
+		gain-wood;
+	}
+}

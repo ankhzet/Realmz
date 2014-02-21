@@ -1,0 +1,12 @@
+@start = inverse | selector;
+selector = object filters?;
+object = '*' propertySelector?;
+propertySelector = property comparator?;
+property = Word;
+comparator = equ atom;
+equ = '>' | '<' | '>=' | '<=' | '=' | '<>';
+atom = Number {PUSH_FLOAT(POP_FLOAT());};
+filters = '('! (inverse | selector) ((','! additional)*) ')'!;
+inverse = 'not'! selector;
+additional = (required | inverse | selector);
+required = 'and'! (inverse | selector);

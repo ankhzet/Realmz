@@ -1,0 +1,10 @@
+object "rock"("visible") {
+	author "Ankh";
+	version "0.1";
+
+  description "Скала";
+
+	properties {
+		radius 40;
+	}
+}

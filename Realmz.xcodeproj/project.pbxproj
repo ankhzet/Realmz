@@ -16,15 +16,79 @@
 		0A5ECB9718B685A0000C7387 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5ECB9618B685A0000C7387 /* AppDelegate.m */; };
 		0A5ECB9A18B685A0000C7387 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ECB9818B685A0000C7387 /* Main_iPhone.storyboard */; };
 		0A5ECB9D18B685A0000C7387 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ECB9B18B685A0000C7387 /* Main_iPad.storyboard */; };
-		0A5ECBA018B685A2000C7387 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5ECB9F18B685A2000C7387 /* ViewController.m */; };
-		0A5ECBA318B685A2000C7387 /* MyScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5ECBA218B685A2000C7387 /* MyScene.m */; };
-		0A5ECBA518B685A2000C7387 /* Spaceship.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ECBA418B685A2000C7387 /* Spaceship.png */; };
 		0A5ECBA718B685A2000C7387 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ECBA618B685A2000C7387 /* Images.xcassets */; };
 		0A5ECBAE18B685A2000C7387 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5ECBAD18B685A2000C7387 /* XCTest.framework */; };
 		0A5ECBAF18B685A2000C7387 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5ECB8418B6859E000C7387 /* Foundation.framework */; };
 		0A5ECBB018B685A2000C7387 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5ECB8818B6859E000C7387 /* UIKit.framework */; };
 		0A5ECBB818B685A3000C7387 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ECBB618B685A3000C7387 /* InfoPlist.strings */; };
-		0A5ECBBA18B685A3000C7387 /* RealmzTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A5ECBB918B685A3000C7387 /* RealmzTests.m */; };
+		0AFE5B2018B696AB00132D94 /* AZRActionGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AD918B696AB00132D94 /* AZRActionGoal.m */; };
+		0AFE5B2118B696AB00132D94 /* AZRActionIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5ADB18B696AB00132D94 /* AZRActionIntent.m */; };
+		0AFE5B2218B696AB00132D94 /* AZRActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5ADD18B696AB00132D94 /* AZRActionManager.m */; };
+		0AFE5B2318B696AB00132D94 /* AZRActor.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5ADF18B696AB00132D94 /* AZRActor.m */; };
+		0AFE5B2418B696AB00132D94 /* AZRActorBrain.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AE118B696AB00132D94 /* AZRActorBrain.m */; };
+		0AFE5B2518B696AB00132D94 /* AZRActorClassDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AE318B696AB00132D94 /* AZRActorClassDescription.m */; };
+		0AFE5B2618B696AB00132D94 /* AZRActorNeed.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AE518B696AB00132D94 /* AZRActorNeed.m */; };
+		0AFE5B2718B696AB00132D94 /* AZRActorObjectsMemory.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AE718B696AB00132D94 /* AZRActorObjectsMemory.m */; };
+		0AFE5B2818B696AB00132D94 /* AZRClassDescriptionBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AE918B696AB00132D94 /* AZRClassDescriptionBuilder.m */; };
+		0AFE5B2918B696AB00132D94 /* AZRGoalCriticalCriteria.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AEB18B696AB00132D94 /* AZRGoalCriticalCriteria.m */; };
+		0AFE5B2A18B696AB00132D94 /* AZRGoalPropertySelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AED18B696AB00132D94 /* AZRGoalPropertySelector.m */; };
+		0AFE5B2B18B696AB00132D94 /* AZRGoalTargetSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AEF18B696AB00132D94 /* AZRGoalTargetSelector.m */; };
+		0AFE5B2C18B696AB00132D94 /* AZRGoalTreeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AF118B696AB00132D94 /* AZRGoalTreeBuilder.m */; };
+		0AFE5B2D18B696AB00132D94 /* AZRLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AF318B696AB00132D94 /* AZRLogger.m */; };
+		0AFE5B2E18B696AB00132D94 /* AZRLogicGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AF518B696AB00132D94 /* AZRLogicGoal.m */; };
+		0AFE5B2F18B696AB00132D94 /* AZRLogicParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AF718B696AB00132D94 /* AZRLogicParser.m */; };
+		0AFE5B3018B696AB00132D94 /* AZRMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AF918B696AB00132D94 /* AZRMainViewController.m */; };
+		0AFE5B3118B696AB00132D94 /* AZRNeedGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AFB18B696AB00132D94 /* AZRNeedGoal.m */; };
+		0AFE5B3218B696AB00132D94 /* AZRNeedManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AFD18B696AB00132D94 /* AZRNeedManager.m */; };
+		0AFE5B3318B696AB00132D94 /* AZRNormalGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AFF18B696AB00132D94 /* AZRNormalGoal.m */; };
+		0AFE5B3418B696AB00132D94 /* AZRObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0118B696AB00132D94 /* AZRObject.m */; };
+		0AFE5B3518B696AB00132D94 /* AZRObject+Actions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0318B696AB00132D94 /* AZRObject+Actions.m */; };
+		0AFE5B3618B696AB00132D94 /* AZRObject+BuildingsActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0518B696AB00132D94 /* AZRObject+BuildingsActions.m */; };
+		0AFE5B3718B696AB00132D94 /* AZRObject+PeasantActions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0718B696AB00132D94 /* AZRObject+PeasantActions.m */; };
+		0AFE5B3818B696AB00132D94 /* AZRObject+VisibleObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0918B696AB00132D94 /* AZRObject+VisibleObject.m */; };
+		0AFE5B3918B696AB00132D94 /* AZRObjectAction.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0B18B696AB00132D94 /* AZRObjectAction.m */; };
+		0AFE5B3A18B696AB00132D94 /* AZRObjectClassDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0D18B696AB00132D94 /* AZRObjectClassDescription.m */; };
+		0AFE5B3B18B696AB00132D94 /* AZRObjectClassDescriptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0F18B696AB00132D94 /* AZRObjectClassDescriptionManager.m */; };
+		0AFE5B3C18B696AB00132D94 /* AZRObjectProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1118B696AB00132D94 /* AZRObjectProperty.m */; };
+		0AFE5B3D18B696AB00132D94 /* AZRObjectRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1318B696AB00132D94 /* AZRObjectRenderer.m */; };
+		0AFE5B3E18B696AB00132D94 /* AZRPlanGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1518B696AB00132D94 /* AZRPlanGoal.m */; };
+		0AFE5B3F18B696AB00132D94 /* AZRRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1718B696AB00132D94 /* AZRRealm.m */; };
+		0AFE5B4018B696AB00132D94 /* AZRRealmRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1918B696AB00132D94 /* AZRRealmRenderer.m */; };
+		0AFE5B4118B696AB00132D94 /* AZRScheduledGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1B18B696AB00132D94 /* AZRScheduledGoal.m */; };
+		0AFE5B4218B696AB00132D94 /* AZRSelectorBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1D18B696AB00132D94 /* AZRSelectorBuilder.m */; };
+		0AFE5B4318B696AB00132D94 /* AZRStateGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1F18B696AB00132D94 /* AZRStateGoal.m */; };
+		0AFE5B5D18B698DB00132D94 /* actor.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B4B18B698DB00132D94 /* actor.desc */; };
+		0AFE5B5E18B698DB00132D94 /* chop.act in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B4C18B698DB00132D94 /* chop.act */; };
+		0AFE5B5F18B698DB00132D94 /* core.logic in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B4D18B698DB00132D94 /* core.logic */; };
+		0AFE5B6018B698DB00132D94 /* grass.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B4E18B698DB00132D94 /* grass.desc */; };
+		0AFE5B6118B698DB00132D94 /* inspect.act in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B4F18B698DB00132D94 /* inspect.act */; };
+		0AFE5B6218B698DB00132D94 /* logic.grammar in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5018B698DB00132D94 /* logic.grammar */; };
+		0AFE5B6318B698DB00132D94 /* move-point.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5118B698DB00132D94 /* move-point.desc */; };
+		0AFE5B6418B698DB00132D94 /* object.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5218B698DB00132D94 /* object.desc */; };
+		0AFE5B6518B698DB00132D94 /* object.grammar in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5318B698DB00132D94 /* object.grammar */; };
+		0AFE5B6618B698DB00132D94 /* peasant.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5418B698DB00132D94 /* peasant.desc */; };
+		0AFE5B6718B698DB00132D94 /* peasant.logic in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5518B698DB00132D94 /* peasant.logic */; };
+		0AFE5B6818B698DB00132D94 /* rock.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5618B698DB00132D94 /* rock.desc */; };
+		0AFE5B6918B698DB00132D94 /* stone.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5718B698DB00132D94 /* stone.desc */; };
+		0AFE5B6A18B698DB00132D94 /* storage.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5818B698DB00132D94 /* storage.desc */; };
+		0AFE5B6B18B698DB00132D94 /* target-selector.grammar in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5918B698DB00132D94 /* target-selector.grammar */; };
+		0AFE5B6C18B698DB00132D94 /* tree.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5A18B698DB00132D94 /* tree.desc */; };
+		0AFE5B6D18B698DB00132D94 /* village.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5B18B698DB00132D94 /* village.desc */; };
+		0AFE5B6E18B698DB00132D94 /* visible.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5B5C18B698DB00132D94 /* visible.desc */; };
+		0AFE5B7E18B6999500132D94 /* AZRActionIntentSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7218B6999500132D94 /* AZRActionIntentSpec.m */; };
+		0AFE5B7F18B6999500132D94 /* AZRDescriptionBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7318B6999500132D94 /* AZRDescriptionBuilderSpec.m */; };
+		0AFE5B8018B6999500132D94 /* AZRGoalPropertySelectorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7418B6999500132D94 /* AZRGoalPropertySelectorSpec.m */; };
+		0AFE5B8118B6999500132D94 /* AZRGoalTargetSelectorSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7518B6999500132D94 /* AZRGoalTargetSelectorSpec.m */; };
+		0AFE5B8218B6999500132D94 /* AZRGoalTreeBuilderSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7618B6999500132D94 /* AZRGoalTreeBuilderSpec.m */; };
+		0AFE5B8318B6999500132D94 /* AZRLogicGoalSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7718B6999500132D94 /* AZRLogicGoalSpec.m */; };
+		0AFE5B8418B6999500132D94 /* AZRObjectActionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7818B6999500132D94 /* AZRObjectActionSpec.m */; };
+		0AFE5B8518B6999500132D94 /* AZRObjectDescriptionManagerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7918B6999500132D94 /* AZRObjectDescriptionManagerSpec.m */; };
+		0AFE5B8618B6999500132D94 /* AZRObjectDescriptionSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7A18B6999500132D94 /* AZRObjectDescriptionSpec.m */; };
+		0AFE5B8718B6999500132D94 /* AZRObjectPropertySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7B18B6999500132D94 /* AZRObjectPropertySpec.m */; };
+		0AFE5B8818B6999500132D94 /* AZRRealmSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7C18B6999500132D94 /* AZRRealmSpec.m */; };
+		0AFE5B8918B6999500132D94 /* AZRScheduledGoalSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7D18B6999500132D94 /* AZRScheduledGoalSpec.m */; };
+		CDF6A9E2C6C446508ACFC005 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE340BAD5E499388AF2F22 /* libPods.a */; };
+		DB7CF3F96BF948B8AB496A27 /* libPods-RealmzTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30F3D8098DB5478C8C266D3C /* libPods-RealmzTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,17 +115,117 @@
 		0A5ECB9618B685A0000C7387 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		0A5ECB9918B685A0000C7387 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
 		0A5ECB9C18B685A0000C7387 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
-		0A5ECB9E18B685A1000C7387 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		0A5ECB9F18B685A2000C7387 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		0A5ECBA118B685A2000C7387 /* MyScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyScene.h; sourceTree = "<group>"; };
-		0A5ECBA218B685A2000C7387 /* MyScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyScene.m; sourceTree = "<group>"; };
-		0A5ECBA418B685A2000C7387 /* Spaceship.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Spaceship.png; sourceTree = "<group>"; };
 		0A5ECBA618B685A2000C7387 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		0A5ECBAC18B685A2000C7387 /* RealmzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RealmzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0A5ECBAD18B685A2000C7387 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0A5ECBB518B685A3000C7387 /* RealmzTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RealmzTests-Info.plist"; sourceTree = "<group>"; };
 		0A5ECBB718B685A3000C7387 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		0A5ECBB918B685A3000C7387 /* RealmzTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RealmzTests.m; sourceTree = "<group>"; };
+		0AFE5AD818B696AB00132D94 /* AZRActionGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActionGoal.h; sourceTree = "<group>"; };
+		0AFE5AD918B696AB00132D94 /* AZRActionGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActionGoal.m; sourceTree = "<group>"; };
+		0AFE5ADA18B696AB00132D94 /* AZRActionIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActionIntent.h; sourceTree = "<group>"; };
+		0AFE5ADB18B696AB00132D94 /* AZRActionIntent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActionIntent.m; sourceTree = "<group>"; };
+		0AFE5ADC18B696AB00132D94 /* AZRActionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActionManager.h; sourceTree = "<group>"; };
+		0AFE5ADD18B696AB00132D94 /* AZRActionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActionManager.m; sourceTree = "<group>"; };
+		0AFE5ADE18B696AB00132D94 /* AZRActor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActor.h; sourceTree = "<group>"; };
+		0AFE5ADF18B696AB00132D94 /* AZRActor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActor.m; sourceTree = "<group>"; };
+		0AFE5AE018B696AB00132D94 /* AZRActorBrain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActorBrain.h; sourceTree = "<group>"; };
+		0AFE5AE118B696AB00132D94 /* AZRActorBrain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActorBrain.m; sourceTree = "<group>"; };
+		0AFE5AE218B696AB00132D94 /* AZRActorClassDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActorClassDescription.h; sourceTree = "<group>"; };
+		0AFE5AE318B696AB00132D94 /* AZRActorClassDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActorClassDescription.m; sourceTree = "<group>"; };
+		0AFE5AE418B696AB00132D94 /* AZRActorNeed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActorNeed.h; sourceTree = "<group>"; };
+		0AFE5AE518B696AB00132D94 /* AZRActorNeed.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActorNeed.m; sourceTree = "<group>"; };
+		0AFE5AE618B696AB00132D94 /* AZRActorObjectsMemory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActorObjectsMemory.h; sourceTree = "<group>"; };
+		0AFE5AE718B696AB00132D94 /* AZRActorObjectsMemory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActorObjectsMemory.m; sourceTree = "<group>"; };
+		0AFE5AE818B696AB00132D94 /* AZRClassDescriptionBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRClassDescriptionBuilder.h; sourceTree = "<group>"; };
+		0AFE5AE918B696AB00132D94 /* AZRClassDescriptionBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRClassDescriptionBuilder.m; sourceTree = "<group>"; };
+		0AFE5AEA18B696AB00132D94 /* AZRGoalCriticalCriteria.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGoalCriticalCriteria.h; sourceTree = "<group>"; };
+		0AFE5AEB18B696AB00132D94 /* AZRGoalCriticalCriteria.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGoalCriticalCriteria.m; sourceTree = "<group>"; };
+		0AFE5AEC18B696AB00132D94 /* AZRGoalPropertySelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGoalPropertySelector.h; sourceTree = "<group>"; };
+		0AFE5AED18B696AB00132D94 /* AZRGoalPropertySelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGoalPropertySelector.m; sourceTree = "<group>"; };
+		0AFE5AEE18B696AB00132D94 /* AZRGoalTargetSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGoalTargetSelector.h; sourceTree = "<group>"; };
+		0AFE5AEF18B696AB00132D94 /* AZRGoalTargetSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGoalTargetSelector.m; sourceTree = "<group>"; };
+		0AFE5AF018B696AB00132D94 /* AZRGoalTreeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGoalTreeBuilder.h; sourceTree = "<group>"; };
+		0AFE5AF118B696AB00132D94 /* AZRGoalTreeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGoalTreeBuilder.m; sourceTree = "<group>"; };
+		0AFE5AF218B696AB00132D94 /* AZRLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRLogger.h; sourceTree = "<group>"; };
+		0AFE5AF318B696AB00132D94 /* AZRLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRLogger.m; sourceTree = "<group>"; };
+		0AFE5AF418B696AB00132D94 /* AZRLogicGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRLogicGoal.h; sourceTree = "<group>"; };
+		0AFE5AF518B696AB00132D94 /* AZRLogicGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRLogicGoal.m; sourceTree = "<group>"; };
+		0AFE5AF618B696AB00132D94 /* AZRLogicParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRLogicParser.h; sourceTree = "<group>"; };
+		0AFE5AF718B696AB00132D94 /* AZRLogicParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRLogicParser.m; sourceTree = "<group>"; };
+		0AFE5AF818B696AB00132D94 /* AZRMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRMainViewController.h; sourceTree = "<group>"; };
+		0AFE5AF918B696AB00132D94 /* AZRMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRMainViewController.m; sourceTree = "<group>"; };
+		0AFE5AFA18B696AB00132D94 /* AZRNeedGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRNeedGoal.h; sourceTree = "<group>"; };
+		0AFE5AFB18B696AB00132D94 /* AZRNeedGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRNeedGoal.m; sourceTree = "<group>"; };
+		0AFE5AFC18B696AB00132D94 /* AZRNeedManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRNeedManager.h; sourceTree = "<group>"; };
+		0AFE5AFD18B696AB00132D94 /* AZRNeedManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRNeedManager.m; sourceTree = "<group>"; };
+		0AFE5AFE18B696AB00132D94 /* AZRNormalGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRNormalGoal.h; sourceTree = "<group>"; };
+		0AFE5AFF18B696AB00132D94 /* AZRNormalGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRNormalGoal.m; sourceTree = "<group>"; };
+		0AFE5B0018B696AB00132D94 /* AZRObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRObject.h; sourceTree = "<group>"; };
+		0AFE5B0118B696AB00132D94 /* AZRObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObject.m; sourceTree = "<group>"; };
+		0AFE5B0218B696AB00132D94 /* AZRObject+Actions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AZRObject+Actions.h"; sourceTree = "<group>"; };
+		0AFE5B0318B696AB00132D94 /* AZRObject+Actions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AZRObject+Actions.m"; sourceTree = "<group>"; };
+		0AFE5B0418B696AB00132D94 /* AZRObject+BuildingsActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AZRObject+BuildingsActions.h"; sourceTree = "<group>"; };
+		0AFE5B0518B696AB00132D94 /* AZRObject+BuildingsActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AZRObject+BuildingsActions.m"; sourceTree = "<group>"; };
+		0AFE5B0618B696AB00132D94 /* AZRObject+PeasantActions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AZRObject+PeasantActions.h"; sourceTree = "<group>"; };
+		0AFE5B0718B696AB00132D94 /* AZRObject+PeasantActions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AZRObject+PeasantActions.m"; sourceTree = "<group>"; };
+		0AFE5B0818B696AB00132D94 /* AZRObject+VisibleObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AZRObject+VisibleObject.h"; sourceTree = "<group>"; };
+		0AFE5B0918B696AB00132D94 /* AZRObject+VisibleObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AZRObject+VisibleObject.m"; sourceTree = "<group>"; };
+		0AFE5B0A18B696AB00132D94 /* AZRObjectAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRObjectAction.h; sourceTree = "<group>"; };
+		0AFE5B0B18B696AB00132D94 /* AZRObjectAction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectAction.m; sourceTree = "<group>"; };
+		0AFE5B0C18B696AB00132D94 /* AZRObjectClassDescription.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRObjectClassDescription.h; sourceTree = "<group>"; };
+		0AFE5B0D18B696AB00132D94 /* AZRObjectClassDescription.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectClassDescription.m; sourceTree = "<group>"; };
+		0AFE5B0E18B696AB00132D94 /* AZRObjectClassDescriptionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRObjectClassDescriptionManager.h; sourceTree = "<group>"; };
+		0AFE5B0F18B696AB00132D94 /* AZRObjectClassDescriptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectClassDescriptionManager.m; sourceTree = "<group>"; };
+		0AFE5B1018B696AB00132D94 /* AZRObjectProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRObjectProperty.h; sourceTree = "<group>"; };
+		0AFE5B1118B696AB00132D94 /* AZRObjectProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectProperty.m; sourceTree = "<group>"; };
+		0AFE5B1218B696AB00132D94 /* AZRObjectRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRObjectRenderer.h; sourceTree = "<group>"; };
+		0AFE5B1318B696AB00132D94 /* AZRObjectRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectRenderer.m; sourceTree = "<group>"; };
+		0AFE5B1418B696AB00132D94 /* AZRPlanGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRPlanGoal.h; sourceTree = "<group>"; };
+		0AFE5B1518B696AB00132D94 /* AZRPlanGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPlanGoal.m; sourceTree = "<group>"; };
+		0AFE5B1618B696AB00132D94 /* AZRRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRRealm.h; sourceTree = "<group>"; };
+		0AFE5B1718B696AB00132D94 /* AZRRealm.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRRealm.m; sourceTree = "<group>"; };
+		0AFE5B1818B696AB00132D94 /* AZRRealmRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRRealmRenderer.h; sourceTree = "<group>"; };
+		0AFE5B1918B696AB00132D94 /* AZRRealmRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRRealmRenderer.m; sourceTree = "<group>"; };
+		0AFE5B1A18B696AB00132D94 /* AZRScheduledGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRScheduledGoal.h; sourceTree = "<group>"; };
+		0AFE5B1B18B696AB00132D94 /* AZRScheduledGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRScheduledGoal.m; sourceTree = "<group>"; };
+		0AFE5B1C18B696AB00132D94 /* AZRSelectorBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRSelectorBuilder.h; sourceTree = "<group>"; };
+		0AFE5B1D18B696AB00132D94 /* AZRSelectorBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRSelectorBuilder.m; sourceTree = "<group>"; };
+		0AFE5B1E18B696AB00132D94 /* AZRStateGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRStateGoal.h; sourceTree = "<group>"; };
+		0AFE5B1F18B696AB00132D94 /* AZRStateGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRStateGoal.m; sourceTree = "<group>"; };
+		0AFE5B4B18B698DB00132D94 /* actor.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = actor.desc; sourceTree = "<group>"; };
+		0AFE5B4C18B698DB00132D94 /* chop.act */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = chop.act; sourceTree = "<group>"; };
+		0AFE5B4D18B698DB00132D94 /* core.logic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = core.logic; sourceTree = "<group>"; };
+		0AFE5B4E18B698DB00132D94 /* grass.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = grass.desc; sourceTree = "<group>"; };
+		0AFE5B4F18B698DB00132D94 /* inspect.act */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = inspect.act; sourceTree = "<group>"; };
+		0AFE5B5018B698DB00132D94 /* logic.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = logic.grammar; sourceTree = "<group>"; };
+		0AFE5B5118B698DB00132D94 /* move-point.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "move-point.desc"; sourceTree = "<group>"; };
+		0AFE5B5218B698DB00132D94 /* object.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = object.desc; sourceTree = "<group>"; };
+		0AFE5B5318B698DB00132D94 /* object.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = object.grammar; sourceTree = "<group>"; };
+		0AFE5B5418B698DB00132D94 /* peasant.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = peasant.desc; sourceTree = "<group>"; };
+		0AFE5B5518B698DB00132D94 /* peasant.logic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = peasant.logic; sourceTree = "<group>"; };
+		0AFE5B5618B698DB00132D94 /* rock.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = rock.desc; sourceTree = "<group>"; };
+		0AFE5B5718B698DB00132D94 /* stone.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = stone.desc; sourceTree = "<group>"; };
+		0AFE5B5818B698DB00132D94 /* storage.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = storage.desc; sourceTree = "<group>"; };
+		0AFE5B5918B698DB00132D94 /* target-selector.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "target-selector.grammar"; sourceTree = "<group>"; };
+		0AFE5B5A18B698DB00132D94 /* tree.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tree.desc; sourceTree = "<group>"; };
+		0AFE5B5B18B698DB00132D94 /* village.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = village.desc; sourceTree = "<group>"; };
+		0AFE5B5C18B698DB00132D94 /* visible.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = visible.desc; sourceTree = "<group>"; };
+		0AFE5B7218B6999500132D94 /* AZRActionIntentSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActionIntentSpec.m; sourceTree = "<group>"; };
+		0AFE5B7318B6999500132D94 /* AZRDescriptionBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRDescriptionBuilderSpec.m; sourceTree = "<group>"; };
+		0AFE5B7418B6999500132D94 /* AZRGoalPropertySelectorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGoalPropertySelectorSpec.m; sourceTree = "<group>"; };
+		0AFE5B7518B6999500132D94 /* AZRGoalTargetSelectorSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGoalTargetSelectorSpec.m; sourceTree = "<group>"; };
+		0AFE5B7618B6999500132D94 /* AZRGoalTreeBuilderSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGoalTreeBuilderSpec.m; sourceTree = "<group>"; };
+		0AFE5B7718B6999500132D94 /* AZRLogicGoalSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRLogicGoalSpec.m; sourceTree = "<group>"; };
+		0AFE5B7818B6999500132D94 /* AZRObjectActionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectActionSpec.m; sourceTree = "<group>"; };
+		0AFE5B7918B6999500132D94 /* AZRObjectDescriptionManagerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectDescriptionManagerSpec.m; sourceTree = "<group>"; };
+		0AFE5B7A18B6999500132D94 /* AZRObjectDescriptionSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectDescriptionSpec.m; sourceTree = "<group>"; };
+		0AFE5B7B18B6999500132D94 /* AZRObjectPropertySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectPropertySpec.m; sourceTree = "<group>"; };
+		0AFE5B7C18B6999500132D94 /* AZRRealmSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRRealmSpec.m; sourceTree = "<group>"; };
+		0AFE5B7D18B6999500132D94 /* AZRScheduledGoalSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRScheduledGoalSpec.m; sourceTree = "<group>"; };
+		2E7781063826452FB0A515A3 /* Pods-RealmzTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmzTests.xcconfig"; path = "Pods/Pods-RealmzTests.xcconfig"; sourceTree = "<group>"; };
+		30F3D8098DB5478C8C266D3C /* libPods-RealmzTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-RealmzTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		7CAE340BAD5E499388AF2F22 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E183760BD6C44D18AEC00C8B /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +237,7 @@
 				0A5ECB8918B6859E000C7387 /* UIKit.framework in Frameworks */,
 				0A5ECB8B18B6859E000C7387 /* SpriteKit.framework in Frameworks */,
 				0A5ECB8518B6859E000C7387 /* Foundation.framework in Frameworks */,
+				CDF6A9E2C6C446508ACFC005 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +248,7 @@
 				0A5ECBAE18B685A2000C7387 /* XCTest.framework in Frameworks */,
 				0A5ECBB018B685A2000C7387 /* UIKit.framework in Frameworks */,
 				0A5ECBAF18B685A2000C7387 /* Foundation.framework in Frameworks */,
+				DB7CF3F96BF948B8AB496A27 /* libPods-RealmzTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +262,8 @@
 				0A5ECBB318B685A3000C7387 /* RealmzTests */,
 				0A5ECB8318B6859E000C7387 /* Frameworks */,
 				0A5ECB8218B6859E000C7387 /* Products */,
+				E183760BD6C44D18AEC00C8B /* Pods.xcconfig */,
+				2E7781063826452FB0A515A3 /* Pods-RealmzTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -116,6 +284,8 @@
 				0A5ECB8818B6859E000C7387 /* UIKit.framework */,
 				0A5ECB8A18B6859E000C7387 /* SpriteKit.framework */,
 				0A5ECBAD18B685A2000C7387 /* XCTest.framework */,
+				7CAE340BAD5E499388AF2F22 /* libPods.a */,
+				30F3D8098DB5478C8C266D3C /* libPods-RealmzTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -127,12 +297,9 @@
 				0A5ECB9618B685A0000C7387 /* AppDelegate.m */,
 				0A5ECB9818B685A0000C7387 /* Main_iPhone.storyboard */,
 				0A5ECB9B18B685A0000C7387 /* Main_iPad.storyboard */,
-				0A5ECB9E18B685A1000C7387 /* ViewController.h */,
-				0A5ECB9F18B685A2000C7387 /* ViewController.m */,
-				0A5ECBA118B685A2000C7387 /* MyScene.h */,
-				0A5ECBA218B685A2000C7387 /* MyScene.m */,
-				0A5ECBA418B685A2000C7387 /* Spaceship.png */,
-				0A5ECBA618B685A2000C7387 /* Images.xcassets */,
+				0AFE5ACA18B695B700132D94 /* UI */,
+				0AFE5ACB18B695C000132D94 /* Core */,
+				0AFE5AD018B6960500132D94 /* Resources */,
 				0A5ECB8D18B6859F000C7387 /* Supporting Files */,
 			);
 			path = Realmz;
@@ -152,7 +319,10 @@
 		0A5ECBB318B685A3000C7387 /* RealmzTests */ = {
 			isa = PBXGroup;
 			children = (
-				0A5ECBB918B685A3000C7387 /* RealmzTests.m */,
+				0AFE5B7C18B6999500132D94 /* AZRRealmSpec.m */,
+				0AFE5B8C18B699CF00132D94 /* Objects */,
+				0AFE5B8A18B699A400132D94 /* Logic */,
+				0AFE5B8B18B699B700132D94 /* Actions */,
 				0A5ECBB418B685A3000C7387 /* Supporting Files */,
 			);
 			path = RealmzTests;
@@ -167,6 +337,318 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		0AFE5ACA18B695B700132D94 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5AF818B696AB00132D94 /* AZRMainViewController.h */,
+				0AFE5AF918B696AB00132D94 /* AZRMainViewController.m */,
+				0AFE5B1818B696AB00132D94 /* AZRRealmRenderer.h */,
+				0AFE5B1918B696AB00132D94 /* AZRRealmRenderer.m */,
+				0AFE5B1218B696AB00132D94 /* AZRObjectRenderer.h */,
+				0AFE5B1318B696AB00132D94 /* AZRObjectRenderer.m */,
+			);
+			name = UI;
+			sourceTree = "<group>";
+		};
+		0AFE5ACB18B695C000132D94 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B1618B696AB00132D94 /* AZRRealm.h */,
+				0AFE5B1718B696AB00132D94 /* AZRRealm.m */,
+				0AFE5AF218B696AB00132D94 /* AZRLogger.h */,
+				0AFE5AF318B696AB00132D94 /* AZRLogger.m */,
+				0AFE5ACC18B695CE00132D94 /* Base objects */,
+				0AFE5ACD18B695EB00132D94 /* Actors */,
+				0AFE5ACE18B695F400132D94 /* Actions */,
+				0AFE5ACF18B695FF00132D94 /* Logic */,
+				0AFE5AD718B6966000132D94 /* Parsers */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		0AFE5ACC18B695CE00132D94 /* Base objects */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B0018B696AB00132D94 /* AZRObject.h */,
+				0AFE5B0118B696AB00132D94 /* AZRObject.m */,
+				0AFE5B4418B6978600132D94 /* Object class descriptions */,
+			);
+			name = "Base objects";
+			sourceTree = "<group>";
+		};
+		0AFE5ACD18B695EB00132D94 /* Actors */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5ADE18B696AB00132D94 /* AZRActor.h */,
+				0AFE5ADF18B696AB00132D94 /* AZRActor.m */,
+				0AFE5AE218B696AB00132D94 /* AZRActorClassDescription.h */,
+				0AFE5AE318B696AB00132D94 /* AZRActorClassDescription.m */,
+				0AFE5B4718B697CA00132D94 /* Actor "needs" */,
+				0AFE5B4618B697BB00132D94 /* Actor "brains" */,
+			);
+			name = Actors;
+			sourceTree = "<group>";
+		};
+		0AFE5ACE18B695F400132D94 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5ADC18B696AB00132D94 /* AZRActionManager.h */,
+				0AFE5ADD18B696AB00132D94 /* AZRActionManager.m */,
+				0AFE5B0A18B696AB00132D94 /* AZRObjectAction.h */,
+				0AFE5B0B18B696AB00132D94 /* AZRObjectAction.m */,
+				0AFE5ADA18B696AB00132D94 /* AZRActionIntent.h */,
+				0AFE5ADB18B696AB00132D94 /* AZRActionIntent.m */,
+				0AFE5B4818B697DA00132D94 /* Custom object actions */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		0AFE5ACF18B695FF00132D94 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5AF418B696AB00132D94 /* AZRLogicGoal.h */,
+				0AFE5AF518B696AB00132D94 /* AZRLogicGoal.m */,
+				0AFE5AEA18B696AB00132D94 /* AZRGoalCriticalCriteria.h */,
+				0AFE5AEB18B696AB00132D94 /* AZRGoalCriticalCriteria.m */,
+				0AFE5B4A18B6984500132D94 /* Goal target selectors */,
+				0AFE5B4918B6980E00132D94 /* Common goals */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
+		0AFE5AD018B6960500132D94 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5AD318B6962200132D94 /* Logic */,
+				0AFE5AD418B6962A00132D94 /* Descriptors */,
+				0AFE5B7118B6996400132D94 /* Actions */,
+				0AFE5AD118B6961400132D94 /* Grammars */,
+				0AFE5AD218B6961B00132D94 /* Sprites */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		0AFE5AD118B6961400132D94 /* Grammars */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B5018B698DB00132D94 /* logic.grammar */,
+				0AFE5B5318B698DB00132D94 /* object.grammar */,
+				0AFE5B5918B698DB00132D94 /* target-selector.grammar */,
+			);
+			name = Grammars;
+			sourceTree = "<group>";
+		};
+		0AFE5AD218B6961B00132D94 /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				0A5ECBA618B685A2000C7387 /* Images.xcassets */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
+		0AFE5AD318B6962200132D94 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B4D18B698DB00132D94 /* core.logic */,
+				0AFE5B5518B698DB00132D94 /* peasant.logic */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
+		0AFE5AD418B6962A00132D94 /* Descriptors */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B5218B698DB00132D94 /* object.desc */,
+				0AFE5B5C18B698DB00132D94 /* visible.desc */,
+				0AFE5B4B18B698DB00132D94 /* actor.desc */,
+				0AFE5B7018B6991B00132D94 /* Misc */,
+				0AFE5B6F18B6991000132D94 /* Environment */,
+				0AFE5AD618B6963B00132D94 /* Units */,
+				0AFE5AD518B6963400132D94 /* Buildings */,
+			);
+			name = Descriptors;
+			sourceTree = "<group>";
+		};
+		0AFE5AD518B6963400132D94 /* Buildings */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B5818B698DB00132D94 /* storage.desc */,
+				0AFE5B5B18B698DB00132D94 /* village.desc */,
+			);
+			name = Buildings;
+			sourceTree = "<group>";
+		};
+		0AFE5AD618B6963B00132D94 /* Units */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B5418B698DB00132D94 /* peasant.desc */,
+			);
+			name = Units;
+			sourceTree = "<group>";
+		};
+		0AFE5AD718B6966000132D94 /* Parsers */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5AF618B696AB00132D94 /* AZRLogicParser.h */,
+				0AFE5AF718B696AB00132D94 /* AZRLogicParser.m */,
+				0AFE5AE818B696AB00132D94 /* AZRClassDescriptionBuilder.h */,
+				0AFE5AE918B696AB00132D94 /* AZRClassDescriptionBuilder.m */,
+				0AFE5AF018B696AB00132D94 /* AZRGoalTreeBuilder.h */,
+				0AFE5AF118B696AB00132D94 /* AZRGoalTreeBuilder.m */,
+				0AFE5B1C18B696AB00132D94 /* AZRSelectorBuilder.h */,
+				0AFE5B1D18B696AB00132D94 /* AZRSelectorBuilder.m */,
+			);
+			name = Parsers;
+			sourceTree = "<group>";
+		};
+		0AFE5B4418B6978600132D94 /* Object class descriptions */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B0C18B696AB00132D94 /* AZRObjectClassDescription.h */,
+				0AFE5B0D18B696AB00132D94 /* AZRObjectClassDescription.m */,
+				0AFE5B0E18B696AB00132D94 /* AZRObjectClassDescriptionManager.h */,
+				0AFE5B0F18B696AB00132D94 /* AZRObjectClassDescriptionManager.m */,
+				0AFE5B1018B696AB00132D94 /* AZRObjectProperty.h */,
+				0AFE5B1118B696AB00132D94 /* AZRObjectProperty.m */,
+				0AFE5B4518B6979700132D94 /* Common object properties */,
+			);
+			name = "Object class descriptions";
+			sourceTree = "<group>";
+		};
+		0AFE5B4518B6979700132D94 /* Common object properties */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B0818B696AB00132D94 /* AZRObject+VisibleObject.h */,
+				0AFE5B0918B696AB00132D94 /* AZRObject+VisibleObject.m */,
+			);
+			name = "Common object properties";
+			sourceTree = "<group>";
+		};
+		0AFE5B4618B697BB00132D94 /* Actor "brains" */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B1A18B696AB00132D94 /* AZRScheduledGoal.h */,
+				0AFE5B1B18B696AB00132D94 /* AZRScheduledGoal.m */,
+				0AFE5AE018B696AB00132D94 /* AZRActorBrain.h */,
+				0AFE5AE118B696AB00132D94 /* AZRActorBrain.m */,
+				0AFE5AE618B696AB00132D94 /* AZRActorObjectsMemory.h */,
+				0AFE5AE718B696AB00132D94 /* AZRActorObjectsMemory.m */,
+			);
+			name = "Actor \"brains\"";
+			sourceTree = "<group>";
+		};
+		0AFE5B4718B697CA00132D94 /* Actor "needs" */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5AE418B696AB00132D94 /* AZRActorNeed.h */,
+				0AFE5AE518B696AB00132D94 /* AZRActorNeed.m */,
+				0AFE5AFC18B696AB00132D94 /* AZRNeedManager.h */,
+				0AFE5AFD18B696AB00132D94 /* AZRNeedManager.m */,
+			);
+			name = "Actor \"needs\"";
+			sourceTree = "<group>";
+		};
+		0AFE5B4818B697DA00132D94 /* Custom object actions */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B0218B696AB00132D94 /* AZRObject+Actions.h */,
+				0AFE5B0318B696AB00132D94 /* AZRObject+Actions.m */,
+				0AFE5B0418B696AB00132D94 /* AZRObject+BuildingsActions.h */,
+				0AFE5B0518B696AB00132D94 /* AZRObject+BuildingsActions.m */,
+				0AFE5B0618B696AB00132D94 /* AZRObject+PeasantActions.h */,
+				0AFE5B0718B696AB00132D94 /* AZRObject+PeasantActions.m */,
+			);
+			name = "Custom object actions";
+			sourceTree = "<group>";
+		};
+		0AFE5B4918B6980E00132D94 /* Common goals */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5AFE18B696AB00132D94 /* AZRNormalGoal.h */,
+				0AFE5AFF18B696AB00132D94 /* AZRNormalGoal.m */,
+				0AFE5AD818B696AB00132D94 /* AZRActionGoal.h */,
+				0AFE5AD918B696AB00132D94 /* AZRActionGoal.m */,
+				0AFE5AFA18B696AB00132D94 /* AZRNeedGoal.h */,
+				0AFE5AFB18B696AB00132D94 /* AZRNeedGoal.m */,
+				0AFE5B1418B696AB00132D94 /* AZRPlanGoal.h */,
+				0AFE5B1518B696AB00132D94 /* AZRPlanGoal.m */,
+				0AFE5B1E18B696AB00132D94 /* AZRStateGoal.h */,
+				0AFE5B1F18B696AB00132D94 /* AZRStateGoal.m */,
+			);
+			name = "Common goals";
+			sourceTree = "<group>";
+		};
+		0AFE5B4A18B6984500132D94 /* Goal target selectors */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5AEC18B696AB00132D94 /* AZRGoalPropertySelector.h */,
+				0AFE5AED18B696AB00132D94 /* AZRGoalPropertySelector.m */,
+				0AFE5AEE18B696AB00132D94 /* AZRGoalTargetSelector.h */,
+				0AFE5AEF18B696AB00132D94 /* AZRGoalTargetSelector.m */,
+			);
+			name = "Goal target selectors";
+			sourceTree = "<group>";
+		};
+		0AFE5B6F18B6991000132D94 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B5618B698DB00132D94 /* rock.desc */,
+				0AFE5B5718B698DB00132D94 /* stone.desc */,
+				0AFE5B5A18B698DB00132D94 /* tree.desc */,
+				0AFE5B4E18B698DB00132D94 /* grass.desc */,
+			);
+			name = Environment;
+			sourceTree = "<group>";
+		};
+		0AFE5B7018B6991B00132D94 /* Misc */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B5118B698DB00132D94 /* move-point.desc */,
+			);
+			name = Misc;
+			sourceTree = "<group>";
+		};
+		0AFE5B7118B6996400132D94 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B4C18B698DB00132D94 /* chop.act */,
+				0AFE5B4F18B698DB00132D94 /* inspect.act */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		0AFE5B8A18B699A400132D94 /* Logic */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B7718B6999500132D94 /* AZRLogicGoalSpec.m */,
+				0AFE5B7418B6999500132D94 /* AZRGoalPropertySelectorSpec.m */,
+				0AFE5B7518B6999500132D94 /* AZRGoalTargetSelectorSpec.m */,
+				0AFE5B7618B6999500132D94 /* AZRGoalTreeBuilderSpec.m */,
+				0AFE5B7D18B6999500132D94 /* AZRScheduledGoalSpec.m */,
+			);
+			name = Logic;
+			sourceTree = "<group>";
+		};
+		0AFE5B8B18B699B700132D94 /* Actions */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B7218B6999500132D94 /* AZRActionIntentSpec.m */,
+				0AFE5B7818B6999500132D94 /* AZRObjectActionSpec.m */,
+			);
+			name = Actions;
+			sourceTree = "<group>";
+		};
+		0AFE5B8C18B699CF00132D94 /* Objects */ = {
+			isa = PBXGroup;
+			children = (
+				0AFE5B7318B6999500132D94 /* AZRDescriptionBuilderSpec.m */,
+				0AFE5B7918B6999500132D94 /* AZRObjectDescriptionManagerSpec.m */,
+				0AFE5B7A18B6999500132D94 /* AZRObjectDescriptionSpec.m */,
+				0AFE5B7B18B6999500132D94 /* AZRObjectPropertySpec.m */,
+			);
+			name = Objects;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -174,9 +656,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A5ECBBD18B685A3000C7387 /* Build configuration list for PBXNativeTarget "Realmz" */;
 			buildPhases = (
+				D81A1473AECB4E16AF7646CC /* Check Pods Manifest.lock */,
 				0A5ECB7D18B6859E000C7387 /* Sources */,
 				0A5ECB7E18B6859E000C7387 /* Frameworks */,
 				0A5ECB7F18B6859E000C7387 /* Resources */,
+				7F12D6632F7F40F8BF677E13 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,9 +675,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0A5ECBC018B685A3000C7387 /* Build configuration list for PBXNativeTarget "RealmzTests" */;
 			buildPhases = (
+				FF16F3B52ACB4B6D8385E4F9 /* Check Pods Manifest.lock */,
 				0A5ECBA818B685A2000C7387 /* Sources */,
 				0A5ECBA918B685A2000C7387 /* Frameworks */,
 				0A5ECBAA18B685A2000C7387 /* Resources */,
+				71E2EEDFC69F430880581325 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -243,11 +729,28 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A5ECBA518B685A2000C7387 /* Spaceship.png in Resources */,
 				0A5ECBA718B685A2000C7387 /* Images.xcassets in Resources */,
+				0AFE5B6C18B698DB00132D94 /* tree.desc in Resources */,
+				0AFE5B6418B698DB00132D94 /* object.desc in Resources */,
+				0AFE5B6A18B698DB00132D94 /* storage.desc in Resources */,
+				0AFE5B6218B698DB00132D94 /* logic.grammar in Resources */,
+				0AFE5B5E18B698DB00132D94 /* chop.act in Resources */,
+				0AFE5B6818B698DB00132D94 /* rock.desc in Resources */,
+				0AFE5B6718B698DB00132D94 /* peasant.logic in Resources */,
+				0AFE5B6D18B698DB00132D94 /* village.desc in Resources */,
+				0AFE5B6118B698DB00132D94 /* inspect.act in Resources */,
 				0A5ECB9D18B685A0000C7387 /* Main_iPad.storyboard in Resources */,
 				0A5ECB9A18B685A0000C7387 /* Main_iPhone.storyboard in Resources */,
+				0AFE5B5D18B698DB00132D94 /* actor.desc in Resources */,
 				0A5ECB9118B6859F000C7387 /* InfoPlist.strings in Resources */,
+				0AFE5B6518B698DB00132D94 /* object.grammar in Resources */,
+				0AFE5B5F18B698DB00132D94 /* core.logic in Resources */,
+				0AFE5B6918B698DB00132D94 /* stone.desc in Resources */,
+				0AFE5B6318B698DB00132D94 /* move-point.desc in Resources */,
+				0AFE5B6B18B698DB00132D94 /* target-selector.grammar in Resources */,
+				0AFE5B6618B698DB00132D94 /* peasant.desc in Resources */,
+				0AFE5B6018B698DB00132D94 /* grass.desc in Resources */,
+				0AFE5B6E18B698DB00132D94 /* visible.desc in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -261,15 +764,112 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		71E2EEDFC69F430880581325 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-RealmzTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7F12D6632F7F40F8BF677E13 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D81A1473AECB4E16AF7646CC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FF16F3B52ACB4B6D8385E4F9 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0A5ECB7D18B6859E000C7387 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A5ECBA318B685A2000C7387 /* MyScene.m in Sources */,
-				0A5ECBA018B685A2000C7387 /* ViewController.m in Sources */,
+				0AFE5B3218B696AB00132D94 /* AZRNeedManager.m in Sources */,
+				0AFE5B2418B696AB00132D94 /* AZRActorBrain.m in Sources */,
+				0AFE5B3518B696AB00132D94 /* AZRObject+Actions.m in Sources */,
+				0AFE5B3A18B696AB00132D94 /* AZRObjectClassDescription.m in Sources */,
+				0AFE5B3718B696AB00132D94 /* AZRObject+PeasantActions.m in Sources */,
 				0A5ECB9718B685A0000C7387 /* AppDelegate.m in Sources */,
+				0AFE5B2C18B696AB00132D94 /* AZRGoalTreeBuilder.m in Sources */,
+				0AFE5B3918B696AB00132D94 /* AZRObjectAction.m in Sources */,
+				0AFE5B3E18B696AB00132D94 /* AZRPlanGoal.m in Sources */,
+				0AFE5B2318B696AB00132D94 /* AZRActor.m in Sources */,
+				0AFE5B2518B696AB00132D94 /* AZRActorClassDescription.m in Sources */,
+				0AFE5B2118B696AB00132D94 /* AZRActionIntent.m in Sources */,
 				0A5ECB9318B6859F000C7387 /* main.m in Sources */,
+				0AFE5B4018B696AB00132D94 /* AZRRealmRenderer.m in Sources */,
+				0AFE5B3B18B696AB00132D94 /* AZRObjectClassDescriptionManager.m in Sources */,
+				0AFE5B2A18B696AB00132D94 /* AZRGoalPropertySelector.m in Sources */,
+				0AFE5B4118B696AB00132D94 /* AZRScheduledGoal.m in Sources */,
+				0AFE5B3318B696AB00132D94 /* AZRNormalGoal.m in Sources */,
+				0AFE5B3418B696AB00132D94 /* AZRObject.m in Sources */,
+				0AFE5B3118B696AB00132D94 /* AZRNeedGoal.m in Sources */,
+				0AFE5B2818B696AB00132D94 /* AZRClassDescriptionBuilder.m in Sources */,
+				0AFE5B2B18B696AB00132D94 /* AZRGoalTargetSelector.m in Sources */,
+				0AFE5B2618B696AB00132D94 /* AZRActorNeed.m in Sources */,
+				0AFE5B3F18B696AB00132D94 /* AZRRealm.m in Sources */,
+				0AFE5B2D18B696AB00132D94 /* AZRLogger.m in Sources */,
+				0AFE5B2218B696AB00132D94 /* AZRActionManager.m in Sources */,
+				0AFE5B2F18B696AB00132D94 /* AZRLogicParser.m in Sources */,
+				0AFE5B2E18B696AB00132D94 /* AZRLogicGoal.m in Sources */,
+				0AFE5B3018B696AB00132D94 /* AZRMainViewController.m in Sources */,
+				0AFE5B2018B696AB00132D94 /* AZRActionGoal.m in Sources */,
+				0AFE5B3618B696AB00132D94 /* AZRObject+BuildingsActions.m in Sources */,
+				0AFE5B3C18B696AB00132D94 /* AZRObjectProperty.m in Sources */,
+				0AFE5B4318B696AB00132D94 /* AZRStateGoal.m in Sources */,
+				0AFE5B2918B696AB00132D94 /* AZRGoalCriticalCriteria.m in Sources */,
+				0AFE5B4218B696AB00132D94 /* AZRSelectorBuilder.m in Sources */,
+				0AFE5B3D18B696AB00132D94 /* AZRObjectRenderer.m in Sources */,
+				0AFE5B2718B696AB00132D94 /* AZRActorObjectsMemory.m in Sources */,
+				0AFE5B3818B696AB00132D94 /* AZRObject+VisibleObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,7 +877,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0A5ECBBA18B685A3000C7387 /* RealmzTests.m in Sources */,
+				0AFE5B8318B6999500132D94 /* AZRLogicGoalSpec.m in Sources */,
+				0AFE5B7E18B6999500132D94 /* AZRActionIntentSpec.m in Sources */,
+				0AFE5B8218B6999500132D94 /* AZRGoalTreeBuilderSpec.m in Sources */,
+				0AFE5B8118B6999500132D94 /* AZRGoalTargetSelectorSpec.m in Sources */,
+				0AFE5B8718B6999500132D94 /* AZRObjectPropertySpec.m in Sources */,
+				0AFE5B8618B6999500132D94 /* AZRObjectDescriptionSpec.m in Sources */,
+				0AFE5B8018B6999500132D94 /* AZRGoalPropertySelectorSpec.m in Sources */,
+				0AFE5B8418B6999500132D94 /* AZRObjectActionSpec.m in Sources */,
+				0AFE5B8518B6999500132D94 /* AZRObjectDescriptionManagerSpec.m in Sources */,
+				0AFE5B8918B6999500132D94 /* AZRScheduledGoalSpec.m in Sources */,
+				0AFE5B8818B6999500132D94 /* AZRRealmSpec.m in Sources */,
+				0AFE5B7F18B6999500132D94 /* AZRDescriptionBuilderSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -403,6 +1014,7 @@
 		};
 		0A5ECBBE18B685A3000C7387 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E183760BD6C44D18AEC00C8B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -417,6 +1029,7 @@
 		};
 		0A5ECBBF18B685A3000C7387 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E183760BD6C44D18AEC00C8B /* Pods.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -431,6 +1044,7 @@
 		};
 		0A5ECBC118B685A3000C7387 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E7781063826452FB0A515A3 /* Pods-RealmzTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Realmz.app/Realmz";
@@ -454,6 +1068,7 @@
 		};
 		0A5ECBC218B685A3000C7387 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E7781063826452FB0A515A3 /* Pods-RealmzTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Realmz.app/Realmz";
@@ -490,6 +1105,7 @@
 				0A5ECBBF18B685A3000C7387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0A5ECBC018B685A3000C7387 /* Build configuration list for PBXNativeTarget "RealmzTests" */ = {
 			isa = XCConfigurationList;
@@ -498,6 +1114,7 @@
 				0A5ECBC218B685A3000C7387 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

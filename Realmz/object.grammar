@@ -1,0 +1,49 @@
+@start = object;
+
+object = objectClass objectNameAndParent objectDefinition;
+objectClass = plainObject | actorObject;
+
+plainObject = 'object'!;
+actorObject = 'actor'!;
+
+string = QuotedString;
+
+objectNameAndParent = string objectParent?;
+objectParent = '('! string ')'!;
+
+objectDefinition = '{'! objectInfo objectNeedsGroup? objectPropertiesGroups? '}'!;
+objectInfo = ((author | version | summary | logic | viewSight | selectionGroup) ';'!) *;
+author = 'author'! string;
+version = 'version'! string;
+summary = 'description'! string;
+logic = 'brains'! string;
+viewSight = 'view-sight'! numeric;
+selectionGroup = 'selection-group'! numeric;
+
+objectNeedsGroup = 'needs'! '{'! objectNeeds '}'!;
+objectNeeds = objectNeed*;
+objectNeed = needName needParameters? ';'!;
+needName = Word | string;
+needParameters = vector;
+
+objectPropertiesGroups = propertiesGroup (propertiesGroup*);
+
+propertiesGroup = groupTag '{'! objectProperties? '}'!;
+groupTag = publicityTag? typeTag;
+publicityTag = tagHidden;
+typeTag = tagProperty | tagAction;
+tagHidden = 'discoverable'!;
+tagProperty = 'properties'!;
+tagAction = 'actions'!;
+
+objectProperties = property+;
+
+property = propertyName propertyValue? ';'!;
+propertyName = Word | string;
+propertyValue = value;
+
+value = string | numeric | vector;
+numeric = Number;
+vector = '[' value (','! value)* ']'!;
+
+

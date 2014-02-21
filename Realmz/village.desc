@@ -1,0 +1,16 @@
+object "village" ("visible") {
+	author "Ankh";
+	version "0.1";
+
+  description "Хранилище";
+	selection-group 10;
+
+	properties {
+		storage;
+		radius 30;
+	}
+	
+	actions {
+		summon-peasant;
+	}
+}

@@ -1,0 +1,8 @@
+action "chop" {
+	description "Рубить дрова";
+	shortcut "Рубить";
+	
+	icon "act_100";
+	
+	operands ["tree"];
+}

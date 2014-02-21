@@ -1,0 +1,19 @@
+object "move-point" ("object") {
+	author "Ankh";
+	version "0.1";
+
+  description "Указатель";
+	selection-group 0;
+
+	properties {
+		radius 2;
+		checkpoint;
+		in-process 0;
+	}
+	discoverable properties {
+	}
+	actions {
+	}
+	discoverable actions {
+	}
+}

@@ -14,3 +14,8 @@
 	#import <UIKit/UIKit.h>
 	#import <Foundation/Foundation.h>
 #endif
+
+#import "AZRLogger.h"
+
+#define TEST_BIT(_where, _bit) (((_where & _bit) == _bit))
+#define SQR(a) ({ __typeof__(a) __a = (a); __a * __a; })
