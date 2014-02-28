@@ -34,7 +34,6 @@
 }
 
 + (void) log:(NSString *)key withMessage:(NSString *)message, ... {
-	return;
 	va_list args;
 	va_start(args, message);
 

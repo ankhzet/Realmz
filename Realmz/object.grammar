@@ -44,6 +44,6 @@ propertyValue = value;
 
 value = string | numeric | vector;
 numeric = Number;
-vector = '[' value (','! value)* ']'!;
+vector = '[' (value (','! value)*) ? ']'!;
 
 

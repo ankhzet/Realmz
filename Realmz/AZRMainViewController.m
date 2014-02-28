@@ -8,6 +8,8 @@
 
 #import "AZRMainViewController.h"
 
+static BOOL isRunningTests(void) __attribute__((const));
+
 @interface AZRMainViewController () <AZRRealmRendererControlDelegate> {
 }
 
@@ -18,6 +20,10 @@
 - (void)viewWillLayoutSubviews {
 	[super viewWillLayoutSubviews];
 
+	if (isRunningTests()) {
+		return;
+	}
+
 	// Configure the view.
 	SKView *skView = (SKView *)self.view;
 	if (skView.scene)
@@ -27,13 +33,11 @@
 	skView.showsNodeCount = YES;
 }
 
-- (BOOL)shouldAutorotate
-{
+- (BOOL)shouldAutorotate {
 	return YES;
 }
 
-- (NSUInteger)supportedInterfaceOrientations
-{
+- (NSUInteger)supportedInterfaceOrientations {
 	if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
 		return UIInterfaceOrientationMaskAllButUpsideDown;
 	} else {
@@ -41,10 +45,16 @@
 	}
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
-	// Release any cached data, images, etc that aren't in use.
+}
+
 }
 
 @end
+
+static BOOL isRunningTests(void) {
+	NSDictionary* environment = [[NSProcessInfo processInfo] environment];
+	NSString* injectBundle = environment[@"XCInjectBundle"];
+	return [[injectBundle pathExtension] isEqualToString:@"xctest"];
+}
