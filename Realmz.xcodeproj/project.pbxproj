@@ -38,6 +38,9 @@
 		0ABA409718BF289D003273D6 /* tree8.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA409618BF289D003273D6 /* tree8.desc */; };
 		0ABA409918BF5336003273D6 /* actions.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA409818BF5336003273D6 /* actions.atlas */; };
 		0ABA40D018BFEC88003273D6 /* gui.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA40CF18BFEC88003273D6 /* gui.atlas */; };
+		0ABA40DF18C07E23003273D6 /* anchors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA40DE18C07E23003273D6 /* anchors.plist */; };
+		0ABA40E218C08177003273D6 /* AZRSpriteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40E118C08177003273D6 /* AZRSpriteHelper.m */; };
+		0ABA40E418C08218003273D6 /* AZRSpriteHelperSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40E318C08218003273D6 /* AZRSpriteHelperSpec.m */; };
 		0AFE5B2018B696AB00132D94 /* AZRActionGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AD918B696AB00132D94 /* AZRActionGoal.m */; };
 		0AFE5B2118B696AB00132D94 /* AZRActionIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5ADB18B696AB00132D94 /* AZRActionIntent.m */; };
 		0AFE5B2218B696AB00132D94 /* AZRActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5ADD18B696AB00132D94 /* AZRActionManager.m */; };
@@ -171,6 +174,10 @@
 		0ABA409618BF289D003273D6 /* tree8.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tree8.desc; sourceTree = "<group>"; };
 		0ABA409818BF5336003273D6 /* actions.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = actions.atlas; sourceTree = "<group>"; };
 		0ABA40CF18BFEC88003273D6 /* gui.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = gui.atlas; sourceTree = "<group>"; };
+		0ABA40DE18C07E23003273D6 /* anchors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = anchors.plist; sourceTree = "<group>"; };
+		0ABA40E018C08177003273D6 /* AZRSpriteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRSpriteHelper.h; sourceTree = "<group>"; };
+		0ABA40E118C08177003273D6 /* AZRSpriteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRSpriteHelper.m; sourceTree = "<group>"; };
+		0ABA40E318C08218003273D6 /* AZRSpriteHelperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRSpriteHelperSpec.m; sourceTree = "<group>"; };
 		0AFE5AD818B696AB00132D94 /* AZRActionGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActionGoal.h; sourceTree = "<group>"; };
 		0AFE5AD918B696AB00132D94 /* AZRActionGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActionGoal.m; sourceTree = "<group>"; };
 		0AFE5ADA18B696AB00132D94 /* AZRActionIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActionIntent.h; sourceTree = "<group>"; };
@@ -372,6 +379,7 @@
 			isa = PBXGroup;
 			children = (
 				0AFE5B7C18B6999500132D94 /* AZRRealmSpec.m */,
+				0ABA40E318C08218003273D6 /* AZRSpriteHelperSpec.m */,
 				0AFE5B8C18B699CF00132D94 /* Objects */,
 				0AFE5B8A18B699A400132D94 /* Logic */,
 				0AFE5B8B18B699B700132D94 /* Actions */,
@@ -423,6 +431,7 @@
 			children = (
 				0ABA407518BE56BC003273D6 /* AZRUnifiedResource.h */,
 				0ABA407618BE56BC003273D6 /* AZRUnifiedResource.m */,
+				0AFE5B8D18BC346F00132D94 /* Render */,
 				0AFE5B1618B696AB00132D94 /* AZRRealm.h */,
 				0AFE5B1718B696AB00132D94 /* AZRRealm.m */,
 				0AFE5AF218B696AB00132D94 /* AZRLogger.h */,
@@ -511,6 +520,7 @@
 		0AFE5AD218B6961B00132D94 /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
+				0ABA40DE18C07E23003273D6 /* anchors.plist */,
 				0ABA40CF18BFEC88003273D6 /* gui.atlas */,
 				0ABA409818BF5336003273D6 /* actions.atlas */,
 				0ABA409018BF24D8003273D6 /* buildings.atlas */,
@@ -729,6 +739,15 @@
 			name = Objects;
 			sourceTree = "<group>";
 		};
+		0AFE5B8D18BC346F00132D94 /* Render */ = {
+			isa = PBXGroup;
+			children = (
+				0ABA40E018C08177003273D6 /* AZRSpriteHelper.h */,
+				0ABA40E118C08177003273D6 /* AZRSpriteHelper.m */,
+			);
+			name = Render;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -838,6 +857,7 @@
 				0ABA409118BF24D8003273D6 /* buildings.atlas in Resources */,
 				0AFE5B6518B698DB00132D94 /* object.grammar in Resources */,
 				0AFE5B5F18B698DB00132D94 /* core.logic in Resources */,
+				0ABA40DF18C07E23003273D6 /* anchors.plist in Resources */,
 				0AFE5B6918B698DB00132D94 /* stone.desc in Resources */,
 				0ABA408F18BED272003273D6 /* misc.atlas in Resources */,
 				0ABA408D18BED100003273D6 /* spawn-point.desc in Resources */,
@@ -947,6 +967,7 @@
 				0AFE5B2A18B696AB00132D94 /* AZRGoalPropertySelector.m in Sources */,
 				0AFE5B4118B696AB00132D94 /* AZRScheduledGoal.m in Sources */,
 				0AFE5B3318B696AB00132D94 /* AZRNormalGoal.m in Sources */,
+				0ABA40E218C08177003273D6 /* AZRSpriteHelper.m in Sources */,
 				0AFE5B3418B696AB00132D94 /* AZRObject.m in Sources */,
 				0AFE5B3118B696AB00132D94 /* AZRNeedGoal.m in Sources */,
 				0AFE5B2818B696AB00132D94 /* AZRClassDescriptionLoader.m in Sources */,
@@ -979,6 +1000,7 @@
 				0AFE5B8318B6999500132D94 /* AZRLogicGoalSpec.m in Sources */,
 				0AFE5B7E18B6999500132D94 /* AZRActionIntentSpec.m in Sources */,
 				0AFE5B8218B6999500132D94 /* AZRGoalTreeBuilderSpec.m in Sources */,
+				0ABA40E418C08218003273D6 /* AZRSpriteHelperSpec.m in Sources */,
 				0AFE5B8118B6999500132D94 /* AZRGoalTargetSelectorSpec.m in Sources */,
 				0AFE5B8718B6999500132D94 /* AZRObjectPropertySpec.m in Sources */,
 				0AFE5B8618B6999500132D94 /* AZRObjectDescriptionSpec.m in Sources */,
