@@ -7,12 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AZRUnifiedResourceLoader.h"
 
 @class AZRLogicGoal;
 
-@interface AZRGoalTreeBuilder : NSObject
+extern AZRUnifiedFileType const AZRUnifiedFileTypeLogic;
 
-- (AZRLogicGoal *) buildTreeFromLogicFile:(NSString *)source;
-- (AZRLogicGoal *) buildTreeFromString:(NSString *)source;
+@interface AZRGoalTreeLoader : AZRUnifiedResourceLoader
 
 @end

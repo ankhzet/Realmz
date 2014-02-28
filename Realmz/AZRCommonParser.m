@@ -6,22 +6,20 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRLogicParser.h"
+#import "AZRCommonParser.h"
 #import <ParseKit/ParseKit.h>
 
-AZRLogicsFileType const AZRLogicsFileTypeGrammar = @"grammar";
-AZRLogicsFileType const AZRLogicsFileTypeLogic = @"logic";
-AZRLogicsFileType const AZRLogicsFileTypeObjectDescription = @"desc";
+AZRUnifiedFileType const AZRUnifiedFileTypeGrammar = @"grammar";
 
-@implementation AZRLogicParser
+@implementation AZRCommonParser
 
-+ (NSURL *) getLogicsFileURL:(NSString *)fileName fileType:(AZRLogicsFileType)type {
++ (NSURL *) getUnifiedFileURL:(NSString *)fileName fileType:(AZRUnifiedFileType)type {
 	return [[NSBundle mainBundle] URLForResource:fileName withExtension:type];
 }
 
 + (PKParser *) parserForGrammar:(NSString *)grammar assembler:(id)assembler {
 	NSError *error = nil;
-	NSString *grammarContents = [NSString stringWithContentsOfURL:[self getLogicsFileURL:grammar fileType:AZRLogicsFileTypeGrammar] encoding:NSUTF8StringEncoding error:&error];
+	NSString *grammarContents = [NSString stringWithContentsOfURL:[self getUnifiedFileURL:grammar fileType:AZRUnifiedFileTypeGrammar] encoding:NSUTF8StringEncoding error:&error];
 	
 	if (!grammarContents) {
 		[AZRLogger log:nil withMessage:@"Error while loading parser grammar: %@", [error localizedDescription]];

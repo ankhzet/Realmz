@@ -6,10 +6,9 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRSelectorBuilder.h"
+#import "AZRGoalTargetSelectorLoader.h"
 
 #import <ParseKit/ParseKit.h>
-#import "AZRLogicParser.h"
 #import "AZRGoalTargetSelector.h"
 #import "AZRGoalPropertySelector.h"
 
@@ -22,13 +21,13 @@
 #endif
 
 
-@interface AZRSelectorBuilder ()
+@interface AZRGoalTargetSelectorLoader ()
 {
   NSDictionary *comparators;
 }
 @end
 
-@implementation AZRSelectorBuilder
+@implementation AZRGoalTargetSelectorLoader
 
 - (id) init {
 	if (!(self = [super init]))
@@ -47,19 +46,11 @@
 	return self;
 }
 
-- (AZRGoalTargetSelector *) buildSelectorFromString:(NSString *)source {
-	
-	PKParser *parser = [AZRLogicParser parserForGrammar:@"target-selector" assembler:self];
-	
-	NSError *error = nil;
-	AZRGoalTargetSelector *result = [parser parse:source error:&error];
-	if (!result)
-		[AZRLogger log:nil withMessage:@"Error parsing selector: %@", [error localizedDescription]];
-	else
-		return result;
-
-	return nil;
+-(NSString *)grammar {
+	return @"target-selector";
 }
+
+#pragma mark - Parser proto
 
 - (void)parser:(PKParser *)parser didMatchObject:(PKAssembly *)a
 {

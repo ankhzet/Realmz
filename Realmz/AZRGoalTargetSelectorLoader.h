@@ -7,11 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AZRUnifiedResourceLoader.h"
 
 @class AZRGoalTargetSelector;
 
-@interface AZRSelectorBuilder : NSObject
-
-- (AZRGoalTargetSelector *) buildSelectorFromString:(NSString *)source;
+@interface AZRGoalTargetSelectorLoader : AZRUnifiedResourceLoader
 
 @end

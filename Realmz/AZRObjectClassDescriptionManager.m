@@ -9,8 +9,7 @@
 #import "AZRObjectClassDescriptionManager.h"
 
 #import "AZRObjectClassDescription.h"
-#import "AZRLogicParser.h"
-#import "AZRClassDescriptionBuilder.h"
+#import "AZRClassDescriptionLoader.h"
 
 @interface AZRObjectClassDescriptionManager () {
 	NSMutableDictionary *descriptions;
@@ -42,8 +41,8 @@
 	
 	if (!description) {
 		// not loaded yet, try to load
-		AZRClassDescriptionBuilder *builder = [AZRClassDescriptionBuilder new];
-		description = [builder buildDescriptionFromDescriptionFile:descriptionName];
+		AZRClassDescriptionLoader *loader = [AZRClassDescriptionLoader new];
+		description = [loader loadFromFile:descriptionName];
 		
 		if (description) {
 			self->descriptions[descriptionName] = description;

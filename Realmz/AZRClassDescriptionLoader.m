@@ -6,13 +6,11 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRClassDescriptionBuilder.h"
-#import <ParseKit/ParseKit.h>
-#import "AZRLogicParser.h"
+#import "AZRClassDescriptionLoader.h"
 #import "AZRObjectClassDescription.h"
 #import "AZRActorClassDescription.h"
 #import "AZRObjectClassDescriptionManager.h"
-#import "AZRGoalTreeBuilder.h"
+#import "AZRGoalTreeLoader.h"
 #import "AZRActorNeed.h"
 #import "AZRNeedManager.h"
 
@@ -25,39 +23,16 @@
 
 #endif
 
+AZRUnifiedFileType const AZRUnifiedFileTypeObjectClassDescription = @"desc";
 
-@implementation AZRClassDescriptionBuilder
-	
-- (AZRObjectClassDescription *) buildDescriptionFromDescriptionFile:(NSString *)source {
-	NSURL *codeURL = [AZRLogicParser getLogicsFileURL:source fileType:AZRLogicsFileTypeObjectDescription];
-	if (!codeURL) {
-		[AZRLogger log:nil withMessage:@"Can't find logics file for object [%@] description", source];
-		return nil;
-	}
-	
-	NSError *error = nil;
-	NSString *descriptionCode = [NSString stringWithContentsOfURL:codeURL encoding:NSUTF8StringEncoding error:&error];
-	if (!descriptionCode) {
-		[AZRLogger log:nil withMessage:@"Can't load logics file for object [%@] description: %@", source, [error localizedDescription]];
-		return nil;
-	}
-	
-	return [self buildDescriptionFromString:descriptionCode];
+@implementation AZRClassDescriptionLoader
+
+- (AZRUnifiedFileType) resourceType {
+	return AZRUnifiedFileTypeObjectClassDescription;
 }
-	
-- (AZRObjectClassDescription *) buildDescriptionFromString:(NSString *)source {
-	
-	PKParser *parser = [AZRLogicParser parserForGrammar:@"object" assembler:self];
-	
-	NSError *error = nil;
-	AZRObjectClassDescription *result = [parser parse:source error:&error];
-	PKReleaseSubparserTree(parser);
-	if (!result)
-		[AZRLogger log:nil withMessage:@"Error parsing object description: %@", [error localizedDescription]];
-	else
-		return result;
-	
-	return nil;
+
+- (NSString *) grammar {
+	return @"object";
 }
 
 #pragma mark - Description creation
@@ -107,15 +82,6 @@
 
 #pragma mark - Object info (author, summary etc)
 
-- (void)parser:(PKParser *)parser didMatchSummary:(PKAssembly *)a {
-	LOG_ASSEMBLY();
-	NSString *string = [a pop];
-	AZRObjectClassDescription *description = [a pop];
-	[description setSummary:string];
-	[a push:description];
-	LOG_ASSEMBLY();
-}
-
 - (void)parser:(PKParser *)parser didMatchViewSight:(PKAssembly *)a {
 	LOG_ASSEMBLY();
 	NSNumber *numeric = [a pop];
@@ -136,24 +102,6 @@
 	LOG_ASSEMBLY();
 }
 
-- (void)parser:(PKParser *)parser didMatchVersion:(PKAssembly *)a {
-	LOG_ASSEMBLY();
-	NSString *string = [a pop];
-	AZRObjectClassDescription *description = [a pop];
-	[description setVersion:string];
-	[a push:description];
-	LOG_ASSEMBLY();
-}
-
-- (void)parser:(PKParser *)parser didMatchAuthor:(PKAssembly *)a {
-	LOG_ASSEMBLY();
-	NSString *string = [a pop];
-	AZRObjectClassDescription *description = [a pop];
-	[description setAuthor:string];
-	[a push:description];
-	LOG_ASSEMBLY();
-}
-	
 - (void)parser:(PKParser *)parser didMatchLogic:(PKAssembly *)a {
 	LOG_ASSEMBLY();
 	NSString *string = [a pop];
@@ -161,8 +109,8 @@
 	AZRActorClassDescription *description = [a pop];
 	NSAssert([description isKindOfClass:[AZRActorClassDescription class]], @"Failed to attach logic to object: current object isn't an actor");
 	
-	AZRGoalTreeBuilder *builder = [AZRGoalTreeBuilder new];
-	AZRLogicGoal *logic = [builder buildTreeFromLogicFile:string];
+	AZRGoalTreeLoader *loader = [AZRGoalTreeLoader new];
+	AZRLogicGoal *logic = [loader loadFromFile:string];
 	NSAssert(logic, @"Failed to attach logic to object: can't load logic");
 	[logic setName:[NSString stringWithFormat:@"%@_logic", description.name]];
 	[description setActorLogic:logic];
@@ -306,32 +254,5 @@
 	[a push:@(AZRPropertyTypeAction)];
 }
 
-- (void)parser:(PKParser *)parser didMatchNumeric:(PKAssembly *)a {
-	[a push:@([(PKToken *)[a pop] floatValue])];
-}
-
-- (void)parser:(PKParser *)parser didMatchString:(PKAssembly *)a {
-	NSString *string = [(PKToken *)[a pop] stringValue];
-	string = [string substringWithRange:NSMakeRange(1, [string length] - 2)];
-	[a push:string];
-}
-
-- (void)parser:(PKParser *)parser didMatchVector:(PKAssembly *)a {
-	LOG_ASSEMBLY();
-	id element;
-	NSMutableArray *vector = [NSMutableArray array];
-	
-	// pushing all till '[' marker
-	while (![(element = [a pop]) isKindOfClass:[PKToken class]]) {
-		[vector insertObject:element atIndex:0];
-	}
-	
-	// discarding marker
-	//	if (number)
-	//  	[a push:number];
-	
-	[a push:[vector copy]];
-	LOG_ASSEMBLY();
-}
 
 @end

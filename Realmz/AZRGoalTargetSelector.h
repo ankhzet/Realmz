@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AZRUnifiedResource.h"
 
 @class AZRGoalPropertySelector;
 @class AZRObject;
 @class AZRActorObjectsMemory;
 
-@interface AZRGoalTargetSelector : NSObject
+@interface AZRGoalTargetSelector : AZRUnifiedResource
 @property (nonatomic) AZRGoalPropertySelector *propertySelector;
 @property (nonatomic) BOOL matchAlways;
 @property (nonatomic) BOOL negative;

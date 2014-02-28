@@ -6,10 +6,7 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
-#import "AZRGoalTreeBuilder.h"
-
-#import <ParseKit.h>
-#import "AZRLogicParser.h"
+#import "AZRGoalTreeLoader.h"
 
 #import "AZRLogicGoal.h"
 #import "AZRNormalGoal.h"
@@ -18,7 +15,7 @@
 #import "AZRNeedGoal.h"
 #import "AZRPlanGoal.h"
 
-#import "AZRSelectorBuilder.h"
+#import "AZRGoalTargetSelectorLoader.h"
 #import "AZRGoalTargetSelector.h"
 #import "AZRGoalCriticalCriteria.h"
 
@@ -31,12 +28,14 @@
 
 #endif
 
-@interface AZRGoalTreeBuilder () {
+AZRUnifiedFileType const AZRUnifiedFileTypeLogic = @"logic";
+
+@interface AZRGoalTreeLoader () {
 	NSDictionary *goalClasses;
 }
 @end
 
-@implementation AZRGoalTreeBuilder
+@implementation AZRGoalTreeLoader
 
 - (id) init {
 	if (!(self = [super init]))
@@ -52,35 +51,12 @@
 	return self;
 }
 
-- (AZRLogicGoal *) buildTreeFromLogicFile:(NSString *)source {
-	NSURL *codeURL = [AZRLogicParser getLogicsFileURL:source fileType:AZRLogicsFileTypeLogic];
-	if (!codeURL) {
-		[AZRLogger log:nil withMessage:@"Can't find logics file for object logic [%@]", source];
-		return nil;
-	}
-	
-	NSError *error = nil;
-	NSString *logicCode = [NSString stringWithContentsOfURL:codeURL encoding:NSUTF8StringEncoding error:&error];
-	if (!logicCode) {
-		[AZRLogger log:nil withMessage:@"Can't load logics file for object logic [%@]: %@", source, [error localizedDescription]];
-		return nil;
-	}
-	
-	return [self buildTreeFromString:logicCode];
+-(AZRUnifiedFileType) resourceType {
+	return AZRUnifiedFileTypeLogic;
 }
 
-- (AZRLogicGoal *) buildTreeFromString:(NSString *)source {
-	
-	PKParser *parser = [AZRLogicParser parserForGrammar:@"logic" assembler:self];
-	
-	NSError *error = nil;
-	AZRLogicGoal *result = [parser parse:source error:&error];
-	if (!result)
-		[AZRLogger log:nil withMessage:@"Error parsing goal-tree: %@", [error localizedDescription]];
-	else
-		return result;
-	
-	return nil;
+-(NSString *)grammar {
+	return @"logic";
 }
 
 #pragma mark - Goal description
@@ -91,7 +67,7 @@
 	PKToken *token = [a pop];
 	NSAssert([[token stringValue] isEqualToString:@";"], @"\";\" expected, but \"%@\" found", token);
 	NSString *parentName = [(PKToken *)[a pop] stringValue];
-	AZRLogicGoal *parent = [[AZRGoalTreeBuilder new] buildTreeFromLogicFile:parentName];
+	AZRLogicGoal *parent = [[AZRGoalTreeLoader new] loadFromFile:parentName];
 	
 	[a push:parent];
 	[a push:token];
@@ -230,7 +206,7 @@
 		selectorDefinition = [NSString stringWithFormat:@"%@ %@", [top stringValue], selectorDefinition];
 	}
 	
-	AZRGoalTargetSelector *selector = [[AZRSelectorBuilder new] buildSelectorFromString:selectorDefinition];
+	AZRGoalTargetSelector *selector = [[AZRGoalTargetSelectorLoader new] loadFromString:selectorDefinition];
 	NSAssert(selector, @"selector parse failed");
 	
 	[a push:selector];
