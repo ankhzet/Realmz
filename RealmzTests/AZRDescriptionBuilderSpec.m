@@ -8,13 +8,13 @@
 
 #import "Kiwi.h"
 
-#import "AZRClassDescriptionBuilder.h"
+#import "AZRClassDescriptionLoader.h"
 #import "AZRObjectClassDescription.h"
 
 SPEC_BEGIN(AZRDescriptionBuilderSpec)
 
 describe(@"Testing description builder", ^{
-	AZRClassDescriptionBuilder *builder = [AZRClassDescriptionBuilder new];
+	AZRClassDescriptionLoader *builder = [AZRClassDescriptionLoader new];
 	
 	NSString *desc1 = @"\
 	object \"obj1\"(\"visible_object\") {\
@@ -22,7 +22,7 @@ describe(@"Testing description builder", ^{
 	}";
 	
 	NSString *desc2 = @"\
-	object \"obj1\" (\"visible_object\") {\
+	object \"obj1\" (\"visible\") {\
 	description \"object 1\";\
 	author \"Ankh\";\
 	properties {\
@@ -41,11 +41,11 @@ describe(@"Testing description builder", ^{
 	}";
 
 	it(@"should fail parsing of broken object descriptions", ^{
-		AZRObjectClassDescription *d = [builder buildDescriptionFromString:desc1];
+		AZRObjectClassDescription *d = [builder loadFromString:desc1];
 		[[d should] beNil];
 	});
 	
-	AZRObjectClassDescription *d = [builder buildDescriptionFromString:desc2];
+	AZRObjectClassDescription *d = [builder loadFromString:desc2];
 	it(@"should parse object descriptions", ^{
 		[[d shouldNot] beNil];
 		[[d.name should] equal:@"obj1"];
@@ -60,7 +60,7 @@ describe(@"Testing description builder", ^{
 	});
 	it(@"should parse parent descriptions", ^{
 		[[d.parent shouldNot] beNil];
-		[[d.parent.name should] equal:@"visible_object"];
+		[[d.parent.name should] equal:@"visible"];
 	});
 });
 
