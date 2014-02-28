@@ -8,10 +8,20 @@
 
 #import "AZRMainViewController.h"
 
+#import "AZRRealm.h"
+#import "AZRRealmRenderer.h"
+
 static BOOL isRunningTests(void) __attribute__((const));
 
-@interface AZRMainViewController () <AZRRealmRendererControlDelegate> {
+
+@interface AZRMainViewController ()
+{
+	__strong NSTimer *processTimer;
+	BOOL simulating;
+	AZRRealm *realm;
 }
+
+@property (nonatomic) AZRRealmRenderer *realmRenderer;
 
 @end
 
@@ -24,6 +34,8 @@ static BOOL isRunningTests(void) __attribute__((const));
 		return;
 	}
 
+	simulating = NO;
+
 	// Configure the view.
 	SKView *skView = (SKView *)self.view;
 	if (skView.scene)
@@ -31,6 +43,23 @@ static BOOL isRunningTests(void) __attribute__((const));
 
 	skView.showsFPS = YES;
 	skView.showsNodeCount = YES;
+
+	self.realmRenderer = [AZRRealmRenderer sceneWithSize:skView.bounds.size];
+	self.realmRenderer.scaleMode = SKSceneScaleModeAspectFill;
+
+	realm = [AZRRealm realm];
+
+	[self.realmRenderer attachToRealm:realm];
+
+	[skView presentScene:self.realmRenderer];
+
+	simulating = YES;
+
+	processTimer = [NSTimer timerWithTimeInterval:0.01f target:self selector:@selector(processTick:) userInfo:nil repeats:YES];
+	if (processTimer)
+		[[NSRunLoop currentRunLoop] addTimer:processTimer forMode:NSDefaultRunLoopMode];
+
+	[self.realmRenderer processed:[NSDate timeIntervalSinceReferenceDate]];
 }
 
 - (BOOL)shouldAutorotate {
@@ -47,6 +76,25 @@ static BOOL isRunningTests(void) __attribute__((const));
 
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
+}
+
+- (void) dealloc {
+	[self->processTimer invalidate];
+	self->processTimer = nil;
+	self->realm = nil;
+}
+
+
+- (void) processTick:(NSTimer *)timer {
+	if (!simulating)
+		return;
+
+	if (![realm process]) {
+		[AZRLogger log:nil withMessage:@"Realm is empty"];
+		simulating = NO;
+	}
+
+	[self.realmRenderer processed:[NSDate timeIntervalSinceReferenceDate]];
 }
 
 }

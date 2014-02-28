@@ -77,7 +77,6 @@
 		0AFE5B3A18B696AB00132D94 /* AZRObjectClassDescription.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0D18B696AB00132D94 /* AZRObjectClassDescription.m */; };
 		0AFE5B3B18B696AB00132D94 /* AZRObjectClassDescriptionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B0F18B696AB00132D94 /* AZRObjectClassDescriptionManager.m */; };
 		0AFE5B3C18B696AB00132D94 /* AZRObjectProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1118B696AB00132D94 /* AZRObjectProperty.m */; };
-		0AFE5B3D18B696AB00132D94 /* AZRObjectRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1318B696AB00132D94 /* AZRObjectRenderer.m */; };
 		0AFE5B3E18B696AB00132D94 /* AZRPlanGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1518B696AB00132D94 /* AZRPlanGoal.m */; };
 		0AFE5B3F18B696AB00132D94 /* AZRRealm.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1718B696AB00132D94 /* AZRRealm.m */; };
 		0AFE5B4018B696AB00132D94 /* AZRRealmRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B1918B696AB00132D94 /* AZRRealmRenderer.m */; };
@@ -256,8 +255,6 @@
 		0AFE5B0F18B696AB00132D94 /* AZRObjectClassDescriptionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectClassDescriptionManager.m; sourceTree = "<group>"; };
 		0AFE5B1018B696AB00132D94 /* AZRObjectProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRObjectProperty.h; sourceTree = "<group>"; };
 		0AFE5B1118B696AB00132D94 /* AZRObjectProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectProperty.m; sourceTree = "<group>"; };
-		0AFE5B1218B696AB00132D94 /* AZRObjectRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRObjectRenderer.h; sourceTree = "<group>"; };
-		0AFE5B1318B696AB00132D94 /* AZRObjectRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectRenderer.m; sourceTree = "<group>"; };
 		0AFE5B1418B696AB00132D94 /* AZRPlanGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRPlanGoal.h; sourceTree = "<group>"; };
 		0AFE5B1518B696AB00132D94 /* AZRPlanGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPlanGoal.m; sourceTree = "<group>"; };
 		0AFE5B1618B696AB00132D94 /* AZRRealm.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRRealm.h; sourceTree = "<group>"; };
@@ -473,10 +470,6 @@
 			children = (
 				0AFE5AF818B696AB00132D94 /* AZRMainViewController.h */,
 				0AFE5AF918B696AB00132D94 /* AZRMainViewController.m */,
-				0AFE5B1818B696AB00132D94 /* AZRRealmRenderer.h */,
-				0AFE5B1918B696AB00132D94 /* AZRRealmRenderer.m */,
-				0AFE5B1218B696AB00132D94 /* AZRObjectRenderer.h */,
-				0AFE5B1318B696AB00132D94 /* AZRObjectRenderer.m */,
 			);
 			name = UI;
 			sourceTree = "<group>";
@@ -802,6 +795,8 @@
 		0AFE5B8D18BC346F00132D94 /* Render */ = {
 			isa = PBXGroup;
 			children = (
+				0AFE5B1818B696AB00132D94 /* AZRRealmRenderer.h */,
+				0AFE5B1918B696AB00132D94 /* AZRRealmRenderer.m */,
 				0ABA40E018C08177003273D6 /* AZRSpriteHelper.h */,
 				0ABA40E118C08177003273D6 /* AZRSpriteHelper.m */,
 			);
@@ -1051,7 +1046,6 @@
 				0AFE5B3C18B696AB00132D94 /* AZRObjectProperty.m in Sources */,
 				0AFE5B4318B696AB00132D94 /* AZRStateGoal.m in Sources */,
 				0AFE5B2918B696AB00132D94 /* AZRGoalCriticalCriteria.m in Sources */,
-				0AFE5B3D18B696AB00132D94 /* AZRObjectRenderer.m in Sources */,
 				0AFE5B4218B696AB00132D94 /* AZRGoalTargetSelectorLoader.m in Sources */,
 				0A16008218BD75640041D0D5 /* AZRMapChunk.m in Sources */,
 				0ABA407418BE5687003273D6 /* AZRUnifiedResourceLoader.m in Sources */,

@@ -23,14 +23,27 @@
 
 @implementation AZRRealm
 
++ (AZRRealm *) realm {
+	static AZRRealm *instance;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+    instance = [[AZRRealm alloc] initSingletone];
+	});
+	return instance;
+}
+
 - (id) init {
+	@throw [NSException exceptionWithName:@"AZRRealmInitError" reason:@"AZRRealm should be instantiated only as singletone" userInfo:nil];
+}
+
+- (id) initSingletone {
 	if (!(self = [super init]))
 		return nil;
 	
 	self->allObjects = [NSMutableArray array];
 	self->allActors = [NSMutableArray array];
 	self->deadObjects = [NSMutableArray array];
-	
+
 	return self;
 }
 

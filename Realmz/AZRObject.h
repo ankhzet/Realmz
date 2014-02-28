@@ -14,6 +14,7 @@
 @interface AZRObject : NSObject {
 @public
 	__weak AZRRealm *realm;
+	__weak id renderBody;
 }
 
 @property (nonatomic) AZRObjectClassDescription *classDescription;
