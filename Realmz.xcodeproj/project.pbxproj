@@ -43,7 +43,9 @@
 		0ABA409518BF2892003273D6 /* tree7.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA409418BF2892003273D6 /* tree7.desc */; };
 		0ABA409718BF289D003273D6 /* tree8.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA409618BF289D003273D6 /* tree8.desc */; };
 		0ABA409918BF5336003273D6 /* actions.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA409818BF5336003273D6 /* actions.atlas */; };
+		0ABA409C18BF538F003273D6 /* AZRTappableSpriteNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA409B18BF538F003273D6 /* AZRTappableSpriteNode.m */; };
 		0ABA40D018BFEC88003273D6 /* gui.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA40CF18BFEC88003273D6 /* gui.atlas */; };
+		0ABA40DC18C052C0003273D6 /* AZRGUIActionsRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40DB18C052C0003273D6 /* AZRGUIActionsRenderer.m */; };
 		0ABA40DF18C07E23003273D6 /* anchors.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA40DE18C07E23003273D6 /* anchors.plist */; };
 		0ABA40E218C08177003273D6 /* AZRSpriteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40E118C08177003273D6 /* AZRSpriteHelper.m */; };
 		0ABA40E418C08218003273D6 /* AZRSpriteHelperSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40E318C08218003273D6 /* AZRSpriteHelperSpec.m */; };
@@ -113,6 +115,7 @@
 		0AFE5B8718B6999500132D94 /* AZRObjectPropertySpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7B18B6999500132D94 /* AZRObjectPropertySpec.m */; };
 		0AFE5B8818B6999500132D94 /* AZRRealmSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7C18B6999500132D94 /* AZRRealmSpec.m */; };
 		0AFE5B8918B6999500132D94 /* AZRScheduledGoalSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B7D18B6999500132D94 /* AZRScheduledGoalSpec.m */; };
+		0AFE5B9018BC34A000132D94 /* AZRGUIRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5B8F18BC34A000132D94 /* AZRGUIRenderer.m */; };
 		0AFE5BAB18BCA1E600132D94 /* building.desc in Resources */ = {isa = PBXBuildFile; fileRef = 0AFE5BAA18BCA1E600132D94 /* building.desc */; };
 		0AFE5BE818BCB52D00132D94 /* AZRMapLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5BE718BCB52D00132D94 /* AZRMapLayer.m */; };
 		CDF6A9E2C6C446508ACFC005 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7CAE340BAD5E499388AF2F22 /* libPods.a */; };
@@ -190,7 +193,12 @@
 		0ABA409418BF2892003273D6 /* tree7.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tree7.desc; sourceTree = "<group>"; };
 		0ABA409618BF289D003273D6 /* tree8.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = tree8.desc; sourceTree = "<group>"; };
 		0ABA409818BF5336003273D6 /* actions.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = actions.atlas; sourceTree = "<group>"; };
+		0ABA409A18BF538F003273D6 /* AZRTappableSpriteNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRTappableSpriteNode.h; sourceTree = "<group>"; };
+		0ABA409B18BF538F003273D6 /* AZRTappableSpriteNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRTappableSpriteNode.m; sourceTree = "<group>"; };
 		0ABA40CF18BFEC88003273D6 /* gui.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = gui.atlas; sourceTree = "<group>"; };
+		0ABA40DA18C052C0003273D6 /* AZRGUIActionsRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGUIActionsRenderer.h; sourceTree = "<group>"; };
+		0ABA40DB18C052C0003273D6 /* AZRGUIActionsRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGUIActionsRenderer.m; sourceTree = "<group>"; };
+		0ABA40DD18C0537C003273D6 /* AZRGUIConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AZRGUIConstants.h; sourceTree = "<group>"; };
 		0ABA40DE18C07E23003273D6 /* anchors.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = anchors.plist; sourceTree = "<group>"; };
 		0ABA40E018C08177003273D6 /* AZRSpriteHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRSpriteHelper.h; sourceTree = "<group>"; };
 		0ABA40E118C08177003273D6 /* AZRSpriteHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRSpriteHelper.m; sourceTree = "<group>"; };
@@ -297,6 +305,8 @@
 		0AFE5B7B18B6999500132D94 /* AZRObjectPropertySpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRObjectPropertySpec.m; sourceTree = "<group>"; };
 		0AFE5B7C18B6999500132D94 /* AZRRealmSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRRealmSpec.m; sourceTree = "<group>"; };
 		0AFE5B7D18B6999500132D94 /* AZRScheduledGoalSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRScheduledGoalSpec.m; sourceTree = "<group>"; };
+		0AFE5B8E18BC34A000132D94 /* AZRGUIRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGUIRenderer.h; sourceTree = "<group>"; };
+		0AFE5B8F18BC34A000132D94 /* AZRGUIRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGUIRenderer.m; sourceTree = "<group>"; };
 		0AFE5BAA18BCA1E600132D94 /* building.desc */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = building.desc; sourceTree = "<group>"; };
 		0AFE5BE618BCB52D00132D94 /* AZRMapLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRMapLayer.h; sourceTree = "<group>"; };
 		0AFE5BE718BCB52D00132D94 /* AZRMapLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRMapLayer.m; sourceTree = "<group>"; };
@@ -463,6 +473,18 @@
 				0ABA409618BF289D003273D6 /* tree8.desc */,
 			);
 			name = Trees;
+			sourceTree = "<group>";
+		};
+		0ABA40D118C05028003273D6 /* GUI Renderer */ = {
+			isa = PBXGroup;
+			children = (
+				0ABA40DD18C0537C003273D6 /* AZRGUIConstants.h */,
+				0AFE5B8E18BC34A000132D94 /* AZRGUIRenderer.h */,
+				0AFE5B8F18BC34A000132D94 /* AZRGUIRenderer.m */,
+				0ABA40DA18C052C0003273D6 /* AZRGUIActionsRenderer.h */,
+				0ABA40DB18C052C0003273D6 /* AZRGUIActionsRenderer.m */,
+			);
+			name = "GUI Renderer";
 			sourceTree = "<group>";
 		};
 		0AFE5ACA18B695B700132D94 /* UI */ = {
@@ -799,6 +821,9 @@
 				0AFE5B1918B696AB00132D94 /* AZRRealmRenderer.m */,
 				0ABA40E018C08177003273D6 /* AZRSpriteHelper.h */,
 				0ABA40E118C08177003273D6 /* AZRSpriteHelper.m */,
+				0ABA40D118C05028003273D6 /* GUI Renderer */,
+				0ABA409A18BF538F003273D6 /* AZRTappableSpriteNode.h */,
+				0ABA409B18BF538F003273D6 /* AZRTappableSpriteNode.m */,
 			);
 			name = Render;
 			sourceTree = "<group>";
@@ -1015,6 +1040,8 @@
 				0A5ECB9718B685A0000C7387 /* AppDelegate.m in Sources */,
 				0AFE5B2C18B696AB00132D94 /* AZRGoalTreeLoader.m in Sources */,
 				0ABA40E718C12EB4003273D6 /* AZRMapLayerCellShortcut.m in Sources */,
+				0ABA40DC18C052C0003273D6 /* AZRGUIActionsRenderer.m in Sources */,
+				0ABA409C18BF538F003273D6 /* AZRTappableSpriteNode.m in Sources */,
 				0AFE5B3918B696AB00132D94 /* AZRObjectAction.m in Sources */,
 				0AFE5B3E18B696AB00132D94 /* AZRPlanGoal.m in Sources */,
 				0AFE5B2318B696AB00132D94 /* AZRActor.m in Sources */,
@@ -1039,6 +1066,7 @@
 				0AFE5B2218B696AB00132D94 /* AZRActionManager.m in Sources */,
 				0ABA407718BE56BC003273D6 /* AZRUnifiedResource.m in Sources */,
 				0AFE5B2F18B696AB00132D94 /* AZRCommonParser.m in Sources */,
+				0AFE5B9018BC34A000132D94 /* AZRGUIRenderer.m in Sources */,
 				0AFE5B2E18B696AB00132D94 /* AZRLogicGoal.m in Sources */,
 				0AFE5B3018B696AB00132D94 /* AZRMainViewController.m in Sources */,
 				0AFE5B2018B696AB00132D94 /* AZRActionGoal.m in Sources */,

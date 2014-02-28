@@ -11,6 +11,8 @@
 @class AZRObject;
 @class AZRObjectClassDescription;
 
+typedef BOOL (^AZRObjectFilterBlock)(AZRObject *object, BOOL *stop);
+
 @interface AZRRealm : NSObject
 
 /*!
@@ -21,6 +23,12 @@
 - (AZRObject *) spawnObject:(AZRObjectClassDescription *)objectDescriptor;
 - (AZRObject *) spawnObject:(NSString *)objectClassDescription atX:(float)x andY:(float)y;
 - (NSArray *) allObjects;
+
+/*!
+ @brief Filters all objects, that accepted by block.
+ @param block Block to test objects with.
+ */
+- (NSArray *) filterWithBlock:(AZRObjectFilterBlock)block;
 
 /*!
  @brief Filters all objects, that have distance to specified point less or equal to specified amount.

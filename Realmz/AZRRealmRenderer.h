@@ -7,9 +7,14 @@
 //
 
 #import <SpriteKit/SpriteKit.h>
+#import "AZRGUIActionsRenderer.h"
+#import "AZRGUIRenderer.h"
+
 @class AZRRealm;
 
 @interface AZRRealmRenderer : SKScene
+<AZRGUIActionsRendererDelegate, AZRGUIRendererDelegate>
+
 - (void) attachToRealm:(AZRRealm *)realm;
 - (void) processed:(CFTimeInterval)currentTime;
 

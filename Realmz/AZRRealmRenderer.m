@@ -13,6 +13,8 @@
 #import "AZRObject+VisibleObject.h"
 #import "AZRMap.h"
 #import "AZRMapLoader.h"
+#import "AZRTappableSpriteNode.h"
+#import "AZRGUIRenderer.h"
 #import "AZRSpriteHelper.h"
 
 @interface AZRRealmRenderer () {
@@ -21,11 +23,14 @@
 	CGPoint scrollStart;
 	CGSize viewSize;
 
+	BOOL ctlMoving;
 	BOOL ctlScrolling;
 
 	SKNode *objectsRootNode;
 	SKNode *mapRootNode;
 	SKNode *viewRootNode;
+
+	AZRGUIRenderer *gui;
 }
 @end
 @implementation AZRRealmRenderer
@@ -43,6 +48,8 @@
 	objectsRootNode.zPosition = 1;
 	viewRootNode.position = CGPointMake(viewSize.width / 2, viewSize.height / 2);
 	viewRootNode.zPosition = 0;
+	
+	gui.realm = realm;
 }
 
 -(id)initWithSize:(CGSize)size {
@@ -56,6 +63,12 @@
 	[viewRootNode addChild:objectsRootNode];
 
 	[self addChild:viewRootNode];
+
+	gui = [AZRGUIRenderer new];
+	[self addChild:gui.graphicsNode];
+	gui.delegate = self;
+	gui.actionsRenderer.delegate = self;
+
 	viewSize = size;
 	return self;
 }
@@ -68,12 +81,16 @@
 		scrollStart = tapLocation;
 		return;
 	}
+
+	[gui beginSelection:tapLocation withMapScroll:viewRootNode.position andTileSize:tileSize];
 }
 
 - (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	[gui endSelection];
 }
 
 - (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	[gui endSelection];
 }
 
 -(void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
@@ -86,6 +103,16 @@
 		scrollStart = tapLocation;
 		return;
 	}
+
+	BOOL onePicked = [gui.selection count] == 1;
+	if (onePicked && ![gui isSelecting]) {
+		if (ctlMoving) {
+			[gui.selection[0] moveToXY:tapLocation];
+		}
+		return;
+	}
+
+	[gui updateSelection:tapLocation withMapScroll:viewRootNode.position andTileSize:tileSize];
 }
 
 - (void) processed:(CFTimeInterval)currentTime {
@@ -128,6 +155,39 @@
 		node = [SKSpriteNode spriteNodeWithTexture:texture];
 	}
 	return node;
+}
+
+
+- (BOOL) onBuildPlaceHitTest:(UITouch *)hitTouch mapXY:(CGPoint *)mapXY constrainedXY:(CGPoint *)constrained {
+	CGPoint inViewLocation = [hitTouch locationInNode:self];
+	CGPoint delta = *constrained;
+	delta.x -= inViewLocation.x;
+	delta.y -= inViewLocation.y;
+	inViewLocation.x -= viewRootNode.position.x;
+	inViewLocation.y -= viewRootNode.position.y;
+
+	*mapXY = isoXYtoCartXY(inViewLocation);
+	mapXY->x = ((int)(ceilf(mapXY->x / tileSize.width) + 0.0f));
+	mapXY->y = ((int)(ceilf(mapXY->y / tileSize.height) - 0.f));
+	*constrained = cartXYtoIsoXY(*mapXY);
+	constrained->x = (int)((constrained->x - 1.0f) * tileSize.width);
+	constrained->y = (int)((constrained->y + 0.f) * tileSize.height);
+	constrained->x += viewRootNode.position.x + delta.x;
+	constrained->y += viewRootNode.position.y + delta.y;
+
+	return ![[realm overlapsWith:*mapXY withDistanceOf:1.f] count];
+}
+
+- (void) guiCtlPressed:(AZRTappableSpriteNode *)ctl {
+	if ([ctl.name isEqualToString:@"map-scroll"]) {
+		ctlScrolling = !ctlScrolling;
+	}
+}
+
+- (void) guiCtlReleased:(AZRTappableSpriteNode *)ctl {
+	if ([ctl.name isEqualToString:@"map-scroll"]) {
+//		ctlScrolling = NO;
+	}
 }
 
 -(void)update:(CFTimeInterval)currentTime {

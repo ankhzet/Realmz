@@ -172,6 +172,21 @@
 	return a;
 }
 
+- (NSArray *) filterWithBlock:(AZRObjectFilterBlock)block {
+	NSMutableArray *a = [NSMutableArray array];
+	BOOL stop = NO;
+	for (AZRObject *object in allObjects)
+		if (!block(object, &stop))
+			continue;
+		else
+			if (stop)
+				break;
+			else
+				[a addObject:object];
+
+	return a;
+}
+
 - (NSArray *)inRangeOf:(CGPoint)center withDistanceOf:(float)distance {
 	distance *= distance;
 
