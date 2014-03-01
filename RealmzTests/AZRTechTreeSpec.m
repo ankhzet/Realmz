@@ -33,11 +33,15 @@ describe(@"Testing tech tree", ^{
 		[techTree addTech:tech1];
 		[techTree addTech:tech2];
 
-		[[[techTree techNamed:tech1] should] equal:tech1];
-		[[[techTree techNamed:tech2] should] equal:tech2];
-		[[[techTree techNamed:tech1] shouldNot] equal:tech2];
+		[[[techTree techNamed:techName1] shouldNot] beNil];
+		[[[techTree techNamed:techName2] shouldNot] beNil];
+		[[[techTree techNamed:techName1] should] equal:tech1];
+		[[[techTree techNamed:techName2] should] equal:tech2];
+		[[[techTree techNamed:techName1] shouldNot] equal:tech2];
 
-		[[[techTree removeTech:techName1] should] equal:tech1];
+		AZRTechnology *removed = [techTree removeTech:techName1];
+		[[removed shouldNot] beNil];
+		[[removed should] equal:tech1];
 		[[[techTree techNamed:techName1] should] beNil];
 
 		[[techTree.technologies should] haveCountOf:1];
@@ -62,6 +66,7 @@ describe(@"Testing tech tree", ^{
 		[[tech3 should] receive:@selector(isInProcess) andReturn:theValue(YES) withCountAtLeast:0];
 
 		NSDictionary *states = [techTree fetchTechStates];
+		[[states shouldNot] beNil];
 		[[states should] haveCountOf:3];
 
 		NSArray *normal = states[@(AZRTechnologyStateNormal)];
@@ -73,16 +78,16 @@ describe(@"Testing tech tree", ^{
 		[[inProcess should] haveCountOf:2];
 
 		[[theValue([normal containsObject:tech1]) should] beYes];
-		[[theValue([normal containsObject:tech1]) should] beNo];
-		[[theValue([normal containsObject:tech1]) should] beNo];
+		[[theValue([normal containsObject:tech2]) should] beNo];
+		[[theValue([normal containsObject:tech3]) should] beNo];
 
 		[[theValue([unavailable containsObject:tech1]) should] beNo];
-		[[theValue([unavailable containsObject:tech1]) should] beYes];
-		[[theValue([unavailable containsObject:tech1]) should] beNo];
+		[[theValue([unavailable containsObject:tech2]) should] beYes];
+		[[theValue([unavailable containsObject:tech3]) should] beNo];
 
 		[[theValue([inProcess containsObject:tech1]) should] beNo];
-		[[theValue([inProcess containsObject:tech1]) should] beYes];
-		[[theValue([inProcess containsObject:tech1]) should] beYes];
+		[[theValue([inProcess containsObject:tech2]) should] beYes];
+		[[theValue([inProcess containsObject:tech3]) should] beYes];
 
 	});
 
