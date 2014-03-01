@@ -50,6 +50,9 @@
 		0ABA40E218C08177003273D6 /* AZRSpriteHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40E118C08177003273D6 /* AZRSpriteHelper.m */; };
 		0ABA40E418C08218003273D6 /* AZRSpriteHelperSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40E318C08218003273D6 /* AZRSpriteHelperSpec.m */; };
 		0ABA40E718C12EB4003273D6 /* AZRMapLayerCellShortcut.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40E618C12EB4003273D6 /* AZRMapLayerCellShortcut.m */; };
+		0ABA40EA18C25E95003273D6 /* AZRTechTree.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40E918C25E94003273D6 /* AZRTechTree.m */; };
+		0ABA40EE18C25ED4003273D6 /* AZRTechTreeSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40ED18C25ED4003273D6 /* AZRTechTreeSpec.m */; };
+		0ABA40F218C260F0003273D6 /* AZRTechnology.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA40F118C260F0003273D6 /* AZRTechnology.m */; };
 		0AFE5B2018B696AB00132D94 /* AZRActionGoal.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5AD918B696AB00132D94 /* AZRActionGoal.m */; };
 		0AFE5B2118B696AB00132D94 /* AZRActionIntent.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5ADB18B696AB00132D94 /* AZRActionIntent.m */; };
 		0AFE5B2218B696AB00132D94 /* AZRActionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AFE5ADD18B696AB00132D94 /* AZRActionManager.m */; };
@@ -205,6 +208,11 @@
 		0ABA40E318C08218003273D6 /* AZRSpriteHelperSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRSpriteHelperSpec.m; sourceTree = "<group>"; };
 		0ABA40E518C12EB4003273D6 /* AZRMapLayerCellShortcut.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRMapLayerCellShortcut.h; sourceTree = "<group>"; };
 		0ABA40E618C12EB4003273D6 /* AZRMapLayerCellShortcut.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRMapLayerCellShortcut.m; sourceTree = "<group>"; };
+		0ABA40E818C25E94003273D6 /* AZRTechTree.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRTechTree.h; sourceTree = "<group>"; };
+		0ABA40E918C25E94003273D6 /* AZRTechTree.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRTechTree.m; sourceTree = "<group>"; };
+		0ABA40ED18C25ED4003273D6 /* AZRTechTreeSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRTechTreeSpec.m; sourceTree = "<group>"; };
+		0ABA40F018C260F0003273D6 /* AZRTechnology.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRTechnology.h; sourceTree = "<group>"; };
+		0ABA40F118C260F0003273D6 /* AZRTechnology.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRTechnology.m; sourceTree = "<group>"; };
 		0AFE5AD818B696AB00132D94 /* AZRActionGoal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActionGoal.h; sourceTree = "<group>"; };
 		0AFE5AD918B696AB00132D94 /* AZRActionGoal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRActionGoal.m; sourceTree = "<group>"; };
 		0AFE5ADA18B696AB00132D94 /* AZRActionIntent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRActionIntent.h; sourceTree = "<group>"; };
@@ -425,6 +433,7 @@
 			children = (
 				0AFE5B7C18B6999500132D94 /* AZRRealmSpec.m */,
 				0ABA40E318C08218003273D6 /* AZRSpriteHelperSpec.m */,
+				0ABA40EF18C25EDE003273D6 /* Tech tree */,
 				0ABA407A18BE63D0003273D6 /* Map */,
 				0AFE5B8C18B699CF00132D94 /* Objects */,
 				0AFE5B8A18B699A400132D94 /* Logic */,
@@ -487,6 +496,25 @@
 			name = "GUI Renderer";
 			sourceTree = "<group>";
 		};
+		0ABA40EB18C25EAB003273D6 /* Tech tree */ = {
+			isa = PBXGroup;
+			children = (
+				0ABA40E818C25E94003273D6 /* AZRTechTree.h */,
+				0ABA40E918C25E94003273D6 /* AZRTechTree.m */,
+				0ABA40F018C260F0003273D6 /* AZRTechnology.h */,
+				0ABA40F118C260F0003273D6 /* AZRTechnology.m */,
+			);
+			name = "Tech tree";
+			sourceTree = "<group>";
+		};
+		0ABA40EF18C25EDE003273D6 /* Tech tree */ = {
+			isa = PBXGroup;
+			children = (
+				0ABA40ED18C25ED4003273D6 /* AZRTechTreeSpec.m */,
+			);
+			name = "Tech tree";
+			sourceTree = "<group>";
+		};
 		0AFE5ACA18B695B700132D94 /* UI */ = {
 			isa = PBXGroup;
 			children = (
@@ -507,6 +535,7 @@
 				0A16007F18BD75520041D0D5 /* Map */,
 				0AFE5AF218B696AB00132D94 /* AZRLogger.h */,
 				0AFE5AF318B696AB00132D94 /* AZRLogger.m */,
+				0ABA40EB18C25EAB003273D6 /* Tech tree */,
 				0AFE5ACC18B695CE00132D94 /* Base objects */,
 				0AFE5ACD18B695EB00132D94 /* Actors */,
 				0AFE5ACE18B695F400132D94 /* Actions */,
@@ -1052,6 +1081,7 @@
 				0A16007E18BD754D0041D0D5 /* AZRMap.m in Sources */,
 				0AFE5B3B18B696AB00132D94 /* AZRObjectClassDescriptionManager.m in Sources */,
 				0AFE5B2A18B696AB00132D94 /* AZRGoalPropertySelector.m in Sources */,
+				0ABA40EA18C25E95003273D6 /* AZRTechTree.m in Sources */,
 				0AFE5B4118B696AB00132D94 /* AZRScheduledGoal.m in Sources */,
 				0AFE5BE818BCB52D00132D94 /* AZRMapLayer.m in Sources */,
 				0AFE5B3318B696AB00132D94 /* AZRNormalGoal.m in Sources */,
@@ -1071,6 +1101,7 @@
 				0AFE5B3018B696AB00132D94 /* AZRMainViewController.m in Sources */,
 				0AFE5B2018B696AB00132D94 /* AZRActionGoal.m in Sources */,
 				0AFE5B3618B696AB00132D94 /* AZRObject+BuildingsActions.m in Sources */,
+				0ABA40F218C260F0003273D6 /* AZRTechnology.m in Sources */,
 				0AFE5B3C18B696AB00132D94 /* AZRObjectProperty.m in Sources */,
 				0AFE5B4318B696AB00132D94 /* AZRStateGoal.m in Sources */,
 				0AFE5B2918B696AB00132D94 /* AZRGoalCriticalCriteria.m in Sources */,
@@ -1095,6 +1126,7 @@
 				0AFE5B8618B6999500132D94 /* AZRObjectDescriptionSpec.m in Sources */,
 				0ABA407918BE63CC003273D6 /* AZRMapLoaderSpec.m in Sources */,
 				0AFE5B8018B6999500132D94 /* AZRGoalPropertySelectorSpec.m in Sources */,
+				0ABA40EE18C25ED4003273D6 /* AZRTechTreeSpec.m in Sources */,
 				0AFE5B8418B6999500132D94 /* AZRObjectActionSpec.m in Sources */,
 				0AFE5B8518B6999500132D94 /* AZRObjectDescriptionManagerSpec.m in Sources */,
 				0AFE5B8918B6999500132D94 /* AZRScheduledGoalSpec.m in Sources */,
