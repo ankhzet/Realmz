@@ -8,6 +8,8 @@
 
 #import "AZRTechTree.h"
 #import "AZRTechnology.h"
+#import "AZRInGameResourceManager.h"
+#import "AZRInGameResource.h"
 
 @implementation AZRTechTree
 @synthesize technologies = _technologies;
@@ -15,7 +17,6 @@
 #pragma mark - Instantiation
 
 + (instancetype) techTree {
-
 	return [[self alloc] init];
 }
 
@@ -37,11 +38,8 @@
  @summary Process tech-tree. All techs will be re-calced for their availability, in-process techs will be processed.
  */
 - (void) process:(NSTimeInterval)lastTick {
-
 	for (AZRTechnology *tech in [_technologies allValues]) {
-    [tech calcAvailability];
-		if ([tech isInProcess])
-			[tech process:lastTick];
+		[tech process:lastTick];
 	}
 }
 
@@ -49,6 +47,7 @@
 
 - (void) addTech:(AZRTechnology *)technology {
 	_technologies[technology.name] = technology;
+	technology.techTree = self;
 }
 
 - (AZRTechnology *) techNamed:(NSString *)techName {
@@ -63,25 +62,138 @@
 }
 
 - (NSDictionary *) fetchTechStates {
-	NSMutableArray *normal = [NSMutableArray array];
-	NSMutableArray *unavailable = [NSMutableArray array];
-	NSMutableArray *inprocess = [NSMutableArray array];
-	NSDictionary *fetch =
-	@{
-		@(AZRTechnologyStateNormal): normal,
-		@(AZRTechnologyStateUnavailable): unavailable,
-		@(AZRTechnologyStateInProcess): inprocess,
-		};
-
+	NSNumber *normalState = @(AZRTechnologyStateNormal);
+	NSArray *states =
+	@[
+		normalState,
+		@(AZRTechnologyStateNotImplementable),
+		@(AZRTechnologyStateImplemented),
+		@(AZRTechnologyStateUnavailable),
+		@(AZRTechnologyStateInProcess),
+		];
+	NSMutableDictionary *fetch = [NSMutableDictionary dictionary];
+	for (NSNumber *state in states) {
+    fetch[state] = [NSMutableArray array];
+	}
 	for (AZRTechnology *tech in [_technologies allValues]) {
-		BOOL isUnavailable = [tech isUnavailable];
-		BOOL isInProcess = [tech isInProcess];
-		if (isUnavailable) [unavailable addObject:tech];
-		if (isInProcess) [inprocess addObject:tech];
-		if (!(isInProcess || isUnavailable)) [normal addObject:tech];
+    int used = 0;
+		for (NSNumber *state in states) {
+			if (TEST_BIT(tech.state, [state integerValue])) {
+				used++;
+				[fetch[state] addObject:tech];
+			}
+		}
+		if (!used) {
+			[fetch[normalState] addObject:tech];
+		}
+	}
+
+	return fetch;
+}
+
+
+- (NSArray *) fetchTechDependencies:(AZRTechnology *)tech {
+	NSMutableArray *fetch = [NSMutableArray array];
+	for (AZRTechnology *testTech in [_technologies allValues]) {
+    if ([testTech isDependentOf:tech]) {
+			[fetch addObject:testTech];
+		}
 	}
 	return fetch;
 }
 
+#pragma mark - Resources
+
+- (BOOL) isResourceAvailable:(AZRTechResource *)techResource {
+	switch (techResource.type) {
+		case AZRTechResourceTypeResource:
+		{
+			AZRInGameResource *resource = [_resourceManager resourceNamed:techResource.resource];
+			return resource && [resource enoughtResource:techResource.amount];
+		}
+		case AZRTechResourceTypeTech:
+		{
+			AZRTechnology *tech = [self techNamed:techResource.resource];
+			return tech && [tech isImplemented];
+		}
+		case AZRTechResourceTypeUnit:
+		{
+			//TODO: unit resource availablility check
+			return NO;
+		}
+	}
+	// unknown resource? O_o
+	return NO;
+}
+
+- (BOOL) drainResource:(AZRTechResource *)techResource targeted:(id)target {
+	switch (techResource.handler) {
+		case AZRResourceHandlerTargeted:
+			if (!target) {
+				return NO;
+			}
+			break;
+		default:
+			break;
+	}
+
+	switch (techResource.type) {
+		case AZRTechResourceTypeResource:
+		{
+			AZRInGameResource *resource = [_resourceManager resourceNamed:techResource.resource];
+			if (resource && [resource enoughtResource:techResource.amount]) {
+				[resource addAmount:-techResource.amount];
+			} else
+				return NO;
+		}
+		case AZRTechResourceTypeTech:
+		{
+			AZRTechnology *tech = [self techNamed:techResource.resource];
+			if (tech) {
+				[tech forceImplemented:NO];
+			} else
+				return NO;
+		}
+		default:
+			return NO;
+	}
+
+	return YES;
+}
+
+- (BOOL) gainResource:(AZRTechResource *)techResource targeted:(id)target {
+	switch (techResource.handler) {
+		case AZRResourceHandlerTargeted:
+			if (!target) {
+				return NO;
+			}
+			break;
+		default:
+			break;
+	}
+
+	switch (techResource.type) {
+		case AZRTechResourceTypeResource:
+		{
+			AZRInGameResource *resource = [_resourceManager resourceNamed:techResource.resource];
+			if (resource && [resource enoughtResource:techResource.amount]) {
+				[resource addAmount:techResource.amount];
+			} else
+				return NO;
+		}
+		case AZRTechResourceTypeTech:
+		{
+			AZRTechnology *tech = [self techNamed:techResource.resource];
+			if (tech) {
+				[tech forceImplemented:YES];
+			} else
+				return NO;
+		}
+		default:
+			return NO;
+	}
+
+	return YES;
+}
 
 @end

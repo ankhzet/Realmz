@@ -7,6 +7,7 @@
 //
 
 #import "AZRUnifiedResource.h"
+#import "AZRTechResource.h"
 
 typedef NS_ENUM(NSUInteger, AZRTechnologyState) {
 	// normal, unimplemented tech
@@ -17,48 +18,62 @@ typedef NS_ENUM(NSUInteger, AZRTechnologyState) {
 	AZRTechnologyStateInProcess        = 1 << 2,
 	// not all of required techs are implemented
 	AZRTechnologyStateNotImplementable = 1 << 3,
+	// implemented tech
+	AZRTechnologyStateImplemented      = 1 << 4,
 };
 
 @class AZRTechTree;
 @interface AZRTechnology : AZRUnifiedResource
 
-@property (nonatomic) AZRTechTree *techTree;
+@property (nonatomic) NSString *summary;
+@property (nonatomic) NSString *author;
+@property (nonatomic) NSString *version;
+
+@property (nonatomic, weak) AZRTechTree *techTree;
+@property (nonatomic) AZRTechnologyState state;
+@property (nonatomic) NSArray *requiredTechs;
+@property (nonatomic) NSUInteger multiple;
+@property (nonatomic) float iterationTime;
+@property (nonatomic) BOOL final;
+@property (nonatomic) NSArray *iterations;
 
 + (instancetype) technology:(NSString *)techName inTechTree:(AZRTechTree *)techsTree;
+- (id)initWithName:(NSString *)techName;
 
-/*!
- @brief Checks required techs implementation state.
- @return Returns YES if all required techs implemented, NO otherwise.
- */
+- (BOOL) implement:(BOOL)implement withTarget:(id)target;
+
+/* **************** State ******************************* */
+
 - (BOOL) isImplementable;
-
-/*!
- @brief Returns YES if implemented.
- */
 - (BOOL) isImplemented;
-
-/*!
- @brief Returns YES if not implementable or not enought resources.
- */
 - (BOOL) isUnavailable;
-
-/*!
- @brief Returns YES if in process of implementation.
- */
 - (BOOL) isInProcess;
 
-/*!
- @brief Add tech, required for implementation.
- @return Returns corresponding tech, if finded in tech tree.
- */
+- (void) forceImplementable:(BOOL)implementable;
+- (void) forceImplemented:(BOOL)implemented;
+- (void) forceUnavailable:(BOOL)unavailable;
+- (void) forceInProcess:(BOOL)inProcess;
+
+
+/* **************** Dependencies ************************ */
+
 - (AZRTechnology *) addRequired:(NSString *)techName;
-
-/*!
- @brief Fetch all techs, dependant from message-receiver tech.
- */
+- (BOOL) isDependentOf:(AZRTechnology *)tech;
 - (NSArray *) fetchDependent;
+- (void) dependency:(AZRTechnology *)tech implemented:(BOOL)implemented;
 
-- (BOOL) calcAvailability;
+
+/* **************** Drains & gains ********************** */
+
+- (AZRTechResource *) addDrain:(AZRTechResourceType)resourceName;
+- (NSArray *) getDrained:(AZRTechResourceType)resourceType;
+
+- (AZRTechResource *) addGain:(AZRTechResourceType)resourceName;
+- (NSArray *) getGained:(AZRTechResourceType)resourceType;
+
+
+/* **************** Processing ************************** */
+
 - (void) process:(NSTimeInterval)lastTick;
 
 @end

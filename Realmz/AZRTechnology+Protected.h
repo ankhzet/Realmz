@@ -11,17 +11,23 @@
 #import "AZRTechnology.h"
 
 @interface AZRTechnology ()
-@property (nonatomic) AZRTechnologyState state;
 
+@property (nonatomic) NSMutableDictionary *drains;
+@property (nonatomic) NSMutableDictionary *gains;
 
 @end
 
 @interface AZRTechnology (Protected)
 
-- (void) preImplement;
-- (void) postImplement;
-- (void) revertPreImplement;
+- (BOOL) calcAvailability;
 
-- (void) dependencyImplemented:(AZRTechnology *)requiredTech;
+
+- (BOOL) preImplement:(id)target;
+- (void) postImplement:(id)target;
+- (void) revertPreImplement:(id)target;
+
+- (void) pushIteration:(id)target;
+
+- (void) processProgress:(NSTimeInterval)lastTick;
 
 @end

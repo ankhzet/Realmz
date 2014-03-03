@@ -7,10 +7,12 @@
 //
 
 #import "AZRUnifiedResource.h"
+#import "AZRTechLoader.h"
 
-@class AZRTechnology;
-@interface AZRTechTree : AZRUnifiedResource
+@class AZRTechnology, AZRTechResource, AZRInGameResourceManager;
+@interface AZRTechTree : NSObject
 
+@property (nonatomic, weak) AZRInGameResourceManager *resourceManager;
 @property (nonatomic) NSMutableDictionary *technologies;
 
 /*! @brief Instantiating tech tree.*/
@@ -27,5 +29,12 @@
 
 /*! @brief Returns all techs, groupped by their states. */
 - (NSDictionary *) fetchTechStates;
+
+- (NSArray *) fetchTechDependencies:(AZRTechnology *)tech;
+
+- (BOOL) isResourceAvailable:(AZRTechResource *)techResource;
+
+- (BOOL) drainResource:(AZRTechResource *)techResource targeted:(id)target;
+- (BOOL) gainResource:(AZRTechResource *)techResource targeted:(id)target;
 
 @end
