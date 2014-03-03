@@ -1,0 +1,43 @@
+@start = tech;
+
+tech = 'tech'! techName techDetails;
+techName = string;
+
+string = QuotedString;
+numeric = Number;
+value = string | numeric | vector;
+vector = '[' (value (','! value)*) ? ']'!;
+
+techDetails = '{'! attribute* '}'!;
+
+attribute = techAttribute | subDetail;
+
+techAttribute = (author | version | summary | multiple | implementFor | final) ';'!;
+author = 'author'! string;
+version = 'version'! string;
+summary = 'description'! string;
+multiple = 'multiple'! numeric;
+implementFor = 'implement-for'! numeric;
+final = 'final'!;
+
+subDetail = drains | gains;
+
+drains = 'drains'! '{'! resources '}'!;
+gains = 'gains'! '{'! resources '}'!;
+
+resources = (resource*);
+
+resource = resourceAttribute? resourceType resourceName (':'! resourceAmount)? ';'!;
+
+resourceAttribute = resourceTargeted | resourceReplace;
+resourceTargeted = 'targeted'!;
+resourceReplace = 'replace'!;
+
+resourceType = resourceTypeResource | resourceTypeTech | resourceTypeUnit;
+resourceTypeResource = 'resource'!;
+resourceTypeTech = 'tech'!;
+resourceTypeUnit = 'unit'!;
+
+resourceName = string;
+
+resourceAmount = numeric;

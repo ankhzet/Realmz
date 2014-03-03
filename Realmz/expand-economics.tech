@@ -1,0 +1,18 @@
+tech "expand-economics" {
+	author "Ankh";
+	version "1.0";
+	description "Expand economics";
+	
+	multiple 1;
+	implement-for 120; // in seconds
+	final; // means "can't be re-implemented"
+
+	drains {
+		resource "gold": 100;
+		resource "wood": 100;
+		resource "food": 100;
+	}
+	
+	gains {
+	}
+}

@@ -1,0 +1,12 @@
+tech "tech-tree-3-required" {
+	author "Ankh";
+	version "1.0";
+	description "stub";
+	
+	// this tech is required for tech 3 brunch
+	// can be consumed by another 2 tech branches
+	
+	multiple 0;
+	implement-for 0;
+	final;
+}
