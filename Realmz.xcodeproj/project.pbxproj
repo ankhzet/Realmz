@@ -13,6 +13,10 @@
 		0A05070118C4F6CF00A4CFAA /* AZRInGameResourceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A0506FE18C4F6CF00A4CFAA /* AZRInGameResourceManager.m */; };
 		0A05070318C4F76600A4CFAA /* AZRInGameResourceControllerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05070218C4F76600A4CFAA /* AZRInGameResourceControllerSpec.m */; };
 		0A05070618C4F86700A4CFAA /* AZRInGameResource+Protected.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05070518C4F86700A4CFAA /* AZRInGameResource+Protected.m */; };
+		0A05070C18C695A800A4CFAA /* AZRGame.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05070B18C695A800A4CFAA /* AZRGame.m */; };
+		0A05071018C695C100A4CFAA /* AZRPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05070F18C695C100A4CFAA /* AZRPlayer.m */; };
+		0A05071318C695CF00A4CFAA /* AZRPlayerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05071218C695CF00A4CFAA /* AZRPlayerState.m */; };
+		0A05071518C695EE00A4CFAA /* AZRGameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05071418C695EE00A4CFAA /* AZRGameSpec.m */; };
 		0A16007B18BD237A0041D0D5 /* tileset.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0A16007A18BD237A0041D0D5 /* tileset.atlas */; };
 		0A16007E18BD754D0041D0D5 /* AZRMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A16007D18BD754D0041D0D5 /* AZRMap.m */; };
 		0A16008218BD75640041D0D5 /* AZRMapChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A16008118BD75640041D0D5 /* AZRMapChunk.m */; };
@@ -183,6 +187,13 @@
 		0A05070218C4F76600A4CFAA /* AZRInGameResourceControllerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRInGameResourceControllerSpec.m; sourceTree = "<group>"; };
 		0A05070418C4F86700A4CFAA /* AZRInGameResource+Protected.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AZRInGameResource+Protected.h"; sourceTree = "<group>"; };
 		0A05070518C4F86700A4CFAA /* AZRInGameResource+Protected.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AZRInGameResource+Protected.m"; sourceTree = "<group>"; };
+		0A05070A18C695A800A4CFAA /* AZRGame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRGame.h; sourceTree = "<group>"; };
+		0A05070B18C695A800A4CFAA /* AZRGame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGame.m; sourceTree = "<group>"; };
+		0A05070E18C695C100A4CFAA /* AZRPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRPlayer.h; sourceTree = "<group>"; };
+		0A05070F18C695C100A4CFAA /* AZRPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPlayer.m; sourceTree = "<group>"; };
+		0A05071118C695CF00A4CFAA /* AZRPlayerState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRPlayerState.h; sourceTree = "<group>"; };
+		0A05071218C695CF00A4CFAA /* AZRPlayerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPlayerState.m; sourceTree = "<group>"; };
+		0A05071418C695EE00A4CFAA /* AZRGameSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGameSpec.m; sourceTree = "<group>"; };
 		0A16007A18BD237A0041D0D5 /* tileset.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = tileset.atlas; sourceTree = "<group>"; };
 		0A16007C18BD754D0041D0D5 /* AZRMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRMap.h; sourceTree = "<group>"; };
 		0A16007D18BD754D0041D0D5 /* AZRMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRMap.m; sourceTree = "<group>"; };
@@ -429,6 +440,19 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		0A05070D18C695B000A4CFAA /* Game */ = {
+			isa = PBXGroup;
+			children = (
+				0A05070A18C695A800A4CFAA /* AZRGame.h */,
+				0A05070B18C695A800A4CFAA /* AZRGame.m */,
+				0A05070E18C695C100A4CFAA /* AZRPlayer.h */,
+				0A05070F18C695C100A4CFAA /* AZRPlayer.m */,
+				0A05071118C695CF00A4CFAA /* AZRPlayerState.h */,
+				0A05071218C695CF00A4CFAA /* AZRPlayerState.m */,
+			);
+			name = Game;
+			sourceTree = "<group>";
+		};
 		0A16007F18BD75520041D0D5 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -511,6 +535,7 @@
 			children = (
 				0AFE5B7C18B6999500132D94 /* AZRRealmSpec.m */,
 				0ABA40E318C08218003273D6 /* AZRSpriteHelperSpec.m */,
+				0A05071418C695EE00A4CFAA /* AZRGameSpec.m */,
 				0ABA40EF18C25EDE003273D6 /* Tech tree */,
 				0A0506F418C4F65900A4CFAA /* Resources */,
 				0ABA407A18BE63D0003273D6 /* Map */,
@@ -665,6 +690,7 @@
 			children = (
 				0ABA407518BE56BC003273D6 /* AZRUnifiedResource.h */,
 				0ABA407618BE56BC003273D6 /* AZRUnifiedResource.m */,
+				0A05070D18C695B000A4CFAA /* Game */,
 				0AFE5B8D18BC346F00132D94 /* Render */,
 				0AFE5B1618B696AB00132D94 /* AZRRealm.h */,
 				0AFE5B1718B696AB00132D94 /* AZRRealm.m */,
@@ -1220,8 +1246,10 @@
 				0A05070018C4F6CF00A4CFAA /* AZRInGameResourceController.m in Sources */,
 				0AFE5B3718B696AB00132D94 /* AZRObject+PeasantActions.m in Sources */,
 				0A28215518C4180500D88DAA /* AZRTechLoader.m in Sources */,
+				0A05071018C695C100A4CFAA /* AZRPlayer.m in Sources */,
 				0A5ECB9718B685A0000C7387 /* AppDelegate.m in Sources */,
 				0AFE5B2C18B696AB00132D94 /* AZRGoalTreeLoader.m in Sources */,
+				0A05071318C695CF00A4CFAA /* AZRPlayerState.m in Sources */,
 				0ABA40E718C12EB4003273D6 /* AZRMapLayerCellShortcut.m in Sources */,
 				0ADDAC5F18C2B2E000356E1E /* AZRTechResource.m in Sources */,
 				0ABA40DC18C052C0003273D6 /* AZRGUIActionsRenderer.m in Sources */,
@@ -1249,6 +1277,7 @@
 				0AFE5B2818B696AB00132D94 /* AZRClassDescriptionLoader.m in Sources */,
 				0AFE5B2B18B696AB00132D94 /* AZRGoalTargetSelector.m in Sources */,
 				0AFE5B2618B696AB00132D94 /* AZRActorNeed.m in Sources */,
+				0A05070C18C695A800A4CFAA /* AZRGame.m in Sources */,
 				0AFE5B3F18B696AB00132D94 /* AZRRealm.m in Sources */,
 				0AFE5B2D18B696AB00132D94 /* AZRLogger.m in Sources */,
 				0AFE5B2218B696AB00132D94 /* AZRActionManager.m in Sources */,
@@ -1293,6 +1322,7 @@
 				0AFE5B8518B6999500132D94 /* AZRObjectDescriptionManagerSpec.m in Sources */,
 				0AFE5B8918B6999500132D94 /* AZRScheduledGoalSpec.m in Sources */,
 				0AFE5B8818B6999500132D94 /* AZRRealmSpec.m in Sources */,
+				0A05071518C695EE00A4CFAA /* AZRGameSpec.m in Sources */,
 				0ADDAC6518C3C9A600356E1E /* AZRTechIterationSpec.m in Sources */,
 				0ADDAC4318C27CAE00356E1E /* AZRTechnologySpec.m in Sources */,
 				0AFE5B7F18B6999500132D94 /* AZRDescriptionBuilderSpec.m in Sources */,
