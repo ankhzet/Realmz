@@ -84,23 +84,22 @@ describe(@"Testing tech tree", ^{
 		AZRTechnology *tech2 = [techTree techNamed:techName2];
 		AZRTechnology *tech3 = [techTree techNamed:techName3];
 
-		[[tech1 should] receive:@selector(isUnavailable) andReturn:theValue(NO) withCountAtLeast:0];
-		[[tech2 should] receive:@selector(isUnavailable) andReturn:theValue(YES) withCountAtLeast:0];
-		[[tech3 should] receive:@selector(isUnavailable) andReturn:theValue(NO) withCountAtLeast:0];
-		[[tech1 should] receive:@selector(isInProcess) andReturn:theValue(NO) withCountAtLeast:0];
-		[[tech2 should] receive:@selector(isInProcess) andReturn:theValue(YES) withCountAtLeast:0];
-		[[tech3 should] receive:@selector(isInProcess) andReturn:theValue(YES) withCountAtLeast:0];
+		[[tech1 should] receive:@selector(state) andReturn:theValue(AZRTechnologyStateNormal) withCountAtLeast:0];
+		[[tech2 should] receive:@selector(state) andReturn:theValue(AZRTechnologyStateUnavailable | AZRTechnologyStateInProcess) withCountAtLeast:0];
+		[[tech3 should] receive:@selector(state) andReturn:theValue(AZRTechnologyStateInProcess | AZRTechnologyStateNotImplementable) withCountAtLeast:0];
 
 		NSDictionary *states = [techTree fetchTechStates];
 		[[states shouldNot] beNil];
-		[[states should] haveCountOf:3];
+		[[states should] haveCountOf:5];
 
 		NSArray *normal = states[@(AZRTechnologyStateNormal)];
 		NSArray *unavailable = states[@(AZRTechnologyStateUnavailable)];
 		NSArray *inProcess = states[@(AZRTechnologyStateInProcess)];
+		NSArray *notImplementable = states[@(AZRTechnologyStateNotImplementable)];
 
 		[[normal should] haveCountOf:1];
 		[[unavailable should] haveCountOf:1];
+		[[notImplementable should] haveCountOf:1];
 		[[inProcess should] haveCountOf:2];
 
 		[[theValue([normal containsObject:tech1]) should] beYes];

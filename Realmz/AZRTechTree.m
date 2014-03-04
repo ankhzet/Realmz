@@ -65,20 +65,21 @@
 	NSNumber *normalState = @(AZRTechnologyStateNormal);
 	NSArray *states =
 	@[
-		normalState,
 		@(AZRTechnologyStateNotImplementable),
 		@(AZRTechnologyStateImplemented),
 		@(AZRTechnologyStateUnavailable),
 		@(AZRTechnologyStateInProcess),
 		];
 	NSMutableDictionary *fetch = [NSMutableDictionary dictionary];
+	fetch[normalState] = [NSMutableArray array];
 	for (NSNumber *state in states) {
     fetch[state] = [NSMutableArray array];
 	}
 	for (AZRTechnology *tech in [_technologies allValues]) {
     int used = 0;
 		for (NSNumber *state in states) {
-			if (TEST_BIT(tech.state, [state integerValue])) {
+			AZRTechnologyState stateBit = (AZRTechnologyState)[state integerValue];
+			if (TEST_BIT(tech.state, stateBit)) {
 				used++;
 				[fetch[state] addObject:tech];
 			}
