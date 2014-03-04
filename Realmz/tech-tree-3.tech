@@ -1,0 +1,20 @@
+tech "tech-tree-3" {
+	author "Ankh";
+	version "1.0";
+	description "Tech tree 3";
+	
+	// this tech is pass-thru for "Tech 3" tech brunch
+	
+	multiple 1;
+	implement-for 5;
+	final;
+
+	drains {
+		resource "gold": 150;
+		tech "tech-tree-1-reqired";
+		tech "tech-tree-2-reqired";
+	}
+	
+	gains {
+	}
+}
