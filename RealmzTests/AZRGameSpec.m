@@ -30,6 +30,7 @@ describe(@"AZRGame", ^{
 		AZRPlayer *player1 = [game newPlayer];
 		[[player1 shouldNot] beNil];
 		[[player1 should] beKindOfClass:[AZRPlayer class]];
+		[[player1.game should] equal:game];
 
 		AZRPlayer *player2 = [game newPlayer];
 		[[player2 shouldNot] beNil];
@@ -44,6 +45,9 @@ describe(@"AZRGame", ^{
 		[[theValue(player1.uid) should] equal:theValue(1)];
 		[[theValue(player2.uid) should] equal:theValue(2)];
 		[[theValue(player3.uid) should] equal:theValue(3)];
+
+		[[[game getPlayerByUID:2] should] equal:player2];
+		[[[game getPlayerByUID:5] should] beNil];
 	});
 
 	it(@"should manage game realm", ^{

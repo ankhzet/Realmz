@@ -8,9 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
-@class AZRPlayerState;
+@class AZRPlayerState, AZRGame;
 @interface AZRPlayer : NSObject
 
+@property (nonatomic, weak) AZRGame *game;
 @property (nonatomic) int uid;
 @property (nonatomic) AZRPlayerState *state;
 

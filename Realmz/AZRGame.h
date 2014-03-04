@@ -11,16 +11,17 @@
 @class AZRPlayer, AZRRealm, AZRMap;
 @interface AZRGame : NSObject
 
-@property (nonatomic) AZRMap *map;
+/*!@brief Returns game realm controller.*/
+@property (nonatomic, readonly) AZRRealm *realm;
+@property (nonatomic, readonly) AZRMap *map;
 
 /*!@brief Creates new game instance.*/
 + (instancetype) game;
 
 /*!@brief Add new player to the game.*/
 - (AZRPlayer *) newPlayer;
-
-/*!@brief Returns game realm controller.*/
-- (AZRRealm *) realm;
+/*!@brief Returns player with specified UID.*/
+- (AZRPlayer *) getPlayerByUID:(int)uid;
 
 /*!@brief Loads map for game realm.*/
 - (AZRMap *) loadMapNamed:(NSString *)mapName;
