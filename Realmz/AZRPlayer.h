@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class AZRPlayerState;
 @interface AZRPlayer : NSObject
+
+@property (nonatomic) int uid;
+@property (nonatomic) AZRPlayerState *state;
 
 @end

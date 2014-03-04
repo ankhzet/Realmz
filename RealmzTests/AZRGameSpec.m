@@ -46,20 +46,6 @@ describe(@"AZRGame", ^{
 		[[theValue(player3.uid) should] equal:theValue(3)];
 	});
 
-	it(@"should manage player states dependent on players", ^{
-		AZRGame *game = [AZRGame game];
-		AZRPlayer *player1 = [game newPlayer];
-		AZRPlayer *player2 = [game newPlayer];
-		AZRPlayer *player3 = [game newPlayer];
-
-		AZRPlayerState *state1 = [game playerState:player1];
-		AZRPlayerState *state2 = [game playerState:player2];
-		AZRPlayerState *state3 = [game playerState:player3];
-		[[state1.player should] equal:player1];
-		[[state2.player should] equal:player2];
-		[[state3.player should] equal:player3];
-	});
-
 	it(@"should manage game realm", ^{
 		AZRGame *game = [AZRGame game];
 		AZRRealm *realm = [game realm];
@@ -68,12 +54,11 @@ describe(@"AZRGame", ^{
 
 	it(@"should manage game map", ^{
 		AZRGame *game = [AZRGame game];
-		AZRMap *map = [game map];
-		[[map should] beNil];
+		[[game.map should] beNil];
 
-		map = [game loadMapNamed:@"map01"];
+		AZRMap *map = [game loadMapNamed:@"map01"];
 		[[map shouldNot] beNil];
-		[[map should] equal:[game map]];
+		[[map should] equal:game.map];
 	});
 });
 

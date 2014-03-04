@@ -7,7 +7,31 @@
 //
 
 #import "AZRGame.h"
+#import "AZRPlayer.h"
+#import "AZRPlayerState.h"
+#import "AZRRealm.h"
+#import "AZRMap.h"
 
 @implementation AZRGame
+
+#pragma mark - Instantiation
+
++ (instancetype) game {
+}
+
+#pragma mark - Players
+
+- (AZRPlayer *) newPlayer {
+}
+
+#pragma mark - Realm
+
+- (AZRRealm *) realm {
+}
+
+#pragma mark - Map
+
+- (AZRMap *) loadMapNamed:(NSString *)mapName {
+}
 
 @end

@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class AZRPlayer;
 @interface AZRPlayerState : NSObject
+
+@property (nonatomic) AZRPlayer *player;
 
 @end
