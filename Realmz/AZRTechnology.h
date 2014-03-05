@@ -23,7 +23,7 @@ typedef NS_ENUM(NSUInteger, AZRTechnologyState) {
 };
 
 @class AZRTechTree;
-@interface AZRTechnology : AZRUnifiedResource
+@interface AZRTechnology : AZRUnifiedResource  <NSCopying>
 
 @property (nonatomic) NSString *summary;
 @property (nonatomic) NSString *author;

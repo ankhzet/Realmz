@@ -40,6 +40,20 @@
 	return self;
 }
 
+-(id) copyWithZone:(NSZone *)zone {
+	AZRTechnology *tech = [self initWithName:self.name];
+	tech.summary = self.summary;
+	tech.author = self.author;
+	tech.version = self.version;
+
+	tech.state = self.state;
+	tech.multiple = self.multiple;
+	tech.final = self.final;
+	tech.iterationTime = self.iterationTime;
+
+	return tech;
+}
+
 #pragma mark - Tech state
 
 /*!
@@ -111,7 +125,14 @@
 	AZRTechnology *tech = [_techTree techNamed:techName];
 	if (tech) {
 		[self dependency:tech implemented:[tech isImplemented]];
-		if (![_requiredTechs containsObject:tech])
+		BOOL alreadyRequired = NO;
+		for (NSValue *holder in _requiredTechs) {
+			if ([holder nonretainedObjectValue] == tech) {
+				alreadyRequired = YES;
+				break;
+			}
+		}
+		if (!alreadyRequired)
 			[(NSMutableArray *) _requiredTechs addObject:[NSValue valueWithNonretainedObject:tech]];
 	}
 

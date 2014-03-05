@@ -1,0 +1,15 @@
+tech "tech-tree01" {
+	author "Ankh";
+	version "1.0";
+	description "Common tech tree for demo level 1";
+	
+	multiple 1;
+	implement-for 0;
+	final;
+
+	drains {
+	}
+	
+	gains {
+	}
+}

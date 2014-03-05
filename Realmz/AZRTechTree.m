@@ -32,6 +32,22 @@
 	return [self techTree];
 }
 
+- (id) copyWithZone:(NSZone *)zone {
+	AZRTechTree *instance = [AZRTechTree techTree];
+	for (AZRTechnology *tech in [_technologies allValues]) {
+		AZRTechnology *copy = [tech copy];
+    [instance addTech:copy];
+	}
+	for (AZRTechnology *tech in [_technologies allValues]) {
+		AZRTechnology *copy = [instance techNamed:tech.name];
+    for (NSValue *holder in tech.requiredTechs) {
+			AZRTechnology *required = [holder nonretainedObjectValue];
+			[copy addRequired:required.name];
+		}
+	}
+	return instance;
+}
+
 #pragma mark - Process
 
 /*!
@@ -195,6 +211,11 @@
 	}
 
 	return YES;
+}
+
+- (BOOL) implement:(BOOL)implement tech:(NSString *)techName withTarget:(id)target {
+	AZRTechnology *tech = [self techNamed:techName];
+	return tech && [tech implement:implement withTarget:target];
 }
 
 @end

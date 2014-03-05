@@ -10,7 +10,7 @@
 #import "AZRTechLoader.h"
 
 @class AZRTechnology, AZRTechResource, AZRInGameResourceManager;
-@interface AZRTechTree : NSObject
+@interface AZRTechTree : NSObject <NSCopying>
 
 @property (nonatomic, weak) AZRInGameResourceManager *resourceManager;
 @property (nonatomic) NSMutableDictionary *technologies;
@@ -36,5 +36,7 @@
 
 - (BOOL) drainResource:(AZRTechResource *)techResource targeted:(id)target;
 - (BOOL) gainResource:(AZRTechResource *)techResource targeted:(id)target;
+
+- (BOOL) implement:(BOOL)implement tech:(NSString *)techName withTarget:(id)target;
 
 @end

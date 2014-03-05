@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AZRInGameResource.h"
 
-@interface AZRInGameResourceManager : NSObject
+@interface AZRInGameResourceManager : NSObject <NSCopying>
 
 + (instancetype) manager;
 

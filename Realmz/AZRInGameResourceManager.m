@@ -31,6 +31,14 @@
 	return [self manager];
 }
 
+- (id) copyWithZone:(NSZone *)zone  {
+	AZRInGameResourceManager *instance = [AZRInGameResourceManager manager];
+	for (AZRInGameResource *resource in [_resources allValues]) {
+    [instance addResource:resource.name controlledBy:resource.controller];
+	}
+	return instance;
+}
+
 #pragma mark - Resource managing
 
 - (AZRInGameResource *) addResource:(NSString *)resourceName {
