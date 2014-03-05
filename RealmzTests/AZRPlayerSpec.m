@@ -17,21 +17,17 @@ SPEC_BEGIN(AZRPlayerSpec)
 
 describe(@"AZRPlayer", ^{
 	it(@"should properly initialize", ^{
+		AZRPlayer *player = [AZRPlayer playerForGame:nil];
+		[[player shouldNot] beNil];
+		[[player should] beKindOfClass:[AZRPlayer class]];
 	});
 
-	it(@"should manage player states dependent on players", ^{
-		AZRGame *game = [AZRGame game];
-		AZRPlayer *player1 = [game newPlayer];
-		AZRPlayer *player2 = [game newPlayer];
-		AZRPlayer *player3 = [game newPlayer];
+	it(@"should initialize state for self", ^{
+		AZRPlayer *player = [AZRPlayer playerForGame:nil];
+		AZRPlayerState *state = player.state;
+		[[state shouldNot] beNil];
 
-		AZRPlayerState *state1 = player1.state;
-		AZRPlayerState *state2 = player2.state;
-		AZRPlayerState *state3 = player3.state;
-
-		[[state1.player should] equal:player1];
-		[[state2.player should] equal:player2];
-		[[state3.player should] equal:player3];
+		[[state.player should] equal:player];
 	});
 	
 });

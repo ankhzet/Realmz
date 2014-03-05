@@ -14,6 +14,8 @@
 #import "AZRPlayerState.h"
 #import "AZRRealm.h"
 #import "AZRMap.h"
+#import "AZRInGameResourceManager.h"
+#import "AZRTechTree.h"
 
 SPEC_BEGIN(AZRGameSpec)
 
@@ -24,6 +26,22 @@ describe(@"AZRGame", ^{
 		[[game should] beKindOfClass:[AZRGame class]];
 	});
 
+	it(@"should provide unique resource and tech managers", ^{
+		AZRGame *game = [AZRGame game];
+
+		AZRInGameResourceManager *manager1 = [game newResourcesManager];
+		AZRInGameResourceManager *manager2 = [game newResourcesManager];
+		[[manager1 shouldNot] beNil];
+		[[manager2 shouldNot] beNil];
+		[[manager1 shouldNot] equal:manager2];
+
+		AZRTechTree *techTree1 = [game newTechTree];
+		AZRTechTree *techTree2 = [game newTechTree];
+		[[techTree1 shouldNot] beNil];
+		[[techTree2 shouldNot] beNil];
+		[[techTree1 shouldNot] equal:techTree2];
+	});
+	
 	it(@"should manage players", ^{
 		AZRGame *game = [AZRGame game];
 
@@ -64,6 +82,7 @@ describe(@"AZRGame", ^{
 		[[map shouldNot] beNil];
 		[[map should] equal:game.map];
 	});
+
 });
 
 SPEC_END

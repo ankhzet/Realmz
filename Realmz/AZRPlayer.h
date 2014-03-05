@@ -11,8 +11,10 @@
 @class AZRPlayerState, AZRGame;
 @interface AZRPlayer : NSObject
 
-@property (nonatomic, weak) AZRGame *game;
+@property (nonatomic, weak, readonly) AZRGame *game;
 @property (nonatomic) int uid;
-@property (nonatomic) AZRPlayerState *state;
+@property (nonatomic, readonly) AZRPlayerState *state;
+
++ (instancetype) playerForGame:(AZRGame *)game;
 
 @end

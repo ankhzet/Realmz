@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 
-@class AZRPlayer;
+@class AZRPlayer, AZRInGameResourceManager, AZRTechTree;
 @interface AZRPlayerState : NSObject
 
-@property (nonatomic) AZRPlayer *player;
+@property (nonatomic, weak, readonly) AZRPlayer *player;
+@property (nonatomic, readonly) AZRInGameResourceManager *resourcesManager;
+@property (nonatomic, readonly) AZRTechTree *techTree;
+
++ (instancetype) stateForPlayer:(AZRPlayer *)player;
 
 @end

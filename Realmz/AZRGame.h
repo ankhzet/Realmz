@@ -9,11 +9,14 @@
 #import <Foundation/Foundation.h>
 
 @class AZRPlayer, AZRRealm, AZRMap;
+@class AZRInGameResourceManager, AZRTechTree;
 @interface AZRGame : NSObject
 
 /*!@brief Returns game realm controller.*/
 @property (nonatomic, readonly) AZRRealm *realm;
 @property (nonatomic, readonly) AZRMap *map;
+
+@property (nonatomic, readonly) NSString *techRoot;
 
 /*!@brief Creates new game instance.*/
 + (instancetype) game;
@@ -22,6 +25,12 @@
 - (AZRPlayer *) newPlayer;
 /*!@brief Returns player with specified UID.*/
 - (AZRPlayer *) getPlayerByUID:(int)uid;
+
+/*!@brief Instantiates new resources manager, which can be used by players etc.*/
+- (AZRInGameResourceManager *) newResourcesManager;
+/*!@brief Instantiates new tech manager, which can be used by players etc.*/
+- (AZRTechTree *) newTechTree;
+
 
 /*!@brief Loads map for game realm.*/
 - (AZRMap *) loadMapNamed:(NSString *)mapName;

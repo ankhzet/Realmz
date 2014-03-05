@@ -18,6 +18,8 @@
 		0A05071318C695CF00A4CFAA /* AZRPlayerState.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05071218C695CF00A4CFAA /* AZRPlayerState.m */; };
 		0A05071518C695EE00A4CFAA /* AZRGameSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05071418C695EE00A4CFAA /* AZRGameSpec.m */; };
 		0A05071718C69A6200A4CFAA /* AZRPlayerSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05071618C69A6200A4CFAA /* AZRPlayerSpec.m */; };
+		0A05071A18C6A2F700A4CFAA /* AZRPlayerStateSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A05071918C6A2F700A4CFAA /* AZRPlayerStateSpec.m */; };
+		0A05071C18C6AB1100A4CFAA /* tech-tree01.tech in Resources */ = {isa = PBXBuildFile; fileRef = 0A05071B18C6AB1100A4CFAA /* tech-tree01.tech */; };
 		0A16007B18BD237A0041D0D5 /* tileset.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 0A16007A18BD237A0041D0D5 /* tileset.atlas */; };
 		0A16007E18BD754D0041D0D5 /* AZRMap.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A16007D18BD754D0041D0D5 /* AZRMap.m */; };
 		0A16008218BD75640041D0D5 /* AZRMapChunk.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A16008118BD75640041D0D5 /* AZRMapChunk.m */; };
@@ -196,6 +198,8 @@
 		0A05071218C695CF00A4CFAA /* AZRPlayerState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPlayerState.m; sourceTree = "<group>"; };
 		0A05071418C695EE00A4CFAA /* AZRGameSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRGameSpec.m; sourceTree = "<group>"; };
 		0A05071618C69A6200A4CFAA /* AZRPlayerSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPlayerSpec.m; sourceTree = "<group>"; };
+		0A05071918C6A2F700A4CFAA /* AZRPlayerStateSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRPlayerStateSpec.m; sourceTree = "<group>"; };
+		0A05071B18C6AB1100A4CFAA /* tech-tree01.tech */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tech-tree01.tech"; sourceTree = "<group>"; };
 		0A16007A18BD237A0041D0D5 /* tileset.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = tileset.atlas; sourceTree = "<group>"; };
 		0A16007C18BD754D0041D0D5 /* AZRMap.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRMap.h; sourceTree = "<group>"; };
 		0A16007D18BD754D0041D0D5 /* AZRMap.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRMap.m; sourceTree = "<group>"; };
@@ -455,6 +459,16 @@
 			name = Game;
 			sourceTree = "<group>";
 		};
+		0A05071818C6A07900A4CFAA /* Game state */ = {
+			isa = PBXGroup;
+			children = (
+				0A05071418C695EE00A4CFAA /* AZRGameSpec.m */,
+				0A05071618C69A6200A4CFAA /* AZRPlayerSpec.m */,
+				0A05071918C6A2F700A4CFAA /* AZRPlayerStateSpec.m */,
+			);
+			name = "Game state";
+			sourceTree = "<group>";
+		};
 		0A16007F18BD75520041D0D5 /* Map */ = {
 			isa = PBXGroup;
 			children = (
@@ -537,8 +551,7 @@
 			children = (
 				0AFE5B7C18B6999500132D94 /* AZRRealmSpec.m */,
 				0ABA40E318C08218003273D6 /* AZRSpriteHelperSpec.m */,
-				0A05071418C695EE00A4CFAA /* AZRGameSpec.m */,
-				0A05071618C69A6200A4CFAA /* AZRPlayerSpec.m */,
+				0A05071818C6A07900A4CFAA /* Game state */,
 				0ABA40EF18C25EDE003273D6 /* Tech tree */,
 				0A0506F418C4F65900A4CFAA /* Resources */,
 				0ABA407A18BE63D0003273D6 /* Map */,
@@ -627,6 +640,7 @@
 		0ADDAC5118C2B0FD00356E1E /* Tech tree */ = {
 			isa = PBXGroup;
 			children = (
+				0A05071B18C6AB1100A4CFAA /* tech-tree01.tech */,
 				0ADDAC4718C2AC6F00356E1E /* build-storage.tech */,
 				0ADDAC4918C2ADB900356E1E /* update-storage.tech */,
 				0ADDAC4B18C2AEF500356E1E /* expand-economics.tech */,
@@ -1116,6 +1130,7 @@
 				0ADDAC5718C2B1BE00356E1E /* tech-tree-2-required.tech in Resources */,
 				0AFE5B6418B698DB00132D94 /* object.desc in Resources */,
 				0AFE5B6A18B698DB00132D94 /* storage.desc in Resources */,
+				0A05071C18C6AB1100A4CFAA /* tech-tree01.tech in Resources */,
 				0AFE5B6218B698DB00132D94 /* logic.grammar in Resources */,
 				0ABA408818BED075003273D6 /* tree4.desc in Resources */,
 				0ABA408418BED065003273D6 /* tree2.desc in Resources */,
@@ -1308,6 +1323,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0A05071A18C6A2F700A4CFAA /* AZRPlayerStateSpec.m in Sources */,
 				0AFE5B8318B6999500132D94 /* AZRLogicGoalSpec.m in Sources */,
 				0AFE5B7E18B6999500132D94 /* AZRActionIntentSpec.m in Sources */,
 				0AFE5B8218B6999500132D94 /* AZRGoalTreeBuilderSpec.m in Sources */,
