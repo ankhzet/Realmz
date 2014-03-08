@@ -15,9 +15,9 @@ typedef NS_ENUM(NSUInteger, AZRTechResourceType) {
 };
 
 typedef NS_ENUM(NSUInteger, AZRResourceHandler) {
-	AZRResourceHandlerNormal    = 0,
-	AZRResourceHandlerTargeted  = 1 << 0,
-	AZRResourceHandlerReplacer  = 1 << 1,
+	AZRResourceHandlerNormal   = 0,
+	AZRResourceHandlerOnMap    = 1 << 0,
+	AZRResourceHandlerProvider = 1 << 1,
 };
 
 @interface AZRTechResource : NSObject

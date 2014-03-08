@@ -72,9 +72,16 @@
 	return self->allObjects;
 }
 
+- (void) killObject:(AZRObject *)object {
+	object->alive = NO;
+	[deadObjects addObject:object];
+}
+
+
 - (BOOL) process {
 	[self->allActors removeObjectsInArray:self->deadObjects];
 	[self->allObjects removeObjectsInArray:self->deadObjects];
+	[deadObjects removeAllObjects];
 	
 	BOOL empty = ![self->allObjects count];
 	

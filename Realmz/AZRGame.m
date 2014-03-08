@@ -40,8 +40,9 @@
 	if (!(self = [super init]))
 		return self;
 
-	players = [NSMutableDictionary dictionary];
 	_techRoot = @"tech-tree01";
+	players = [NSMutableDictionary dictionary];
+	[self newPlayer];//create human-controlled player
 
 	return self;
 }
@@ -58,6 +59,11 @@
 - (AZRPlayer *) getPlayerByUID:(int)uid {
 	return players[@(uid)];
 }
+
+- (AZRPlayer *) getHumanPlayer {
+	return [self getPlayerByUID:HUMAN_PLAYER];
+}
+
 
 - (AZRInGameResourceManager *) newResourcesManager {
 	return [[self commonResourcesManager] copy];
@@ -80,8 +86,8 @@
 
 - (AZRTechTree *) commonTechTree {
 	if (!commonTechTree) {
-		commonTechTree = [AZRTechTree techTree];
-		[AZRTechnology technology:_techRoot inTechTree:commonTechTree];
+		commonTechTree = [AZRTechTree techTreeForGame:self];
+		[commonTechTree techNamed:_techRoot];
 		[commonTechTree implement:YES tech:_techRoot withTarget:nil];
 	}
 	return commonTechTree;
@@ -102,6 +108,16 @@
 	AZRMapLoader *mapLoader = [AZRMapLoader new];
 	_map = [mapLoader loadFromFile:mapName];
 	return _map;
+}
+
+#pragma mark - Processing
+
+- (void) process:(NSTimeInterval)currentTime {
+	[[self realm] process];
+	[[self map] process:currentTime];
+	for (AZRPlayer *player in [players allValues]) {
+    [player process:currentTime];
+	}
 }
 
 @end

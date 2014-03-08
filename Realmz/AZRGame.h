@@ -25,6 +25,8 @@
 - (AZRPlayer *) newPlayer;
 /*!@brief Returns player with specified UID.*/
 - (AZRPlayer *) getPlayerByUID:(int)uid;
+/*!@brief Returns player state for human player.*/
+- (AZRPlayer *) getHumanPlayer;
 
 /*!@brief Instantiates new resources manager, which can be used by players etc.*/
 - (AZRInGameResourceManager *) newResourcesManager;
@@ -34,5 +36,8 @@
 
 /*!@brief Loads map for game realm.*/
 - (AZRMap *) loadMapNamed:(NSString *)mapName;
+
+/*!@brief Process realm, players and map logic.*/
+- (void) process:(NSTimeInterval)currentTime;
 
 @end

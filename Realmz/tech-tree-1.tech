@@ -9,10 +9,11 @@ tech "tech-tree-1" {
 	implement-for 5;
 	final;
 
+	requires ["tech-bridge-1"];
+
 	drains {
 		resource "gold": 100;
-		tech "tech-tree-2-reqired";
-		tech "tech-tree-3-reqired";
+		tech "tech-bridge-1";
 	}
 	
 	gains {

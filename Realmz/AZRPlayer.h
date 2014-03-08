@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define HUMAN_PLAYER 1
+
 @class AZRPlayerState, AZRGame;
 @interface AZRPlayer : NSObject
 
@@ -16,5 +18,6 @@
 @property (nonatomic, readonly) AZRPlayerState *state;
 
 + (instancetype) playerForGame:(AZRGame *)game;
+- (void) process:(NSTimeInterval)currentTime;
 
 @end

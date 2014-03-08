@@ -32,12 +32,13 @@ typedef NS_ENUM(NSUInteger, AZRTechnologyState) {
 @property (nonatomic, weak) AZRTechTree *techTree;
 @property (nonatomic) AZRTechnologyState state;
 @property (nonatomic) NSArray *requiredTechs;
+@property (nonatomic) NSArray *requiredTechsNames;
 @property (nonatomic) NSUInteger multiple;
 @property (nonatomic) float iterationTime;
 @property (nonatomic) BOOL final;
+@property (nonatomic) NSString *iconName;
 @property (nonatomic) NSArray *iterations;
 
-+ (instancetype) technology:(NSString *)techName inTechTree:(AZRTechTree *)techsTree;
 - (id)initWithName:(NSString *)techName;
 
 - (BOOL) implement:(BOOL)implement withTarget:(id)target;
@@ -71,8 +72,11 @@ typedef NS_ENUM(NSUInteger, AZRTechnologyState) {
 - (AZRTechResource *) addGain:(AZRTechResourceType)resourceName;
 - (NSArray *) getGained:(AZRTechResourceType)resourceType;
 
+- (BOOL) requiresTarget;
 
 /* **************** Processing ************************** */
+
+- (float) iterationProgress;
 
 - (void) process:(NSTimeInterval)lastTick;
 

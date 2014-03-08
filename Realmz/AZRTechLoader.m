@@ -70,6 +70,20 @@ AZRUnifiedFileType const AZRUnifiedFileTypeTechnology = @"tech";
 	[a push:tech];
 }
 
+- (void)parser:(PKParser *)parser didMatchIcon:(PKAssembly *)a {
+	NSString *name = [a pop];
+	AZRTechnology *tech = [a pop];
+	tech.iconName = name;
+	[a push:tech];
+}
+
+- (void)parser:(PKParser *)parser didMatchRequires:(PKAssembly *)a {
+	NSArray *requires = [a pop];
+	AZRTechnology *tech = [a pop];
+	tech.requiredTechsNames = requires;
+	[a push:tech];
+}
+
 #pragma mark - Drains & gains
 
 - (void)parser:(PKParser *)parser didMatchDrains:(PKAssembly *)a {
@@ -158,11 +172,11 @@ AZRUnifiedFileType const AZRUnifiedFileTypeTechnology = @"tech";
 }
 
 - (void)parser:(PKParser *)parser didMatchResourceTargeted:(PKAssembly *)a {
-	[a push:@(AZRResourceHandlerTargeted)];
+	[a push:@(AZRResourceHandlerOnMap)];
 }
 
 - (void)parser:(PKParser *)parser didMatchResourceReplace:(PKAssembly *)a {
-	[a push:@(AZRResourceHandlerReplacer)];
+	[a push:@(AZRResourceHandlerProvider)];
 }
 
 - (void)parser:(PKParser *)parser didMatchResourceName:(PKAssembly *)a {

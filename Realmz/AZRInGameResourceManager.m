@@ -66,6 +66,15 @@
 	return resource;
 }
 
+- (NSArray *) registeredResources {
+	return [_resources allKeys];
+}
+
+- (int) resourceNamed:(NSString *)resourceName addAmount:(int)amount {
+	AZRInGameResource *resource = [self resourceNamed:resourceName];
+	return [self resource:resource addAmount:amount];
+}
+
 - (int) resource:(AZRInGameResource *)resource addAmount:(int)amount {
 	return [resource addAmount:amount];
 }

@@ -27,8 +27,8 @@
 
 - (float) progress {
 	NSTimeInterval now = [NSDate timeIntervalSinceReferenceDate];
-	NSTimeInterval progress = (1 - (shouldBeFinishedAt - now) / length);
-	return progress * 100;
+	NSTimeInterval progress = (1.f - (shouldBeFinishedAt - now) / length);
+	return CONSTRAINT(progress * 100.f, 0, 100.f);
 }
 
 - (BOOL) isFinished {

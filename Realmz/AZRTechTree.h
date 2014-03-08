@@ -9,14 +9,15 @@
 #import "AZRUnifiedResource.h"
 #import "AZRTechLoader.h"
 
-@class AZRTechnology, AZRTechResource, AZRInGameResourceManager;
+@class AZRTechnology, AZRTechResource, AZRInGameResourceManager, AZRGame;
 @interface AZRTechTree : NSObject <NSCopying>
 
+@property (nonatomic, weak, readonly) AZRGame *game;
 @property (nonatomic, weak) AZRInGameResourceManager *resourceManager;
 @property (nonatomic) NSMutableDictionary *technologies;
 
 /*! @brief Instantiating tech tree.*/
-+ (instancetype) techTree;
++ (instancetype) techTreeForGame:(AZRGame *)game;
 
 - (void) process:(NSTimeInterval)lastTick;
 

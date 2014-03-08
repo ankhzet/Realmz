@@ -33,4 +33,9 @@
 
 #pragma mark - Implementation
 
+- (void) process:(NSTimeInterval)currentTime {
+	[_techTree process:currentTime];
+}
+
+
 @end

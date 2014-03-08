@@ -10,30 +10,30 @@
 #import "AZRTechnology.h"
 #import "AZRInGameResourceManager.h"
 #import "AZRInGameResource.h"
+#import "AZRGame.h"
+#import "AZRRealm.h"
+#import "AZRObject+VisibleObject.h"
 
 @implementation AZRTechTree
 @synthesize technologies = _technologies;
 
 #pragma mark - Instantiation
 
-+ (instancetype) techTree {
-	return [[self alloc] init];
++ (instancetype) techTreeForGame:(AZRGame *)game {
+	return [[self alloc] initForGame:game];
 }
 
-- (id)init {
+- (id)initForGame:(AZRGame *)game {
 	if (!(self = [super init]))
 		return self;
 
+	_game = game;
 	_technologies = [NSMutableDictionary dictionary];
 	return self;
 }
 
-+ (instancetype) new {
-	return [self techTree];
-}
-
 - (id) copyWithZone:(NSZone *)zone {
-	AZRTechTree *instance = [AZRTechTree techTree];
+	AZRTechTree *instance = [AZRTechTree techTreeForGame:_game];
 	for (AZRTechnology *tech in [_technologies allValues]) {
 		AZRTechnology *copy = [tech copy];
     [instance addTech:copy];
@@ -67,7 +67,28 @@
 }
 
 - (AZRTechnology *) techNamed:(NSString *)techName {
-	return _technologies[techName];
+	AZRTechnology *tech = _technologies[techName];
+	if (!tech) {
+		AZRTechLoader *loader = [AZRTechLoader new];
+		tech = [loader loadFromFile:techName];
+		if (!tech) {
+			[AZRLogger log:NSStringFromClass([self class]) withMessage:@"Failed to load tech %@!", techName];
+			return nil;
+		}
+
+		[self addTech:tech];
+	}
+
+	for (NSString *required in tech.requiredTechsNames) {
+    [tech addRequired:required];
+	}
+	for (AZRTechResource *techResource in [tech getDrained:AZRTechResourceTypeTech]) {
+    [self techNamed:techResource.resource];
+	}
+	for (AZRTechResource *techResource in [tech getGained:AZRTechResourceTypeTech]) {
+    [self techNamed:techResource.resource];
+	}
+	return tech;
 }
 
 - (AZRTechnology *) removeTech:(NSString *)techName {
@@ -145,7 +166,7 @@
 
 - (BOOL) drainResource:(AZRTechResource *)techResource targeted:(id)target {
 	switch (techResource.handler) {
-		case AZRResourceHandlerTargeted:
+		case AZRResourceHandlerOnMap:
 			if (!target) {
 				return NO;
 			}
@@ -162,6 +183,7 @@
 				[resource addAmount:-techResource.amount];
 			} else
 				return NO;
+			return YES;
 		}
 		case AZRTechResourceTypeTech:
 		{
@@ -170,6 +192,7 @@
 				[tech forceImplemented:NO];
 			} else
 				return NO;
+			return YES;
 		}
 		default:
 			return NO;
@@ -180,7 +203,7 @@
 
 - (BOOL) gainResource:(AZRTechResource *)techResource targeted:(id)target {
 	switch (techResource.handler) {
-		case AZRResourceHandlerTargeted:
+		case AZRResourceHandlerOnMap:
 			if (!target) {
 				return NO;
 			}
@@ -197,6 +220,7 @@
 				[resource addAmount:techResource.amount];
 			} else
 				return NO;
+			return YES;
 		}
 		case AZRTechResourceTypeTech:
 		{
@@ -205,6 +229,14 @@
 				[tech forceImplemented:YES];
 			} else
 				return NO;
+			return YES;
+		}
+		case AZRTechResourceTypeUnit:
+		{
+			CGPoint pos = [target coordinates];
+			[[self.game realm] spawnObject:techResource.resource atX:pos.x andY:pos.y];
+			[[self.game realm] killObject:target];
+			return YES;
 		}
 		default:
 			return NO;

@@ -40,6 +40,7 @@
 		0A5ECBAF18B685A2000C7387 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5ECB8418B6859E000C7387 /* Foundation.framework */; };
 		0A5ECBB018B685A2000C7387 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0A5ECB8818B6859E000C7387 /* UIKit.framework */; };
 		0A5ECBB818B685A3000C7387 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0A5ECBB618B685A3000C7387 /* InfoPlist.strings */; };
+		0A6BBF8A18C9C28F00845085 /* build-village.tech in Resources */ = {isa = PBXBuildFile; fileRef = 0A6BBF8918C9C28F00845085 /* build-village.tech */; };
 		0ABA406C18BE48CE003273D6 /* map01.map in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA406B18BE48CE003273D6 /* map01.map */; };
 		0ABA406E18BE4F74003273D6 /* map.grammar in Resources */ = {isa = PBXBuildFile; fileRef = 0ABA406D18BE4F74003273D6 /* map.grammar */; };
 		0ABA407118BE534E003273D6 /* AZRMapLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ABA407018BE534E003273D6 /* AZRMapLoader.m */; };
@@ -77,9 +78,7 @@
 		0ADDAC4E18C2AF9200356E1E /* tech-tree-1.tech in Resources */ = {isa = PBXBuildFile; fileRef = 0ADDAC4D18C2AF9200356E1E /* tech-tree-1.tech */; };
 		0ADDAC5018C2B0F400356E1E /* tech-tree-2.tech in Resources */ = {isa = PBXBuildFile; fileRef = 0ADDAC4F18C2B0F400356E1E /* tech-tree-2.tech */; };
 		0ADDAC5318C2B11B00356E1E /* tech-tree-3.tech in Resources */ = {isa = PBXBuildFile; fileRef = 0ADDAC5218C2B11B00356E1E /* tech-tree-3.tech */; };
-		0ADDAC5518C2B15000356E1E /* tech-tree-1-required.tech in Resources */ = {isa = PBXBuildFile; fileRef = 0ADDAC5418C2B15000356E1E /* tech-tree-1-required.tech */; };
-		0ADDAC5718C2B1BE00356E1E /* tech-tree-2-required.tech in Resources */ = {isa = PBXBuildFile; fileRef = 0ADDAC5618C2B1BE00356E1E /* tech-tree-2-required.tech */; };
-		0ADDAC5918C2B1CB00356E1E /* tech-tree-3-required.tech in Resources */ = {isa = PBXBuildFile; fileRef = 0ADDAC5818C2B1CB00356E1E /* tech-tree-3-required.tech */; };
+		0ADDAC5518C2B15000356E1E /* tech-bridge-1.tech in Resources */ = {isa = PBXBuildFile; fileRef = 0ADDAC5418C2B15000356E1E /* tech-bridge-1.tech */; };
 		0ADDAC5F18C2B2E000356E1E /* AZRTechResource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDAC5E18C2B2E000356E1E /* AZRTechResource.m */; };
 		0ADDAC6318C3C92400356E1E /* AZRTechIteration.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDAC6218C3C92400356E1E /* AZRTechIteration.m */; };
 		0ADDAC6518C3C9A600356E1E /* AZRTechIterationSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 0ADDAC6418C3C9A600356E1E /* AZRTechIterationSpec.m */; };
@@ -227,6 +226,7 @@
 		0A5ECBAD18B685A2000C7387 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		0A5ECBB518B685A3000C7387 /* RealmzTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "RealmzTests-Info.plist"; sourceTree = "<group>"; };
 		0A5ECBB718B685A3000C7387 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		0A6BBF8918C9C28F00845085 /* build-village.tech */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "build-village.tech"; sourceTree = "<group>"; };
 		0ABA406818BD7F47003273D6 /* AZRMapCommons.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRMapCommons.h; sourceTree = "<group>"; };
 		0ABA406B18BE48CE003273D6 /* map01.map */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map01.map; sourceTree = "<group>"; };
 		0ABA406D18BE4F74003273D6 /* map.grammar */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = map.grammar; sourceTree = "<group>"; };
@@ -276,9 +276,7 @@
 		0ADDAC4D18C2AF9200356E1E /* tech-tree-1.tech */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tech-tree-1.tech"; sourceTree = "<group>"; };
 		0ADDAC4F18C2B0F400356E1E /* tech-tree-2.tech */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tech-tree-2.tech"; sourceTree = "<group>"; };
 		0ADDAC5218C2B11B00356E1E /* tech-tree-3.tech */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tech-tree-3.tech"; sourceTree = "<group>"; };
-		0ADDAC5418C2B15000356E1E /* tech-tree-1-required.tech */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tech-tree-1-required.tech"; sourceTree = "<group>"; };
-		0ADDAC5618C2B1BE00356E1E /* tech-tree-2-required.tech */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tech-tree-2-required.tech"; sourceTree = "<group>"; };
-		0ADDAC5818C2B1CB00356E1E /* tech-tree-3-required.tech */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tech-tree-3-required.tech"; sourceTree = "<group>"; };
+		0ADDAC5418C2B15000356E1E /* tech-bridge-1.tech */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "tech-bridge-1.tech"; sourceTree = "<group>"; };
 		0ADDAC5D18C2B2E000356E1E /* AZRTechResource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRTechResource.h; sourceTree = "<group>"; };
 		0ADDAC5E18C2B2E000356E1E /* AZRTechResource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AZRTechResource.m; sourceTree = "<group>"; };
 		0ADDAC6118C3C92400356E1E /* AZRTechIteration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AZRTechIteration.h; sourceTree = "<group>"; };
@@ -642,8 +640,10 @@
 			children = (
 				0A05071B18C6AB1100A4CFAA /* tech-tree01.tech */,
 				0ADDAC4718C2AC6F00356E1E /* build-storage.tech */,
+				0A6BBF8918C9C28F00845085 /* build-village.tech */,
 				0ADDAC4918C2ADB900356E1E /* update-storage.tech */,
 				0ADDAC4B18C2AEF500356E1E /* expand-economics.tech */,
+				0ADDAC5418C2B15000356E1E /* tech-bridge-1.tech */,
 				0ADDAC5A18C2B1D700356E1E /* Tech branch 1 */,
 				0ADDAC5B18C2B1E100356E1E /* Tech branch 2 */,
 				0ADDAC5C18C2B1E900356E1E /* Tech branch 3 */,
@@ -655,7 +655,6 @@
 			isa = PBXGroup;
 			children = (
 				0ADDAC4D18C2AF9200356E1E /* tech-tree-1.tech */,
-				0ADDAC5418C2B15000356E1E /* tech-tree-1-required.tech */,
 			);
 			name = "Tech branch 1";
 			sourceTree = "<group>";
@@ -664,7 +663,6 @@
 			isa = PBXGroup;
 			children = (
 				0ADDAC4F18C2B0F400356E1E /* tech-tree-2.tech */,
-				0ADDAC5618C2B1BE00356E1E /* tech-tree-2-required.tech */,
 			);
 			name = "Tech branch 2";
 			sourceTree = "<group>";
@@ -673,7 +671,6 @@
 			isa = PBXGroup;
 			children = (
 				0ADDAC5218C2B11B00356E1E /* tech-tree-3.tech */,
-				0ADDAC5818C2B1CB00356E1E /* tech-tree-3-required.tech */,
 			);
 			name = "Tech branch 3";
 			sourceTree = "<group>";
@@ -1127,7 +1124,6 @@
 				0A5ECBA718B685A2000C7387 /* Images.xcassets in Resources */,
 				0AFE5B6C18B698DB00132D94 /* tree.desc in Resources */,
 				0A16007B18BD237A0041D0D5 /* tileset.atlas in Resources */,
-				0ADDAC5718C2B1BE00356E1E /* tech-tree-2-required.tech in Resources */,
 				0AFE5B6418B698DB00132D94 /* object.desc in Resources */,
 				0AFE5B6A18B698DB00132D94 /* storage.desc in Resources */,
 				0A05071C18C6AB1100A4CFAA /* tech-tree01.tech in Resources */,
@@ -1139,7 +1135,6 @@
 				0ABA409518BF2892003273D6 /* tree7.desc in Resources */,
 				0ABA409918BF5336003273D6 /* actions.atlas in Resources */,
 				0AFE5B6818B698DB00132D94 /* rock.desc in Resources */,
-				0ADDAC5918C2B1CB00356E1E /* tech-tree-3-required.tech in Resources */,
 				0AFE5B6718B698DB00132D94 /* peasant.logic in Resources */,
 				0AFE5B6D18B698DB00132D94 /* village.desc in Resources */,
 				0AFE5B6118B698DB00132D94 /* inspect.act in Resources */,
@@ -1149,6 +1144,7 @@
 				0ABA409718BF289D003273D6 /* tree8.desc in Resources */,
 				0ABA408618BED06D003273D6 /* tree3.desc in Resources */,
 				0A5ECB9A18B685A0000C7387 /* Main_iPhone.storyboard in Resources */,
+				0A6BBF8A18C9C28F00845085 /* build-village.tech in Resources */,
 				0AFE5B5D18B698DB00132D94 /* actor.desc in Resources */,
 				0ADDAC4A18C2ADB900356E1E /* update-storage.tech in Resources */,
 				0A5ECB9118B6859F000C7387 /* InfoPlist.strings in Resources */,
@@ -1165,7 +1161,7 @@
 				0ABA40D018BFEC88003273D6 /* gui.atlas in Resources */,
 				0ADDAC4C18C2AEF500356E1E /* expand-economics.tech in Resources */,
 				0AFE5B6B18B698DB00132D94 /* target-selector.grammar in Resources */,
-				0ADDAC5518C2B15000356E1E /* tech-tree-1-required.tech in Resources */,
+				0ADDAC5518C2B15000356E1E /* tech-bridge-1.tech in Resources */,
 				0A28215718C418E200D88DAA /* tech.grammar in Resources */,
 				0AFE5B6618B698DB00132D94 /* peasant.desc in Resources */,
 				0ABA408A18BED07D003273D6 /* tree5.desc in Resources */,

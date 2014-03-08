@@ -17,4 +17,6 @@
 
 + (instancetype) stateForPlayer:(AZRPlayer *)player;
 
+- (void) process:(NSTimeInterval)currentTime;
+
 @end

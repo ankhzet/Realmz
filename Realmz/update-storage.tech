@@ -12,6 +12,6 @@ tech "update-storage" {
 	}
 	
 	gains {
-		replace building "storage-big";
+		provider unit "storage-big";
 	}
 }

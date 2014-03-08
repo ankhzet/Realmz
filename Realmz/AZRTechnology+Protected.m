@@ -73,18 +73,21 @@
 
 - (void) processProgress:(NSTimeInterval)lastTick {
 	AZRTechIteration *iteration = [self.iterations firstObject];
-	if ([iteration isFinished]) {
-		id target = iteration->target;
-		[(NSMutableArray *)self.iterations removeObjectAtIndex:0];
-		if (self.final) {
-			[self forceImplemented:YES];
+	if (iteration) {
+		if ([iteration isFinished]) {
+			id target = iteration->target;
+			[(NSMutableArray *)self.iterations removeObjectAtIndex:0];
+			if (self.final) {
+				[self forceImplemented:YES];
+			}
+			if ([self.iterations count]) {
+				iteration = [self.iterations firstObject];
+				[iteration start];
+			}
+			[self postImplement:target];
 		}
-		if ([self.iterations count]) {
-			iteration = [self.iterations firstObject];
-			[iteration start];
-		}
-		[self postImplement:target];
-	}
+	} else
+		[self forceInProcess:NO];
 }
 
 @end

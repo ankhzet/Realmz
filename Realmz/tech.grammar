@@ -12,13 +12,16 @@ techDetails = '{'! attribute* '}'!;
 
 attribute = techAttribute | subDetail;
 
-techAttribute = (author | version | summary | multiple | implementFor | final) ';'!;
+techAttribute = (commonAttributes | multiple | implementFor | final | icon | requires) ';'!;
+commonAttributes = author | version | summary;
 author = 'author'! string;
 version = 'version'! string;
 summary = 'description'! string;
 multiple = 'multiple'! numeric;
 implementFor = 'implement-for'! numeric;
 final = 'final'!;
+icon = 'icon'! string;
+requires = 'requires'! vector;
 
 subDetail = drains | gains;
 
@@ -30,8 +33,8 @@ resources = (resource*);
 resource = resourceAttribute? resourceType resourceName (':'! resourceAmount)? ';'!;
 
 resourceAttribute = resourceTargeted | resourceReplace;
-resourceTargeted = 'targeted'!;
-resourceReplace = 'replace'!;
+resourceTargeted = 'on-map'!;
+resourceReplace = 'provider'!;
 
 resourceType = resourceTypeResource | resourceTypeTech | resourceTypeUnit;
 resourceTypeResource = 'resource'!;

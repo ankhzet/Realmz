@@ -17,6 +17,9 @@
 - (AZRInGameResource *) addResource:(NSString *)resourceName controlledBy:(AZRInGameResourceController *)controller;
 - (AZRInGameResource *) resourceNamed:(NSString *)resourceName;
 - (AZRInGameResource *) removeResource:(NSString *) resourceName;
+- (NSArray *) registeredResources;
+
+- (int) resourceNamed:(NSString *)resourceName addAmount:(int)amount;
 - (int) resource:(AZRInGameResource *)resource addAmount:(int)amount;
 
 @end

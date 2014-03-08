@@ -24,4 +24,9 @@
 	return self;
 }
 
+- (void) process:(NSTimeInterval)currentTime {
+	[_state process:currentTime];
+	//TODO: player logic processing
+}
+
 @end

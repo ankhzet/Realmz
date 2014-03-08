@@ -15,6 +15,7 @@
 @public
 	__weak AZRRealm *realm;
 	__weak id renderBody;
+	BOOL alive;
 }
 
 @property (nonatomic) AZRObjectClassDescription *classDescription;

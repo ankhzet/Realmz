@@ -77,6 +77,33 @@ describe(@"AZRInGameResourceManager", ^{
 		[[resourceController should] receive:@selector(resourceAmount:) andReturn:theValue(150) withArguments:res2];
 		[[theValue([res2 amount]) should] equal:theValue(150)];
 	});
+
+	it(@"should enumerate resources", ^{
+		AZRInGameResourceManager *manager = [AZRInGameResourceManager manager];
+
+		[manager addResource:resource1];
+		[manager addResource:resource3];
+
+		{
+		NSArray *resources = [manager registeredResources];
+		[[resources shouldNot] beNil];
+		[[resources should] haveCountOf:2];
+		[[theValue([resources containsObject:resource1]) should] beYes];
+		[[theValue([resources containsObject:resource2]) should] beNo];
+		[[theValue([resources containsObject:resource3]) should] beYes];
+		}
+
+		[manager addResource:resource2];
+
+		{
+		NSArray *resources = [manager registeredResources];
+		[[resources shouldNot] beNil];
+		[[resources should] haveCountOf:3];
+		[[theValue([resources containsObject:resource1]) should] beYes];
+		[[theValue([resources containsObject:resource2]) should] beYes];
+		[[theValue([resources containsObject:resource3]) should] beYes];
+		}
+});
 });
 
 SPEC_END

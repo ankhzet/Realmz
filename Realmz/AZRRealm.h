@@ -24,6 +24,8 @@ typedef BOOL (^AZRObjectFilterBlock)(AZRObject *object, BOOL *stop);
 - (AZRObject *) spawnObject:(NSString *)objectClassDescription atX:(float)x andY:(float)y;
 - (NSArray *) allObjects;
 
+- (void) killObject:(AZRObject *)object;
+
 /*!
  @brief Filters all objects, that accepted by block.
  @param block Block to test objects with.

@@ -4,7 +4,9 @@ tech "build-storage" {
 	description "Build storage";
 	
 	multiple 0; // 0 means "no limit"
-	implement-for 10; // in seconds
+	implement-for 30; // in seconds
+
+	icon "buildings:pavilion";
 
 	drains {
 		resource "gold": 10;
@@ -12,6 +14,6 @@ tech "build-storage" {
 	}
 	
 	gains {
-		targeted building "storage";
+		on-map unit "storage";
 	}
 }

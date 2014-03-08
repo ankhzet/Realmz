@@ -15,21 +15,6 @@
 
 #pragma mark - Instantiation
 
-+ (instancetype) technology:(NSString *)techName inTechTree:(AZRTechTree *)techsTree {
-	AZRTechnology *tech = [techsTree techNamed:techName];
-	if (!tech) {
-		AZRTechLoader *loader = [AZRTechLoader new];
-		tech = [loader loadFromFile:techName];
-	}
-	if (!tech) {
-		[AZRLogger log:NSStringFromClass(self) withMessage:@"Failed to load tech, creating dummy istance instead"];
-		tech = [[self alloc] initWithName:techName];
-	}
-
-	[techsTree addTech:tech];
-	return tech;
-}
-
 - (id)initWithName:(NSString *)techName {
 	if (!(self = [super init]))
 		return self;
@@ -212,6 +197,17 @@
 	return _drains[@(resourceType)];
 }
 
+- (BOOL) requiresTarget {
+	for (NSArray *resourceGroup in [_gains allValues]) {
+		for (AZRTechResource *techResource in resourceGroup) {
+			if (techResource.handler == AZRResourceHandlerOnMap) {
+				return YES;
+			}
+		}
+	}
+	return NO;
+}
+
 #pragma mark - Implementing
 
 - (BOOL) implement:(BOOL)implement withTarget:(id)target {
@@ -225,6 +221,9 @@
 
 		[self pushIteration:target];
 		[self forceInProcess:YES];
+		if ([_iterations count] == 1) {
+			[(AZRTechIteration *)[_iterations lastObject] start];
+		}
 	} else
 		[self unImplement];
 
@@ -244,6 +243,11 @@
 }
 
 #pragma mark - Iterational processing
+
+- (float) iterationProgress {
+	AZRTechIteration *iteration = [_iterations firstObject];
+	return iteration ? [iteration progress] : 0.f;
+}
 
 - (void) process:(NSTimeInterval)lastTick {
 	[self calcAvailability];
