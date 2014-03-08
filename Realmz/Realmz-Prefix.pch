@@ -17,5 +17,12 @@
 
 #import "AZRLogger.h"
 
-#define TEST_BIT(_where, _bit) (((_where & _bit) == _bit))
+#define CONSTRAINT(_value, _min, _max) \
+	(((_value) >= (_min)) ? (((_value) <= (_max)) ? (_value) : (_max)) : (_min))
+
+#define TEST_BIT(_where, _bit) ((_where) & (_bit))
+
+#define SET_BIT(_where, _bit, _set) \
+	((_set) ? ((_where) | (_bit)) : ((_where) & ~(_bit)))
+
 #define SQR(a) ({ __typeof__(a) __a = (a); __a * __a; })

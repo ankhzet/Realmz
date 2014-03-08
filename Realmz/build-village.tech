@@ -1,0 +1,19 @@
+tech "build-village" {
+	author "Ankh";
+	version "1.0";
+	description "Build village";
+	
+	multiple 0; // 0 means "no limit"
+	implement-for 60; // in seconds
+
+	icon "buildings:pavilion";
+
+	drains {
+		resource "gold": 100;
+		resource "wood": 500;
+	}
+	
+	gains {
+		on-map unit "village";
+	}
+}

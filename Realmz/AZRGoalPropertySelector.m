@@ -61,7 +61,7 @@ typedef BOOL (^AZRPropertySelectorComparatorBlock)(float, float);
 		} else
 			self->comparatorBlock = equalComparator;
 	} else
-		if (less & greater) {
+		if (less && greater) {
 			self->comparatorBlock = notEqualComparator;
 		} else if (less) {
 			self->comparatorBlock = lessComparator;

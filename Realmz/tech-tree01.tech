@@ -1,0 +1,21 @@
+tech "tech-tree01" {
+	author "Ankh";
+	version "1.0";
+	description "Common tech tree for demo level 1";
+	
+	multiple 1;
+	implement-for 0;
+	final;
+	
+	requires [
+		"build-storage", "update-storage",
+		"expand-economics", "tech-bridge-1",
+		"tech-tree-1", "tech-tree-2", "tech-tree-3"
+	];
+
+	drains {
+	}
+	
+	gains {
+	}
+}

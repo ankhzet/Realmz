@@ -1,0 +1,15 @@
+object "spawn-point" ("object") {
+	author "Ankh";
+	version "0.1";
+
+  description "Точка появления";
+	selection-group 0;
+
+	properties {
+		radius 1;
+		spawn-point;
+	}
+	discoverable properties {
+		texture "misc:flag";
+	}
+}

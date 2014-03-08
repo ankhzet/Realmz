@@ -5,12 +5,15 @@ object "tree" ("visible") {
   description "Дерево";
 
 	properties {
-		radius 6;
+		radius 1;
 		wood;
 		max-health 50000;
 		health 50000;
 	}
+	discoverable properties {
+		texture "trees:tree0";
+	}
 	actions {
-		gain-wood;
+		action1 ["chop", "gain-wood"];
 	}
 }

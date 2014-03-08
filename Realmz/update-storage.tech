@@ -1,0 +1,17 @@
+tech "update-storage" {
+	author "Ankh";
+	version "1.0";
+	description "Update storage";
+	
+	multiple 1; // 1 means "only once"
+	implement-for 60; // in seconds
+
+	drains {
+		resource "gold": 50;
+		resource "wood": 500;
+	}
+	
+	gains {
+		provider unit "storage-big";
+	}
+}

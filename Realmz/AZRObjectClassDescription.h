@@ -7,18 +7,18 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "AZRUnifiedResource.h"
 #import "AZRObjectProperty.h"
 
 @class AZRObject;
 
-@interface AZRObjectClassDescription : NSObject
+@interface AZRObjectClassDescription : AZRUnifiedResource
 
-@property (nonatomic, weak) AZRObjectClassDescription *parent;
-@property (nonatomic) NSString *name;
 @property (nonatomic) NSString *summary;
 @property (nonatomic) NSString *author;
 @property (nonatomic) NSString *version;
+
+@property (nonatomic, weak) AZRObjectClassDescription *parent;
 @property (nonatomic) NSDictionary *publicProperties;
 @property (nonatomic) NSUInteger multiSelectionGroup;
 

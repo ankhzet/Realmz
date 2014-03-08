@@ -1,0 +1,39 @@
+@start = map;
+
+map = mapKeyword mapName mapDescription;
+mapKeyword = 'map'!;
+mapName = string;
+
+string = QuotedString;
+numeric = Number;
+value = string | numeric | vector;
+vector = '[' (value (','! value)*) ? ']'!;
+
+mapDescription = '{'! attribute* '}'!;
+
+attribute = mapAttribute | subDescription;
+
+mapAttribute = author | version | summary;
+author = 'author'! string ';'!;
+version = 'version'! string ';'!;
+summary = 'description'! string ';'!;
+
+subDescription = globalScripts | layers;
+globalScripts = 'global-scripts'! vector ';'!;
+
+layers = 'layers'! '{'! layer* '}'!;
+layer = layerDefine '{'! layerElements* '}'!;
+layerDefine = 'layer'! string;
+
+layerElements = tiledKeyword | shortcut | objectData | gridData;
+
+tiledKeyword = 'tiled'! ';'!;
+
+shortcut = 'shortcut'! numeric string shortcutProperties? ';'!;
+shortcutProperties = vector;
+
+objectData = objectDataKeyword '{'! objectSpawn* '}'!;
+objectDataKeyword = 'object-data'!;
+objectSpawn = numeric vector ';'!;
+
+gridData = 'grid-data'! vector ';'!;

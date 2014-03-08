@@ -27,6 +27,7 @@
 	
 	self.classDescription = description;
 	self.properties = [NSMutableDictionary dictionary];
+	alive = YES;
 	
 	return self;
 }

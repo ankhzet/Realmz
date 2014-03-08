@@ -10,7 +10,7 @@
 
 #import "AZRObjectClassDescription.h"
 #import "AZRGoalTargetSelector.h"
-#import "AZRSelectorBuilder.h"
+#import "AZRGoalTargetSelectorLoader.h"
 #import "AZRActorObjectsMemory.h"
 #import "AZRObject.h"
 
@@ -38,12 +38,12 @@ describe(@"Testing AZRGoalTargetSelector", ^{
 	NSString *s4 = @"* (*property1 < 0.5, *property3 > 0.5 (*property2 < 3))";
 	NSString *s5 = @"* (*property1 < 0.5, and *property3 > 0.5 (*property2 < 3))";
 	
-	AZRSelectorBuilder *builder = [AZRSelectorBuilder new];
-	AZRGoalTargetSelector *selector1 = [builder buildSelectorFromString:s1];
-	AZRGoalTargetSelector *selector2 = [builder buildSelectorFromString:s2];
-	AZRGoalTargetSelector *selector3 = [builder buildSelectorFromString:s3];
-	AZRGoalTargetSelector *selector4 = [builder buildSelectorFromString:s4];
-	AZRGoalTargetSelector *selector5 = [builder buildSelectorFromString:s5];
+	AZRGoalTargetSelectorLoader *builder = [AZRGoalTargetSelectorLoader new];
+	AZRGoalTargetSelector *selector1 = [builder loadFromString:s1];
+	AZRGoalTargetSelector *selector2 = [builder loadFromString:s2];
+	AZRGoalTargetSelector *selector3 = [builder loadFromString:s3];
+	AZRGoalTargetSelector *selector4 = [builder loadFromString:s4];
+	AZRGoalTargetSelector *selector5 = [builder loadFromString:s5];
 	
 	it(@"should compile selectors", ^{
 		[[selector1 shouldNot] beNil];

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>trees</key>
+	<dict>
+		<key>tree1_00</key>
+		<string>24:6</string>
+		<key>tree2_00</key>
+		<string>24:6</string>
+		<key>tree3_00</key>
+		<string>24:6</string>
+		<key>tree4_00</key>
+		<string>24:6</string>
+		<key>tree5_00</key>
+		<string>24:6</string>
+		<key>tree6_00</key>
+		<string>24:6</string>
+		<key>tree7_00</key>
+		<string>24:6</string>
+		<key>tree8_00</key>
+		<string>24:6</string>
+	</dict>
+	<key>buildings</key>
+	<dict>
+		<key>storage</key>
+		<string>64:32</string>
+		<key>pavilion</key>
+		<string>64:32</string>
+	</dict>
+</dict>
+</plist>

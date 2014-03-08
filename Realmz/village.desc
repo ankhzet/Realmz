@@ -1,16 +1,21 @@
-object "village" ("visible") {
+object "village" ("building") {
 	author "Ankh";
 	version "0.1";
 
-  description "Хранилище";
-	selection-group 10;
+  description "Ратуша";
 
 	properties {
-		storage;
-		radius 30;
+		radius 1;
 	}
-	
+	discoverable properties {
+		texture "buildings:pavilion";
+	}
+
 	actions {
-		summon-peasant;
+		build1 ["lumberjack", "tech", "lumberjack"];
+		build2 ["hunter", "tech", "hunter"];
+		build3 ["pavilion", "tech", "village"];
+		build4 ["residential1", "tech", "tent"];
+		build5 ["storage", "tech", "build-storage"];
 	}
 }

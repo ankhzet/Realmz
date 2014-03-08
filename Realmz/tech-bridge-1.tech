@@ -1,0 +1,12 @@
+tech "tech-bridge-1" {
+	author "Ankh";
+	version "1.0";
+	description "stub";
+	
+	// this tech is required for tech 1 brunch
+	// can be consumed by another 2 techs
+	
+	multiple 0;
+	implement-for 0;
+	final;
+}

@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "AZRUnifiedResource.h"
 
 @class AZRScheduledGoal;
 @class AZRActor;
@@ -20,9 +21,8 @@ typedef NS_ENUM(NSUInteger, AZRLogicGoalOwnageType) {
 	AZRLogicGoalOwnageTypeWhenNode = 2,
 };
 
-@interface AZRLogicGoal : NSObject <NSCopying>
+@interface AZRLogicGoal : AZRUnifiedResource <NSCopying>
 
-@property (nonatomic) NSString *name;
 @property (nonatomic) AZRGoalTargetSelector *targetSelector;
 @property (nonatomic) NSSet *criterias;
 @property (nonatomic) AZRLogicGoalOwnageType ownage;

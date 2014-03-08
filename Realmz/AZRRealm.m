@@ -23,14 +23,27 @@
 
 @implementation AZRRealm
 
++ (AZRRealm *) realm {
+	static AZRRealm *instance;
+	static dispatch_once_t onceToken;
+	dispatch_once(&onceToken, ^{
+    instance = [[AZRRealm alloc] initSingletone];
+	});
+	return instance;
+}
+
 - (id) init {
+	@throw [NSException exceptionWithName:@"AZRRealmInitError" reason:@"AZRRealm should be instantiated only as singletone" userInfo:nil];
+}
+
+- (id) initSingletone {
 	if (!(self = [super init]))
 		return nil;
 	
 	self->allObjects = [NSMutableArray array];
 	self->allActors = [NSMutableArray array];
 	self->deadObjects = [NSMutableArray array];
-	
+
 	return self;
 }
 
@@ -59,9 +72,16 @@
 	return self->allObjects;
 }
 
+- (void) killObject:(AZRObject *)object {
+	object->alive = NO;
+	[deadObjects addObject:object];
+}
+
+
 - (BOOL) process {
 	[self->allActors removeObjectsInArray:self->deadObjects];
 	[self->allObjects removeObjectsInArray:self->deadObjects];
+	[deadObjects removeAllObjects];
 	
 	BOOL empty = ![self->allObjects count];
 	
@@ -155,6 +175,21 @@
 		if (d <= SQR(radius))
 			[a addObject:object];
 	}
+
+	return a;
+}
+
+- (NSArray *) filterWithBlock:(AZRObjectFilterBlock)block {
+	NSMutableArray *a = [NSMutableArray array];
+	BOOL stop = NO;
+	for (AZRObject *object in allObjects)
+		if (!block(object, &stop))
+			continue;
+		else
+			if (stop)
+				break;
+			else
+				[a addObject:object];
 
 	return a;
 }

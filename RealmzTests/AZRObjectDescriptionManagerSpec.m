@@ -33,14 +33,14 @@ describe(@"Testing descriptions manager", ^{
 		[[description1.name should] equal:@"actor"];
 		[[description1 should] beKindOfClass:[AZRActorClassDescription class]];
 
-		description1 = [manager getDescription:@"visible_object"];
+		description1 = [manager getDescription:@"visible"];
 		[[description1 shouldNot] beNil];
-		[[description1.name should] equal:@"visible_object"];
+		[[description1.name should] equal:@"visible"];
 		[[description1 should] beKindOfClass:[AZRObjectClassDescription class]];
 	});
 	
 	it(@"should not reinstantiate same descriptions", ^{
-		AZRObjectClassDescription *description2 = [manager getDescription:@"visible_object"];
+		AZRObjectClassDescription *description2 = [manager getDescription:@"visible"];
 		[[description2 shouldNot] beNil];
 		[[description1 should] beIdenticalTo:description2];
 	});

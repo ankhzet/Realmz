@@ -1,0 +1,5 @@
+object "tree7" ("tree") {
+	discoverable properties {
+		texture "trees:tree7_00";
+	}
+}
