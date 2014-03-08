@@ -11,24 +11,30 @@
 #import "AZRMapLayer.h"
 #import "AZRMapLayerCellShortcut.h"
 #import "AZRObject.h"
+#import "AZRGame.h"
+#import "AZRRealm.h"
 
 @implementation AZRMapChunk
 
-- (void) initForMap:(AZRMap *)map withChunkSize:(int)chunkSize andOffset:(AZRIntPoint)offset {
-	mapX = offset.x;
-	mapY = offset.y;
-	size = chunkSize;
-	parentMap = map;
-	AZRIntPoint mapCenter = [map centerCell];
-	offsetX = mapCenter.x + mapX * size;
-	offsetX = mapCenter.y + mapY * size;
++ (instancetype) chunkForGame:(AZRGame *)game withSize:(int)size andOffset:(AZRIntPoint)offset {
+	AZRMapChunk *chunk = [self node];
+	chunk->game = game;
+	chunk->size = size;
+	chunk->mapX = offset.x;
+	chunk->mapY = offset.y;
+	AZRIntPoint mapCenter = [[game map] centerCell];
+	chunk->offsetX = mapCenter.x + offset.x * size;
+	chunk->offsetX = mapCenter.y + offset.y * size;
+	return chunk;
 }
 
-- (void) buildSceneTreeForTileSize:(CGSize)tile {
+- (void) buildForTileSize:(CGSize)tile {
 	[self removeAllChildren];
 
-	for (NSString *layerID in [parentMap.layers allKeys]) {
-		AZRMapLayer *layer = parentMap.layers[layerID];
+	AZRRealm *realm = [game realm];
+	AZRMap *map = [game map];
+	for (NSString *layerID in [map.layers allKeys]) {
+		AZRMapLayer *layer = map.layers[layerID];
 		if (layer.tiled) continue;
 
 		int halfW = layer.width / 2;
@@ -41,7 +47,7 @@
 					continue;
 
 				AZRMapLayerCellShortcut *shortcut = layer.shortcuts[@(cell)];
-				AZRObject *object = [parentMap.realm spawnObject:shortcut.identifier atX:x andY:y];
+				AZRObject *object = [realm spawnObject:shortcut.identifier atX:x andY:y];
 				if (!object) {
 					[AZRLogger log:NSStringFromClass([self class]) withMessage:@"Failed to instantiate [%@]", shortcut.identifier];
 					continue;

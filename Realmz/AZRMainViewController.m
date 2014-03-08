@@ -8,8 +8,12 @@
 
 #import "AZRMainViewController.h"
 
+#import "AZRGame.h"
 #import "AZRRealm.h"
-#import "AZRRealmRenderer.h"
+#import "AZRGameScene.h"
+#import "AZRPlayer.h"
+#import "AZRPlayerState.h"
+#import "AZRInGameResourceManager.h"
 
 static BOOL isRunningTests(void) __attribute__((const));
 
@@ -18,10 +22,10 @@ static BOOL isRunningTests(void) __attribute__((const));
 {
 	__strong NSTimer *processTimer;
 	BOOL simulating;
-	AZRRealm *realm;
 }
 
-@property (nonatomic) AZRRealmRenderer *realmRenderer;
+@property (nonatomic) AZRGame *game;
+@property (nonatomic) AZRGameScene *gameScene;
 
 @end
 
@@ -44,14 +48,19 @@ static BOOL isRunningTests(void) __attribute__((const));
 	skView.showsFPS = YES;
 	skView.showsNodeCount = YES;
 
-	self.realmRenderer = [AZRRealmRenderer sceneWithSize:skView.bounds.size];
-	self.realmRenderer.scaleMode = SKSceneScaleModeAspectFill;
+	self.game = [AZRGame game];
+	[self.game loadMapNamed:@"map01"];
 
-	realm = [AZRRealm realm];
+	AZRPlayerState *playerState = [self.game getHumanPlayer].state;
+	[playerState.resourcesManager resourceNamed:@"wood" addAmount:500];
+	[playerState.resourcesManager resourceNamed:@"gold" addAmount:500];
+	[playerState.resourcesManager resourceNamed:@"stone" addAmount:500];
+	[playerState.resourcesManager resourceNamed:@"food" addAmount:500];
 
-	[self.realmRenderer attachToRealm:realm];
+	self.gameScene = [AZRGameScene sceneForGame:self.game withSize:skView.bounds.size];
+	self.gameScene.scaleMode = SKSceneScaleModeAspectFill;
 
-	[skView presentScene:self.realmRenderer];
+	[skView presentScene:self.gameScene];
 
 	simulating = YES;
 
@@ -59,7 +68,7 @@ static BOOL isRunningTests(void) __attribute__((const));
 	if (processTimer)
 		[[NSRunLoop currentRunLoop] addTimer:processTimer forMode:NSDefaultRunLoopMode];
 
-	[self.realmRenderer processed:[NSDate timeIntervalSinceReferenceDate]];
+	[self.gameScene process:[NSDate timeIntervalSinceReferenceDate]];
 }
 
 - (BOOL)shouldAutorotate {
@@ -81,7 +90,8 @@ static BOOL isRunningTests(void) __attribute__((const));
 - (void) dealloc {
 	[self->processTimer invalidate];
 	self->processTimer = nil;
-	self->realm = nil;
+	self.gameScene = nil;
+	self.game = nil;
 }
 
 
@@ -89,14 +99,16 @@ static BOOL isRunningTests(void) __attribute__((const));
 	if (!simulating)
 		return;
 
-	if (![realm process]) {
-		[AZRLogger log:nil withMessage:@"Realm is empty"];
-		simulating = NO;
-	}
+	NSTimeInterval currentTime = [NSDate timeIntervalSinceReferenceDate];
 
-	[self.realmRenderer processed:[NSDate timeIntervalSinceReferenceDate]];
+	[self.game process:currentTime];
+	[self.gameScene process:currentTime];
 }
 
+- (IBAction)actionMakeOrder:(id)sender {
+}
+
+- (void) rightClicked:(NSArray *)underClickObjects atCoordinates:(CGPoint)coordinates {
 }
 
 @end

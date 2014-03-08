@@ -8,11 +8,11 @@
 
 #import <Foundation/Foundation.h>
 #import "AZRMapCommons.h"
-#import <SpriteKit/SpriteKit.h>
+#import "AZRUnifiedResource.h"
 
 @class AZRMapLayerCellShortcut;
 
-@interface AZRMapLayer : SKNode
+@interface AZRMapLayer : AZRUnifiedResource
 @property (nonatomic) BOOL tiled;
 
 @property (nonatomic) NSMutableDictionary *shortcuts;
@@ -27,7 +27,5 @@
 - (NSMutableString *) gridRow:(int)row;
 - (int) gridCellAtXY:(AZRIntPoint)point;
 - (void) setGridCell:(int)cell atXY:(AZRIntPoint)point;
-
-- (BOOL) buildForTileSize:(CGSize)tileSize;
 
 @end

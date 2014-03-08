@@ -10,7 +10,7 @@
 #import <SpriteKit/SpriteKit.h>
 #import "AZRMapCommons.h"
 
-@class AZRMap;
+@class AZRGame;
 @interface AZRMapChunk : SKNode  {
 	@public
 	int mapX;
@@ -20,11 +20,12 @@
 	int size;
 	AZRMapChunk *dx[2];
 	AZRMapChunk *dy[2];
-	__weak AZRMap *parentMap;
+	__weak AZRGame *game;
 }
 
-- (void) initForMap:(AZRMap *)map withChunkSize:(int)size andOffset:(AZRIntPoint)offset;
-- (void) buildSceneTreeForTileSize:(CGSize)tile;
++ (instancetype) chunkForGame:(AZRGame *)game withSize:(int)size andOffset:(AZRIntPoint)offset;
+
+- (void) buildForTileSize:(CGSize)tile;
 
 @end
 

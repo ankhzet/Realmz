@@ -69,8 +69,8 @@ static const CGPoint DEFAULT_ANCHOR = {0.5f, 0.5f};
 	}
 
 	NSArray *coord = [anchor componentsSeparatedByString:@":"];
-	int cx = [coord[0] integerValue];
-	int cy = [coord[1] integerValue];
+	int cx = [coord[0] intValue];
+	int cy = [coord[1] intValue];
 	SKTexture *texture = [self textureNamed:textureName fromAtlas:atlas];
 	float dx = cx / texture.size.width;
 	float dy = cy / texture.size.height;

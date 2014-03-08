@@ -15,34 +15,22 @@
 
 @end
 
+@class AZRGame;
 /*!
  @brief Create all required render tree hierarchy.
  Handles actions render & actions invocation.
  Is root node for rendering.
  */
-@interface AZRGUIActionsRenderer : SKNode {
-	SKNode *actionsNode;
-	SKNode *actionPopupNode;
-	CGSize actionButtonSize;
-	SKTexture *actionBg;
-	SKTexture *unknownActionIcon;
-}
+@interface AZRGUIActionsRenderer : SKNode
 
+@property (nonatomic, weak, readonly) AZRGame *game;
 @property (nonatomic) id<AZRGUIActionsRendererDelegate> delegate;
 
++ (instancetype) actionsRendererForGame:(AZRGame *)game;
+
 - (void) updateActions:(NSArray *)selection inViewWithSize:(CGSize)viewSize;
+- (void) updateActionsProgressInViewWithSize:(CGSize)viewSize;
 - (void) clearActions;
 
-/*!
- @brief Show action summary pop-up.
- @param iconName Name of action-icon texture, that will be used for action button.
- @param parameters Action parameters (like action name etc).
- @param anchor Coordinates of anchor point for pop-up (bottom-right corner of pop-up).
- */
-- (void) showActionSummary:(NSString *)iconName withParameters:(NSArray *)parameters anchoredAt:(CGPoint)anchor;
-/*!
- @brief Hide action summary pop-up.
- */
-- (void) hideActionSummary;
 
 @end

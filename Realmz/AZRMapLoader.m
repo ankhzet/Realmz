@@ -108,7 +108,7 @@ AZRUnifiedFileType const AZRUnifiedFileTypeMap = @"map";
 		parameters = top;
 		identifier = [a pop];
 	}
-	int uid = [[a pop] integerValue];
+	NSUInteger uid = [[a pop] integerValue];
 	AZRMapLayer *layer = [a pop];
 	AZRMapLayerCellShortcut *shortcut = [layer addShortcut:uid forIdentifier:identifier];;
 	[shortcut setParameters:parameters];
@@ -134,11 +134,11 @@ AZRUnifiedFileType const AZRUnifiedFileTypeMap = @"map";
 
 - (void)parser:(PKParser *)parser didMatchObjectSpawn:(PKAssembly *)a {
 	NSArray *coordinates = [a pop];
-	int objUID = [[a pop] integerValue];
+	NSUInteger objUID = [[a pop] integerValue];
 	AZRMapLayer *layer = [a pop];
 
 	for (NSArray *coordinate in coordinates) {
-    [layer setGridCell:objUID atXY:AZRIntPointMake([coordinate[0] integerValue], [coordinate[1] integerValue])];
+    [layer setGridCell:objUID atXY:AZRIntPointMake([coordinate[0] intValue], [coordinate[1] intValue])];
 	}
 
 	[a push:layer];

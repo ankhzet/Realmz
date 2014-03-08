@@ -6,14 +6,19 @@
 //  Copyright (c) 2014 Ankh. All rights reserved.
 //
 
+#import <SpriteKit/SpriteKit.h>
 #import "AZRGUIRenderer.h"
 #import "AZRGUIActionsRenderer.h"
 #import "AZRGUIConstants.h"
 #import "AZRMapCommons.h"
+#import "AZRGame.h"
+#import "AZRRealm.h"
 #import "AZRObject.h"
 #import "AZRObject+VisibleObject.h"
-#import "AZRRealm.h"
 #import "AZRTappableSpriteNode.h"
+#import "AZRGUIResourcesRenderer.h"
+#import "AZRPlayer.h"
+#import "AZRPlayerState.h"
 
 @interface AZRGUIRenderer () {
 	BOOL select;
@@ -24,15 +29,22 @@
 	SKTextureAtlas *guiAtlas, *actionsAtlas, *buildingsAtlas;
 	CGSize viewSize;
 	BOOL selectionModified;
+	SKNode *focusNode;
 }
 
 @end
 @implementation AZRGUIRenderer
-@synthesize realm = _realm, actionsRenderer = _actionsRenderer;
 
-- (id)init {
++ (instancetype) rendererForGame:(AZRGame *)game {
+	AZRGUIRenderer *renderer = [[self alloc] initForGame:game];
+	return renderer;
+}
+
+- (id)initForGame:(AZRGame *)game {
 	if (!(self = [super init]))
 		return self;
+
+	_game = game;
 
 	select = NO;
 	selectionModified = NO;
@@ -48,16 +60,18 @@
 	selectionNode.zPosition = ZINDEX_SELECTION;
 	minimapNode.zPosition = ZINDEX_GUICOMMON;
 
-	_actionsRenderer = [AZRGUIActionsRenderer node];
+	_actionsRenderer = [AZRGUIActionsRenderer actionsRendererForGame:_game];
+
+	_resourcesRenderer = [AZRGUIResourcesRenderer node];
 
 	scrollNode = [self makeGUIControl:@"button-normal" forCommand:@"map-scroll"];
 	scrollNode.position = CGPointMake(scrollNode.size.width, scrollNode.size.height);
 
-	self.graphicsNode = [SKNode node];
-	[self.graphicsNode addChild:selectionNode];
-	[self.graphicsNode addChild:minimapNode];
-	[self.graphicsNode addChild:_actionsRenderer];
-	[self.graphicsNode addChild:scrollNode];
+	[self addChild:selectionNode];
+	[self addChild:minimapNode];
+	[self addChild:_actionsRenderer];
+	[self addChild:_resourcesRenderer];
+	[self addChild:scrollNode];
 
 	return self;
 }
@@ -82,25 +96,92 @@
 
 - (void) update:(CGSize)viewFrameSize forCurrentTime:(CFTimeInterval)currentTime {
 	viewSize = viewFrameSize;
-	float scale = MIN(viewSize.width, viewSize.height) / DESIGNED_FOR_RESOLUTION;
-	[minimapNode setScale:scale];
+//	float scale = 1.5 * MIN(viewSize.width, viewSize.height) / DESIGNED_FOR_RESOLUTION;
+//	[self setScale:scale];
+//	viewSize.width /= scale;
+//	viewSize.height /= scale;
 	[self updateSubLayers];
 	[self updateMinimap];
 
+	if ([self.selection count]) {
+		[self updateSelectionDetails];
+	}
 	if (selectionModified) {
 		selectionModified = NO;
 		if ([self.selection count]) {
-			[self updateSelectionDetails];
 			[_actionsRenderer updateActions:self.selection inViewWithSize:viewSize];
 		} else
 			[_actionsRenderer clearActions];
 	}
+
+	[_resourcesRenderer updateResources:[_game getHumanPlayer].state.resourcesManager viewSize:viewSize];
 }
 
 - (void) updateMinimap {
 	CGSize minimapSize = minimapNode.frame.size;
 	minimapNode.position = CGPointMake(viewSize.width - minimapSize.width / 2.f - GUI_MARGIN, viewSize.height - minimapSize.height / 2.f - GUI_MARGIN);
 }
+
+#pragma mark - Input handling
+
+- (SKNode *) uiNodeAtPoint:(CGPoint)p inParent:(SKNode *)parent {
+	NSArray *array = [parent nodesAtPoint:p];
+	NSMutableArray *uiResponsible = [NSMutableArray array];
+  for (SKNode *child in array) {
+    if ([child isUserInteractionEnabled]) {
+			[uiResponsible addObject:child];
+		}
+	}
+
+	[uiResponsible sortUsingComparator:^NSComparisonResult(SKNode *node1, SKNode *node2) {
+		float delta = node1.zPosition - node2.zPosition;
+		return (delta != 0) ? delta / ABS(delta) : NSOrderedSame;
+	}];
+
+	return [uiResponsible count] ? uiResponsible[0] : nil;
+}
+
+- (void) touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event {
+	UITouch *touch = [touches anyObject];
+	CGPoint location = [touch locationInNode:self];
+	SKNode *node = [self uiNodeAtPoint:location inParent:self];
+
+	focusNode = node;
+	if (focusNode) {
+		[focusNode touchesBegan:touches withEvent:event];
+	} else {
+		[self beginSelection:location withMapScroll:[self.delegate mapScrolledTo] andTileSize:tileSize];
+	}
+}
+
+- (void) touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (focusNode) {
+		[focusNode touchesCancelled:touches withEvent:event];
+	} else {
+		[self endSelection];
+	}
+	focusNode = nil;
+}
+
+- (void) touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (focusNode) {
+		[focusNode touchesEnded:touches withEvent:event];
+	} else {
+		[self endSelection];
+	}
+	focusNode = nil;
+}
+
+- (void) touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event {
+	if (focusNode) {
+		[focusNode touchesMoved:touches withEvent:event];
+	} else {
+		UITouch *touch = [touches anyObject];
+		CGPoint location = [touch locationInNode:self];
+		[self updateSelection:location withMapScroll:[self.delegate mapScrolledTo] andTileSize:tileSize];
+	}
+}
+
 
 #pragma mark - Sublayers
 
@@ -111,6 +192,7 @@
 #pragma mark - Selection details
 
 - (void) updateSelectionDetails {
+	[_actionsRenderer updateActionsProgressInViewWithSize:viewSize];
 /*	self.needs = nil;
 	BOOL oneSelected = [self.realmRenderer.gui.selection count] == 1;
 	if (oneSelected) {
@@ -163,7 +245,7 @@
 }
 
 - (void) beginSelection:(CGPoint)tapLocation withMapScroll:(CGPoint)scrollOffset andTileSize:(CGSize)tileSize {
-	NSArray *picked = [_realm filterWithBlock:^BOOL(AZRObject *object, BOOL *stop) {
+	NSArray *picked = [[_game realm] filterWithBlock:^BOOL(AZRObject *object, BOOL *stop) {
 		CGPoint pos = [object coordinates];
 		pos = cartXYtoIsoXY(pos);
 		pos.x = (pos.x - 0.5) * tileSize.width;
@@ -197,7 +279,7 @@
 	CGFloat w = ABS(selStart.x - tapLocation.x);
 	CGFloat h = ABS(selStart.y - tapLocation.y);
 	CGRect r = CGRectMake(x, y, w, h);
-	NSArray *inRectObjects = [_realm filterWithBlock:^BOOL(AZRObject *object, BOOL *stop) {
+	NSArray *inRectObjects = [[_game realm] filterWithBlock:^BOOL(AZRObject *object, BOOL *stop) {
 		CGPoint pos = [object coordinates];
 		pos = cartXYtoIsoXY(pos);
 		pos.x = (pos.x - 0.5) * tileSize.width;

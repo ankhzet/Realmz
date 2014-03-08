@@ -8,27 +8,12 @@
 
 #import "AZRMapLayer.h"
 #import "AZRMapLayerCellShortcut.h"
-#import <SpriteKit/SpriteKit.h>
-
-@interface AZRMapLayer () {
-	NSMutableDictionary *texturesCache;
-}
-
-@end
 
 @implementation AZRMapLayer
 @synthesize shortcuts = _shortcuts;
 @synthesize gridData = _gridData;
 @synthesize width = _width;
 @synthesize height = _height;
-
-- (id)init {
-	if (!(self = [super init]))
-		return self;
-
-	texturesCache = [NSMutableDictionary dictionary];
-	return self;
-}
 
 - (AZRMapLayerCellShortcut *) addShortcut:(int)uid forIdentifier:(NSString *)identifier {
 	if (!_shortcuts)
@@ -53,7 +38,7 @@
 		[_gridData removeAllObjects];
 
 	_height = [gridData count];
-	int w = 0;
+	NSUInteger w = 0;
 	for (NSString *row in gridData) {
     w = MAX(w, [row length]);
 		[_gridData addObject:[row mutableCopy]];
@@ -128,75 +113,5 @@
 	NSMutableString *row = _gridData[point.y];
 	[row replaceCharactersInRange:NSMakeRange(point.x, 1) withString:[@(cell) stringValue]];
 }
-
-- (BOOL) buildForTileSize:(CGSize)tileSize {
-	if (_tiled)
-		for (int ty = 0; ty < _height; ty++) {
-			float dy = (ty - _height / 2) * tileSize.height;
-			for (int tx = _width - 1; tx >= 0; tx--) {
-				int cell = [self gridCellRelativeToX:tx andY:ty];
-				if (!cell) continue;
-				float dx = (tx - _width / 2) * tileSize.width;
-				float x = (dx + dy);
-				float y = (dx - dy) / 2.f;
-				SKNode *tile = [self decodeTile:cell];
-				tile.position = CGPointMake(x, y);
-				[self addChild:tile];
-			}
-		}
-
-	return YES;
-}
-
-- (SKNode *) decodeTile:(int)tileUID {
-	AZRMapLayerCellShortcut *shortcut = self.shortcuts[@(tileUID)];
-	NSAssert(shortcut, @"%@ shortcut undefined for layer %@", @(tileUID), self.name);
-
-	SKTextureAtlas *atlas = texturesCache[@"tileset"];
-	if (!atlas) {
-		atlas = [SKTextureAtlas atlasNamed:@"tileset"];
-		texturesCache[@"tileset"] = atlas;
-	}
-
-	NSMutableArray *textures = [NSMutableArray array];
-	int i = 0;
-	NSString *textureName;
-	NSArray *textureNames = [atlas textureNames];
-	while ([textureNames containsObject:(textureName = [NSString stringWithFormat:@"ts_%@%i-straight-45.png",shortcut.identifier, i++])]) {
-		[textures addObject:[atlas textureNamed:textureName]];
-	}
-
-	SKTexture *texture;
-	if (![textures count])
-		texture = [SKTexture textureWithImageNamed:shortcut.identifier];
-	else
-		texture = textures[arc4random()%[textures count]];
-
-//	NSAssert([textures count], @"%@ tile has no usable textures for it in texture atlas", shortcut.identifier);
-
-	SKSpriteNode *node = [SKSpriteNode spriteNodeWithTexture:texture];
-
-	/** /
-	SKShapeNode *grid = [SKShapeNode node];
-	UIBezierPath *p = [UIBezierPath bezierPath];
-	[p moveToPoint:CGPointMake(0, -16)];
-	[p addLineToPoint:CGPointMake(32, 0)];
-	[p addLineToPoint:CGPointMake(0, 16)];
-	[p addLineToPoint:CGPointMake(-32, 0)];
-	[p addLineToPoint:CGPointMake(0, -16)];
-	grid.path = p.CGPath;
-	grid.zPosition = 10000;
-	grid.lineWidth = 0.1f;
-	grid.strokeColor = [UIColor greenColor];
-	grid.fillColor = nil;
-	grid.glowWidth = 0.f;
-	grid.position = CGPointMake(grid.position.x, grid.position.y);
-	[node addChild:grid];
-	 / **/
-	node.anchorPoint = CGPointMake(0.5f, 0.25f);
-
-	return node;
-}
-
 
 @end

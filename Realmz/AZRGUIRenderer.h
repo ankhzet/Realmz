@@ -8,21 +8,26 @@
 
 #import <Foundation/Foundation.h>
 
-@class SKNode, AZRRealm, AZRGUIActionsRenderer, AZRTappableSpriteNode;
+@class AZRGUIActionsRenderer, AZRGUIResourcesRenderer;
+@class SKNode, AZRGame, AZRInGameResourceManager, AZRTappableSpriteNode;
 
 @protocol AZRGUIRendererDelegate <NSObject>
+
+- (CGPoint) mapScrolledTo;
 
 - (void) guiCtlPressed:(AZRTappableSpriteNode *)ctl;
 - (void) guiCtlReleased:(AZRTappableSpriteNode *)ctl;
 
 @end
 
-@interface AZRGUIRenderer : NSObject
-@property (nonatomic, weak) AZRRealm *realm;
+@interface AZRGUIRenderer : SKNode
+@property (nonatomic, weak) AZRGame *game;
 @property (nonatomic) NSMutableArray *selection;
-@property (nonatomic) SKNode *graphicsNode;
 @property (nonatomic) AZRGUIActionsRenderer *actionsRenderer;
+@property (nonatomic) AZRGUIResourcesRenderer *resourcesRenderer;
 @property (nonatomic) id<AZRGUIRendererDelegate> delegate;
+
++ (instancetype) rendererForGame:(AZRGame *)game;
 
 - (void) update:(CGSize)viweSize forCurrentTime:(CFTimeInterval)currentTime;
 

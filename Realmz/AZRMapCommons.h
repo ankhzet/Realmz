@@ -11,11 +11,11 @@
 static const CGSize tileSize = {32.f,32.f};
 
 struct AZRIntPoint {
-  int x, y;
+  NSInteger x, y;
 };
 typedef struct AZRIntPoint AZRIntPoint;
 
-static inline AZRIntPoint AZRIntPointMake(int x, int y) {
+static inline AZRIntPoint AZRIntPointMake(NSInteger x, NSInteger y) {
 	AZRIntPoint p;
 	p.x = x;
 	p.y = y;
