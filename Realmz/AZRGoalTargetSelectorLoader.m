@@ -61,7 +61,7 @@
 	if (![top isKindOfClass:[PKToken class]]) {
 		// no, property specified
 		[selector setPropertySelector:top];
-		top = [a pop]; // popping that '*' out
+		[a pop]; // popping that '*' out
 	}
 	[a push:selector];
 	LOG_ASSEMBLY();
